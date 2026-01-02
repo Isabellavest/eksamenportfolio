@@ -1,0 +1,28 @@
+:root {
+  --font-heading: "Italiana", serif;
+  --font-body: "Inria Serif", serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 6vw, 3.6rem);
+}
+
+.brand-text {
+  font-family: var(--font-heading);
+}

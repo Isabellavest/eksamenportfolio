@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- Fortæller browseren at dokumentet er HTML5 (standard). -->
+<html lang="da">
+<!-- Starter HTML-dokumentet.
+     lang="da" hjælper skærmlæsere, oversættere og søgemaskiner med at forstå sproget (dansk). -->
+
+<head>
+    <!-- Head indeholder metadata: info om siden, links til CSS, fonts osv.
+         Det er ikke det synlige indhold på siden. -->
+
+    <meta charset="UTF-8" />
+    <!-- Sætter tegnsæt til UTF-8, så danske bogstaver (æøå) og specialtegn vises korrekt. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Gør siden responsiv på mobil:
+         width=device-width betyder "brug skærmens bredde"
+         initial-scale=1.0 betyder "start uden zoom". -->
+
+    <title>Bloom — Portfolio</title>
+    <!-- Titel der vises i browser-tab og bruges af søgemaskiner/ bookmarks. -->
+
+    <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+    <!-- Kort beskrivelse til SEO/søgemaskiner. Kan blive vist i Google-resultater. -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/general.css">
+    <!-- link til CSS sider. -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- preconnect: fortæller browseren at den skal oprette forbindelse tidligt,
+                 så fonts loader hurtigere (performance). -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- preconnect til fonts CDN (gstatic).
+                 crossorigin gør at ressourcen må hentes korrekt fra et andet domæne. -->
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Loader to fonte: Italiana og Inria Serif i bestemte font-weights.
+         display=swap: viser tekst med fallback-font først, og skifter til webfont når den er klar
+         (bedre UX: ingen "usynlig tekst"). -->
+
+</head>
+
+<body>
+    <!-- Body indeholder alt det synlige indhold. -->
+
+    <header class="site-header is-transparent" id="siteHeader">
+        <!-- Header er sidens topområde (navigation/branding).
+             class="site-header" bruges til styling.
+             is-transparent bruges til at gøre header gennemsigtig over hero-video.
+             id="siteHeader" gør den nem at finde i JS (fx ved scroll-effekt). -->
+
+        <div class="container header-inner">
+            <!-- container begrænser bredde og centrerer indhold (typisk max-width).
+                 header-inner bruges til flex/grid layout i headeren. -->
+
+            <a class="brand" href="index.html" aria-label="Gå til forsiden">
+                <!-- Logo/brand-link. Klik fører altid til forsiden.
+                     aria-label giver en tydelig tekst til skærmlæsere (tilgængelighed). -->
+
+                <span class="brand-text">Bloom</span>
+                <!-- Span bruges til at style teksten (fx font, størrelse) uden at være et nyt element som <p>. -->
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <!-- Hamburger-knap til mobilmenu.
+                     type="button" så den ikke opfører sig som submit i en form.
+                     aria-expanded fortæller skærmlæsere om menuen er åben/lukket.
+                     aria-controls fortæller hvilken menu (id="site-nav") knappen styrer. -->
+
+                <span class="sr-only">Åbn menu</span>
+                <!-- sr-only = "screen reader only": teksten er skjult visuelt men læses op af skærmlæser. -->
+
+                <span class="nav-toggle-lines" aria-hidden="true"></span>
+                <!-- Visuelle "streger" i hamburger-ikon.
+                     aria-hidden="true" fordi det kun er pynt og ikke skal læses op. -->
+            </button>
+
+            <nav id="site-nav" class="site-nav" aria-label="Hovedmenu">
+                <!-- Navigationselement.
+                     id="site-nav" matcher aria-controls fra knappen.
+                     aria-label hjælper skærmlæsere med at forstå hvilken nav det er. -->
+
+                <ul class="nav-list">
+                    <!-- ul = liste af navigationselementer. God semantik til menuer. -->
+
+                    <!-- li = et menupunkt.
+                         a = link.
+                         is-active bruges til at markere nuværende side (visuelt/UX). -->
+                    <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
+                    <!-- Link til om-mig-side. -->
+
+                    <li><a class="nav-link" href="projekter.html">Projekter</a></li>
+                    <!-- Link til projekter-side. -->
+
+                    <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    <!-- “ankerlink” der scroller ned til elementet med id="kontakt" i footeren. -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- main = sidens primære indhold (vigtig semantik).
+             id="main" kan bruges til "skip-to-content" link (tilgængelighed), hvis du har det. -->
+
+        <section class="hero-video">
+            <!-- Hero-sektion med video baggrund. Første store “impression” på siden. -->
+
+            <video class="hero-video__media" autoplay muted loop playsinline poster="assets/images/hero-poster.webp">
+                <!-- video-tag viser video.
+                     autoplay: starter automatisk (kræver muted i de fleste browsere).
+                     muted: uden lyd (for at autoplay virker + bedre UX).
+                     loop: video gentages.
+                     playsinline: på mobil afspilles den inline (ikke fullscreen).
+                     poster: fallback-billede mens video loader / hvis video ikke kan afspilles. -->
+
+                <source src="video/hero.mp4" type="video/mp4">
+                <!-- source angiver filstien til videoen og filtypen.
+                     Browseren kan vælge den bedste source hvis du havde flere. -->
+            </video>
+
+            <!-- overlay for readability -->
+            <div class="hero-video__overlay" aria-hidden="true"></div>
+            <!-- Overlay-lag (typisk mørk gradient) ovenpå videoen,
+                 så teksten bliver mere læsbar (kontrast/UX).
+                 aria-hidden fordi det kun er visuelt. -->
+
+            <!-- content -->
+            <div class="container hero-video__content">
+                <!-- Indholdet der ligger ovenpå videoen.
+                     container styrer bredde/centrering.
+                     hero-video__content styler placering (z-index) og spacing. -->
+
+                <p class="kicker">Portfolio by Isabella Vest</p>
+                <!-- Kicker = lille overlinje/label for kontekst (editorial stil). -->
+
+                <h1 class="hero-title">Bloom</h1>
+                <!-- h1 = vigtigste overskrift på siden (SEO og struktur).
+                     hero-title bruges til styling (stor størrelse). -->
+
+                <p class="hero-lead">
+                    Et portfolio-univers, hvor hvert projekt er en blomst — og processen er det, der får det hele til at
+                    gro.
+                </p>
+                <!-- hero-lead = introducerende brødtekst under H1.
+                     Det forklarer formål hurtigt (UX: “hvad er dette?”). -->
+
+                <div class="hero-actions">
+                    <!-- Wrapper til CTA-knapperne (Call To Action). -->
+
+                    <a class="btn" href="projekter.html">Se projekter</a>
+                    <!-- Primær CTA: leder brugeren direkte til projekter (vigtig brugerrejse). -->
+
+                    <a class="btn btn-ghost btn-on-hero" href="#process">Se proces</a>
+                    <!-- Sekundær CTA: scroll til proces-sektionen på siden.
+                         btn-ghost = alternativ knapstil (mindre dominerende).
+                         btn-on-hero = evt. special styling på video baggrund. -->
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO / VISION -->
+        <section class="section">
+            <div class="container chapter-wrap">
+
+                <div class="chapter-meta">
+                    <span class="chapter-no">01</span>
+                    <h2 class="chapter-title">Vision</h2>
+                    <p class="chapter-lead">
+                        Bloom er min måde at samle 1. semester på: en læringsrejse med klare beslutninger, refleksion og
+                        et
+                        roligt,
+                        naturligt udtryk.
+                    </p>
+                </div>
+
+                <div class="chapter-body">
+                    <p>
+                        Bloom er mit portfolio-univers, hvor hvert tema er en blomst. Liljen er den gennemgående
+                        metafor:
+                        udvikling over
+                        tid, pleje og forfinelse. Derfor præsenterer jeg ikke kun det færdige resultat, men også proces
+                        og
+                        læring.
+                    </p>
+
+                    <p>
+                        Det visuelle udtryk er holdt i grøn/hvid/beige/guld for at skabe ro og kvalitet. Layoutet er
+                        inspireret
+                        af
+                        editorials, hvor indholdet får luft, og brugeren guides tydeligt gennem struktur og navigation.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="hero_insert">
+            <div class="hero_image hero_overlay">
+                <img src="images/liljecomputer.webp" alt="MacBook med liljer der vokser ud af skærmen" loading="lazy">
+            </div>
+        </section>
+
+
+        <!-- PROCESS TEASER -->
+        <section id="process" class="section section-alt process-editorial">
+            <div class="container process-wrap">
+
+                <!-- Venstre: kapitel -->
+                <div class="process-meta">
+                    <span class="process-chapter process-chapter--watermark">02</span>
+                    <h2 class="process-title">The process</h2>
+                    <p class="process-intro">
+                        Et overblik over, hvordan projekterne er udviklet — fra idé til test og iteration.
+                    </p>
+                </div>
+
+
+                <!-- Højre: timeline -->
+                <div class="process-timeline" aria-label="Procestrin">
+                    <ol class="timeline">
+                        <li class="timeline-item">
+                            <span class="timeline-no">01</span>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Brainstorm & retning</h3>
+                                <p class="timeline-text">Mind map, vision og afsender. Hvad skal Bloom kommunikere?</p>
+                            </div>
+                        </li>
+
+                        <li class="timeline-item">
+                            <span class="timeline-no">02</span>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Research</h3>
+                                <p class="timeline-text">Analyse af brand, målgruppe, struktur, billedstil og
+                                    brugeropfattelse.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="timeline-item">
+                            <span class="timeline-no">03</span>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">UX & design</h3>
+                                <p class="timeline-text">Sitemap, wireframes, styletile og indholdshierarki.</p>
+                            </div>
+                        </li>
+
+                        <li class="timeline-item">
+                            <span class="timeline-no">04</span>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Test & iteration</h3>
+                                <p class="timeline-text">5-sekunders-test og Likert. Justeringer baseret på feedback.
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+
+        <!--  03 — KEY SKILLS (Chapter style)
+             Formål: vise læringsmål hurtigt og tydeligt (eksamensvenligt)  -->
+        <section class="section">
+            <div class="container chapter-wrap">
+
+                <!-- Venstre kolonne: editorial chapter-meta -->
+                <div class="chapter-meta">
+                    <!-- Watermark-kapitelnummer (visuelt hierarki) -->
+                    <span class="chapter-no" aria-hidden="true">03</span>
+
+                    <!-- Kapiteloverskrift -->
+                    <h2 class="chapter-title">Key skills</h2>
+
+                    <!-- Intro (lead) som forklarer formålet med sektionen -->
+                    <p class="chapter-lead">
+                        Et hurtigt overblik over de kompetencer og metoder jeg har arbejdet med på 1. semester.
+                    </p>
+                </div>
+
+                <!-- Højre kolonne: indholdet -->
+                <div class="chapter-body">
+
+                    <!-- Liste over “skills” (semantisk: en liste af punkter) -->
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <h3 class="skill-title">HTML & semantik</h3>
+                            <p class="skill-text">
+                                Struktur med header/main/footer, meningsfulde elementer og tilgængelighed (fx skip-link
+                                og
+                                aria-labels).
+                            </p>
+                        </li>
+
+                        <li class="skill-item">
+                            <h3 class="skill-title">CSS & responsive design</h3>
+                            <p class="skill-text">
+                                Mobile-first, grid/flex, custom properties (CSS-variables) og et roligt editorialt
+                                layout.
+                            </p>
+                        </li>
+
+                        <li class="skill-item">
+                            <h3 class="skill-title">JavaScript & interaktion</h3>
+                            <p class="skill-text">
+                                Navigation (toggle), header-state ved scroll og små dynamiske detaljer (fx årstal i
+                                footer).
+                            </p>
+                        </li>
+
+                        <li class="skill-item">
+                            <h3 class="skill-title">UX-metoder</h3>
+                            <p class="skill-text">
+                                Research, sitemap, wireframes, styletile og brugerfeedback via 5-sekunders-test og
+                                Likert-skala.
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             FEATURED PROJECT (Editorial teaser)
+             Formål: guide brugeren til “start her”-case
+             ========================= -->
+        <section class="section section-alt">
+            <div class="container featured">
+
+                <!-- Venstre kolonne: editorial chapter-meta -->
+                <div class="chapter-meta">
+                    <!-- Watermark-kapitelnummer (visuelt hierarki) -->
+                    <span class="chapter-no" aria-hidden="true">04</span>
+
+                    <!-- Kapiteloverskrift -->
+                    <h2 class="chapter-title">Featured project</h2>
+
+                    <!-- Intro (lead) som forklarer formålet med sektionen -->
+                    <p class="chapter-lead">
+                        Hvis du kun skal se ét projekt først, så start her. Her viser jeg både løsning, proces og
+                        læring.
+                    </p>
+                </div>
+
+                <!-- Knapper: leder direkte videre -->
+                <div class="featured-actions">
+                    <a class="btn" href="projekter.html">Se alle projekter</a>
+                    <!-- Skift href til din konkrete case-side, når du ved hvilken der er featured -->
+                    <a class="btn btn-ghost" href="tema-3-ux-ui.html">Gå til casen</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="kontakt" class="site-footer">
+        <!-- Footer = bund på siden.
+             id="kontakt" gør at linket i menuen (#kontakt) scroller hertil. -->
+
+        <div class="container footer-inner">
+            <!-- container styrer bredde/centrering.
+                 footer-inner styrer layout (grid/flex). -->
+
+            <div>
+                <!-- En simpel wrapper til kontakt-teksten. -->
+
+                <p class="footer-title">Kontakt</p>
+                <!-- Footer-titel (stylet som overskrift, men her som p).
+                     Hvis du vil være ekstra semantisk kan det være en h2/h3 – men p er ok i en footer. -->
+
+                <p class="footer-text">
+                    Vil du høre mere eller se mine cases? Skriv endelig.
+                </p>
+                <!-- Brødtekst i footer. -->
+            </div>
+
+            <div class="footer-actions">
+                <!-- Wrapper til knapper/links i footer. -->
+
+                <a class="btn btn-ghost" href="mailto:dinmail@eksempel.dk">Send mail</a>
+                <!-- mailto: åbner brugerens mail-program med en ny mail.
+                     Husk at ændre til din rigtige mail før aflevering. -->
+
+                <a class="btn btn-ghost" href="om-mig.html">Læs om mig</a>
+                <!-- Link til om-mig-side. -->
+            </div>
+
+            <p class="footer-small">© <span id="year"></span> Isabella Vest — Bloom Portfolio</p>
+            <!-- Footer-linje med copyright.
+                 <span id="year"></span> udfyldes typisk af JavaScript med aktuelt år, så du ikke skal ændre det manuelt. -->
+        </div>
+    </footer>
+
+    <script defer src="js/main.js"></script>
+    <!-- Loader JavaScript.
+         defer betyder: hent filen nu, men kør den først når HTML er færdig-parset.
+         Det sikrer at JS kan finde DOM-elementer uden at fejle, og forbedrer performance. -->
+</body>
+
+</html>
