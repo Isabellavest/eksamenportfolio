@@ -2,26 +2,34 @@
 <html lang="da">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekter</title>
-    <meta name="description" content="Portfolio by Isabella Vest — proces, projekter og læring." />
 
-    <!-- Fælles CSS (dine eksisterende filer) -->
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Projekter</title>
+
+    <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/burger.css" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet">
+
 </head>
 
 <body>
-    <!-- ========== Header ========== -->
+
     <header class="site-header is-transparent" id="siteHeader">
+
         <div class="container header-inner">
+
             <a class="brand" href="index.html" aria-label="Gå til forsiden">
                 <span class="brand-text">Bloom</span>
             </a>
@@ -41,15 +49,37 @@
         </div>
     </header>
 
-    <main>
-        <!-- ========== HERO IMAGE — Let's grow ========== -->
-        <section class="hero-image">
-            <img src="images/liljecomputer.webp" alt="computer" class="hero-image__media" loading="eager" />
+    <!-- =========================
+       MAIN
+       ========================= -->
 
-            <div class="hero-image__overlay" aria-hidden="true"></div>
+    <main id="main">
+        <!-- HERO med billede (samme “format” som forsiden) -->
+        <section class="hero hero--image">
+            <!-- Billedet ligger som baggrund i hero -->
+            <img src="images/liljecomputer.webp"
+                alt="Blomster der vokser ud af en laptop – symbol på proces og udvikling" class="hero__image" />
+            <!-- Overlay for læsbarhed -->
+            <div class="hero__overlay" aria-hidden="true"></div>
 
-            <div class="container hero-image__content">
-                <h1 class="hero-label">LET'S GROW</h1>
+            <!-- Indhold ovenpå billedet -->
+            <div class="container hero__content">
+                <p class="kicker">Projekt • 1. semester</p>
+
+                <h1 class="hero-title">Projekter</h1>
+
+                <p class="hero-lead">
+                    Her samler jeg mine projekter fra alle temaer i 1 semester,
+                    så det er tydeligt, hvordan jeg forstår teorien og anvender den i praksis.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn" href="tema-2-web.html"> Tema 2</a>
+                    <a class="btn" href="tema-3-ux-ui.html"> Tema 3</a>
+                    <a class="btn" href="tema-4-javascript.html"> Tema 4</a>
+                    <a class="btn" href="tema-5-indhold.html"> Tema 5</a>
+
+                </div>
             </div>
         </section>
 
@@ -63,9 +93,9 @@
                 </p>
             </header>
 
-            <!-- Chapter 01 -->
+            <!-- Chapter 02 -->
             <article class="chapter">
-                <a class="chapter__link" href="projekt-1.html">
+                <a class="chapter__link" href="tema-2-web.html">
                     <div class="chapter__text">
                         <p class="chapter__meta">CHAPTER <span class="chapter__no">01</span></p>
                         <h2 class="chapter__title">Bloom No. 01 — Webdesign & Frontend</h2>
@@ -88,9 +118,9 @@
                 </a>
             </article>
 
-            <!-- Chapter 02 -->
+            <!-- Chapter 03 -->
             <article class="chapter">
-                <a class="chapter__link" href="projekt-2.html">
+                <a class="chapter__link" href="tema-3-ux-ui.html">
                     <div class="chapter__text">
                         <p class="chapter__meta">CHAPTER <span class="chapter__no">02</span></p>
                         <h2 class="chapter__title">Bloom No. 02 — Branding & Identitet</h2>
@@ -112,9 +142,9 @@
                 </a>
             </article>
 
-            <!-- Chapter 03 -->
+            <!-- Chapter 04 -->
             <article class="chapter">
-                <a class="chapter__link" href="projekt-3.html">
+                <a class="chapter__link" href="tema-4-javascript.html">
                     <div class="chapter__text">
                         <p class="chapter__meta">CHAPTER <span class="chapter__no">03</span></p>
                         <h2 class="chapter__title">Bloom No. 03 — Content & SoMe</h2>
@@ -136,9 +166,9 @@
                 </a>
             </article>
 
-            <!-- Chapter 04 -->
+            <!-- Chapter 05 -->
             <article class="chapter">
-                <a class="chapter__link" href="projekt-4.html">
+                <a class="chapter__link" href="tema-5-indhold.html">
                     <div class="chapter__text">
                         <p class="chapter__meta">CHAPTER <span class="chapter__no">04</span></p>
                         <h2 class="chapter__title">Bloom No. 04 — Research & Test</h2>
@@ -164,6 +194,15 @@
 
     </main>
 
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="footer-text">© <span id="year"></span> Isabella Vest</p>
+            <a class="footer-link" href="kontakt.html">Kontakt</a>
+        </div>
+    </footer>
+
+    <script defer src="js/main.js"></script>
 </body>
 
 </html>

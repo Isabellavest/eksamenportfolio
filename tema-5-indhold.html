@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tema 5</title>
+
+    <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/burger.css" />
+    <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="site-header is-transparent" id="siteHeader">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Gå til forsiden">
+                <span class="brand-text">Bloom</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="sr-only">Åbn menu</span>
+                <span class="nav-toggle-lines" aria-hidden="true"></span>
+            </button>
+
+            <nav id="site-nav" class="site-nav" aria-label="Hovedmenu">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
+                    <li><a class="nav-link" href="projekter.html">Projekter</a></li>
+                    <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================
+       MAIN
+       ========================= -->
+
+    <main id="main">
+
+        <!-- HERO med billede (samme “format” som forsiden) -->
+        <section class="hero hero--image">
+            <!-- OBS: Skift billedet her til dit Tema 5-hero -->
+            <img src="images/tema5-hero.webp"
+                alt="Indholdsproduktion: kamera, lys og redigering – symbol på storytelling og proces"
+                class="hero__image" />
+
+            <!-- Overlay for læsbarhed -->
+            <div class="hero__overlay" aria-hidden="true"></div>
+
+            <!-- Indhold ovenpå billedet -->
+            <div class="container hero__content">
+                <p class="kicker">Tema 05 · Grundlæggende Indhold</p>
+
+                <h1 class="hero-title">Pensum & afleveringer</h1>
+
+                <p class="hero-lead">
+                    Her samler jeg mit pensum fra Tema 05 og mine afleveringer, så det er tydeligt,
+                    hvordan jeg planlægger, producerer og efterbehandler indhold – og hvordan jeg bruger
+                    det i et redesign-projekt.
+                </p>
+            </div>
+        </section>
+
+        <!-- =========================
+           TEMA 05 — INTRO
+           ========================= -->
+        <section class="tema-section tema-intro" aria-labelledby="tema05-intro">
+            <div class="container">
+                <h2 id="tema05-intro">Sådan arbejdede jeg med indhold i Tema 05</h2>
+
+                <p class="tema-lead">
+                    Tema 05 var opdelt i <strong>to dele</strong>: (1) en kreativ indholdsproduktionsopgave,
+                    hvor vi skulle fortælle en historie uden tekst, og (2) et <strong>virksomhedsredesign</strong>,
+                    hvor vi producerede indhold og arbejdede med tests, samarbejde og dokumentation.
+                </p>
+
+                <div class="tema-links">
+                    <a class="btn" href="https://youtu.be/oq8WpailpBM" target="_blank" rel="noopener">
+                        Se afleveringsvideo (YouTube)
+                    </a>
+                    <a class="btn" href="https://ddop711.github.io/virkssomhedssite/index.html" target="_blank"
+                        rel="noopener">
+                        Se redesign af Helsam.dk
+                    </a>
+                    <a class="btn btn--ghost" href="#tema05-produkter">
+                        Se produkter & links
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           PROCES-OVERSIGT
+           ========================= -->
+        <section class="tema-section tema-overview" aria-labelledby="tema05-overblik">
+            <div class="container">
+                <h2 id="tema05-overblik">Proces-overblik</h2>
+
+                <ol class="process-steps">
+                    <li>
+                        <h3>1 ) Intro til temaet & rammerne</h3>
+                        <p>Gruppedannelse, opgavekrav og plan for indholdsproduktion.</p>
+                    </li>
+                    <li>
+                        <h3>2 ) Opgave 1 — “En lille historie” (video, lyd og billeder)</h3>
+                        <p>“En lille historie” fortalt med <strong>video, lyd og stillbilleder</strong> – uden tale.</p>
+                    </li>
+                    <li>
+                        <h3>3 ) Præproduktion — shotlist, lydliste & storyboard</h3>
+                        <p>Idé, stemningsord, shotlist, lydliste og storyboard.</p>
+                    </li>
+                    <li>
+                        <h3>4 ) Produktion — “shooting for the edit”</h3>
+                        <p>Mastershot + B-roll + 5-shot sequence, stabilisering, komposition og lys.</p>
+                    </li>
+                    <li>
+                        <h3>5 ) Postproduktion — Premiere Pro & Photoshop</h3>
+                        <p>Premiere Pro (klip, lyd, color correction) + Photoshop (foto-workflow).</p>
+                    </li>
+                    <li>
+                        <h3>6 ) Opgave 2 — Virksomhedsredesign (i gruppe)</h3>
+                        <p>Redesign af virksomhedssite med indholdsproduktion, struktur og dokumentation.</p>
+                    </li>
+                    <li>
+                        <h3>7 ) Samarbejde & organisering</h3>
+                        <p>Trello, samarbejdskontrakt, Git/GitHub og daglig SCRUM.</p>
+                    </li>
+                    <li>
+                        <h3>8 ) Redesign — idéudvikling & brainstorm</h3>
+                        <p>Idéudvikling, brainstorm & valg af virksomhed.</p>
+                    </li>
+                    <li>
+                        <h3>9 ) Research — virksomhed, bruger & kontekst & interview — virksomhedsbesøg</h3>
+                        <p>3 forskellige modboards, samt tilhørende værdiord</p>
+                    </li>
+                    <li>
+                        <h3>10 ) Moodboard</h3>
+                        <p>Virksomhedsresearch, personlig & desktop research, samt virksomhedsbesøg & interview.</p>
+                    </li>
+                    <li>
+                        <h3>11 ) Styletile</h3>
+                        <p>Farver, typografi, UI-elementer og tone of voice</p>
+                    </li>
+                    <li>
+                        <h3>12 ) Indholdsproduktion</h3>
+                        <p>Tekst, billeder & struktur</p>
+                    </li>
+                    <li>
+                        <h3>13 ) Wireframes</h3>
+                        <p>LoFi, HiFi wireframes, mobile & desktop</p>
+                    </li>
+                    <li>
+                        <h3>14 ) Prototype</h3>
+                        <p>Fra wireframes til klikbar løsning</p>
+                    </li>
+
+                    <li>
+                        <h3>15 ) Kodning</h3>
+                        <p>implementering & dokumentation</p>
+                    </li>
+                    <li>
+                        <h3>16 ) Test & evaluering</h3>
+                        <p>Likert-skala + heuristisk evaluering + Lighthouse (optimering og forbedringer).</p>
+                    </li>
+                    <li>
+                        <h3>17 ) Præsentation</h3>
+                        <p>Visuelle valg, pitch & formidling.</p>
+                    </li>
+                    <li>
+                        <h3>18 ) Refleksion</h3>
+                        <p>Læring, ansvar, udfordringer og hvad jeg tager med videre til eksamen.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- =========================
+           1) INTRO & RAMME
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-ramme" aria-labelledby="ramme-title">
+            <div class="container">
+                <h2 id="ramme-title">1) Intro til temaet & rammerne</h2>
+
+                <div class="two-col">
+                    <div class="evidence">
+                        <h3>Temaets fokus</h3>
+                        <ul class="bullets">
+                            <li><strong>Præproduktion:</strong> planlægning, storyboard, shotlist og lydliste</li>
+                            <li><strong>Produktion:</strong> optagelser med smartphone (video + lyd + foto)</li>
+                            <li><strong>Postproduktion:</strong> redigering i Premiere Pro og billedbehandling i
+                                Photoshop</li>
+                            <li><strong>Redesign:</strong> anvende indholdet i et virksomhedssite + dokumentation</li>
+                        </ul>
+
+                        <h3>To dele – to grupper</h3>
+                        <p>
+                            Temaet var opdelt i to større opgaver, og derfor arbejdede jeg i to forskellige grupper:
+                            først en 2-personers indholdsopgave og derefter en ny 4-personers gruppe til redesign.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Hvad lærte jeg helt konkret?</h3>
+                        <ul class="checklist">
+                            <li>At fortælle en historie uden ord: <em>billeder + lyd + lys</em></li>
+                            <li>At planlægge optagelser, så redigering bliver lettere (“shooting for the edit”)</li>
+                            <li>At arbejde systematisk med samarbejde (Trello, SCRUM, GitHub)</li>
+                            <li>At teste og forbedre et site med simple, effektive metoder</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           2) OPGAVE 1 — EN LILLE HISTORIE
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-historie" aria-labelledby="historie-title">
+            <div class="container">
+                <h2 id="historie-title">2) Opgave 1 — “En lille historie” (video, lyd og billeder)</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Opgavekrav</h3>
+                        <ul class="checklist">
+                            <li>Video: max <strong>60 sekunder</strong></li>
+                            <li>Historien skal forstås <strong>uden tale</strong></li>
+                            <li>Brug <strong>video + lyd + stillbilleder</strong></li>
+                            <li>Dokumentér proces med min. <strong>5 procesfotos</strong></li>
+                            <li>Aflever som <strong>PDF</strong> med link til video + procesbilleder</li>
+                        </ul>
+
+                        <h3>Min aflevering</h3>
+                        <p>
+                            Jeg arbejdede med en enkel idé og en tydelig stemning, så fortællingen kunne bæres af
+                            billedsprog og lyddesign.
+                        </p>
+
+                        <div class="tema-links">
+                            <a class="link" href="https://youtu.be/oq8WpailpBM" target="_blank" rel="noopener">
+                                YouTube: Se videoen
+                            </a>
+                            <a class="link"
+                                href="https://www.figma.com/board/36QHyEFjA9W5ExeELhsNWU/en-lille-historie?node-id=0-1&p=f&t=v60NLsN5VjpRy1MY-0"
+                                target="_blank" rel="noopener">
+                                Figma: procesbilleder & plan
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <!-- OBS: Skift disse billeder til dine egne procesbilleder -->
+                        <figure class="shot">
+                            <img src="images/05filmplan.webp" alt="Procesbillede: planlægning og forberedelse">
+                            <img src="images/05procesdokumentation.webp" alt="Procesbillede: optagelser">
+                            <img src="images/05lydklipning.webp" alt="Procesbillede: lydoptagelse">
+                            <figcaption>Proces: plan → optagelser → redigering (dokumenteret med stills).</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           3) PRÆPRODUKTION — SHOTLIST + STORYBOARD
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-praep" aria-labelledby="praep-title">
+            <div class="container">
+                <h2 id="praep-title">3) Præproduktion — shotlist, lydliste & storyboard</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Min tjekliste før optagelse</h3>
+                        <ul class="checklist">
+                            <li><strong>Idéformulering:</strong> en ting + en stemning + et øjeblik</li>
+                            <li><strong>3 stemningsord:</strong> (fx rolig / melankolsk / varm)</li>
+                            <li><strong>Shotlist:</strong> 6–10 planlagte shots</li>
+                            <li><strong>Lydliste:</strong> ambience + handling-lyd tæt på kilden</li>
+                            <li><strong>Storyboard:</strong> plan for indstillinger, klip og rytme</li>
+                        </ul>
+
+                        <h3>Værktøjer jeg brugte</h3>
+                        <ul class="bullets">
+                            <li><strong>5-shot sequence:</strong> wide, close-up, hands, reaction, creative</li>
+                            <li><strong>Komposition:</strong> rule of thirds, afstand og lysretning</li>
+                            <li><strong>Storyboard:</strong> tegnet/visualiseret som plan for optagelserne</li>
+                        </ul>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Storyboard (eksempel)</h3>
+                        <!-- OBS: Skift til dine egne storyboard-screenshots -->
+                        <figure class="shot">
+                            <img src="images/05storyboard1.webp" alt="Storyboard: planlagte shots og lydnoter">
+                            <img src="images/05storyboard2.webp" alt="Storyboard: planlagte shots og lydnoter">
+                            <figcaption>Storyboard: jeg planlagde shots, lyd og stemning før optagelse.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           4) PRODUKTION — SHOOTING FOR THE EDIT
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-produktion" aria-labelledby="produktion-title">
+            <div class="container">
+                <h2 id="produktion-title">4) Produktion — “shooting for the edit”</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Sådan optog jeg materialet</h3>
+                        <ul class="checklist">
+                            <li>Min. 1 <strong>mastershot</strong> (overblik + kontekst)</li>
+                            <li>En komplet <strong>5-shot sequence</strong></li>
+                            <li>5–10 <strong>B-roll</strong> klip (detaljer og stemning)</li>
+                            <li>Korte klip (ca. <strong>3–7 sek.</strong>) for flow i redigering</li>
+                            <li>Undgik rystelser, modlys og for lange optagelser</li>
+                        </ul>
+
+                        <h3>Lyd (meget vigtigt)</h3>
+                        <p>
+                            Jeg optog både ambience (miljølyd) og handling-lyd tæt på kilden,
+                            så lyden kunne binde klip sammen og gøre historien mere “ægte”.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <!-- OBS: Skift til dine egne fotos fra optagedagen -->
+                        <figure class="shot">
+                            <img src="images/05videoshots.webp" alt="Optagelser: close-up / detalje">
+                            <figcaption>Optagelser: mastershot + B-roll + fokus på lys og stabilitet.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           5) POSTPRODUKTION — PREMIERE + PHOTOSHOP
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-post" aria-labelledby="post-title">
+            <div class="container">
+                <h2 id="post-title">5) Postproduktion — Premiere Pro & Photoshop</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Premiere Pro (video)</h3>
+                        <ul class="checklist">
+                            <li>Import → sequence → timeline</li>
+                            <li>Trim/cut med selection/razor</li>
+                            <li>Synk og rens af lyd</li>
+                            <li>Color correction / finishing</li>
+                            <li>Eksport i web-venligt format</li>
+                        </ul>
+
+                        <h3>Photoshop (billeder)</h3>
+                        <ul class="checklist">
+                            <li>Arbejd på en kopi (gem original)</li>
+                            <li>Crop/straighten</li>
+                            <li>Exposure/contrast/white balance</li>
+                            <li>Color correction (hue/saturation/vibrance)</li>
+                            <li>Non-destructive: adjustment layers + masks</li>
+                        </ul>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <!-- OBS: Skift disse billeder til dine egne procesbilleder -->
+                        <figure class="shot">
+                            <img src="images/05lydklipning.webp" alt="Procesbillede: lydoptagelse">
+                            <figcaption>Redigering af klip & lyd.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           6) OPGAVE 2 — VIRKSOMHEDSREDESIGN (RAMME)
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-redesign" aria-labelledby="redesign-title">
+            <div class="container">
+                <h2 id="redesign-title">6) Opgave 2 — Virksomhedsredesign (i gruppe)</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Rammer og krav</h3>
+                        <ul class="checklist">
+                            <li>Virksomhed med <strong>fysisk lokation</strong> (kan filmes)</li>
+                            <li>Min. én medarbejder villig til <strong>interview/film</strong></li>
+                            <li>Redesign + indholdsproduktion (tekst + stillfotos + evt. video)</li>
+                            <li>Dokumentation og præsentation af proces</li>
+                        </ul>
+
+                        <h3>Min rolle</h3>
+                        <p>
+                            Jeg tog hovedansvar for at få projektet i mål: planlægning, produktion og store dele af
+                            kodningen/dokumentationen, så vi kunne levere et resultat inden deadline.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Professionel note om samarbejde</h3>
+                        <p class="muted">
+                            I redesign-delen opstod der udfordringer i samarbejdet, hvilket betød, at jeg overtog
+                            hovedansvaret for at sikre fremdrift. Jeg afgrænsede opgaven, så hvert gruppemedlem fik
+                            ansvar for én side. Min egen side blev færdiggjort og dokumenteret, mens de øvrige sider
+                            desværre ikke blev leveret til tiden.
+                        </p>
+
+                        <p class="muted">
+                            Jeg har derfor valgt at fokusere på at vise den del af projektet, jeg selv har udviklet:
+                            proces, valg, kodning og refleksioner.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           7) SAMARBEJDE — TRELLO, SCRUM, GIT
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-samarbejde" aria-labelledby="sam-title">
+            <div class="container">
+                <h2 id="sam-title">7) Samarbejde & organisering</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Det vi blev introduceret til</h3>
+                        <ul class="checklist">
+                            <li>Trello til opgavestyring</li>
+                            <li>Samarbejdskontrakt (forventninger og ansvar)</li>
+                            <li>Daily SCRUM + statuslinjer</li>
+                            <li>Git & GitHub (pull/push/commit + .gitignore)</li>
+                        </ul>
+
+                        <h3>Det vigtigste jeg tager med</h3>
+                        <ul class="bullets">
+                            <li>Det er vigtigt at <strong>strukturere arbejdet tidligt</strong> (opgaver, ansvar,
+                                deadlines)</li>
+                            <li>Jeg kan drive et projekt fremad med <strong>overblik og ansvar</strong>, også under pres
+                            </li>
+                            <li>GitHub giver transparens: hvem laver hvad, og hvornår</li>
+                        </ul>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <!-- OBS: Skift til dine egne Trello/GitHub screenshots -->
+                        <figure class="shot">
+                            <img src="images/05trello.webp" alt="Screenshot af Trello-board med opgaver">
+                            <img src="images/05branches.webp" alt="Screenshot af GitHub repository og commits">
+                            <figcaption>Trello til plan + GitHub til versionsstyring og samarbejde.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+                   8) Idéudvikling (Brainstorm)
+                   ========================= -->
+        <section class="tema-section tema-block" id="tema05-ide" aria-labelledby="tema05-ide-title">
+            <div class="container">
+                <h2 id="tema05-ide-title">8) Redesign — idéudvikling & brainstorm</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Idéudvikling som divergerende fase (åbne muligheder)</li>
+                            <li>Brainstorm uden censur → efterfulgt af udvælgelse</li>
+                            <li>Fokus på stemning, fortælling og brugerens oplevelse</li>
+                        </ul>
+
+                        <h3>Sådan arbejdede vi</h3>
+                        <p>
+                            Vi startede redesign-opgaven med en fælles brainstorm, hvor fokus var på
+                            <strong>virksomhedens identitet, stemning og fortælling</strong>.
+                            I stedet for at tænke løsninger for tidligt, arbejdede vi med idéer,
+                            associationer og oplevelser, som senere kunne omsættes til designvalg.
+                        </p>
+
+                        <p>
+                            Brainstormen blev dokumenteret i Figma og fungerede som fundament for
+                            både research, visuel retning og indholdsproduktion.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/05brainstorm2.webp" alt="05 brainstorm">
+                            <img src="images/05valgafvirksomhed.webp" alt="Valg af virksomhed">
+                        </figure>
+                        <p class="muted">
+                            Brainstorm, idéer og proces er samlet i vores Figma-board.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+                   9) Research (virksomhed, personlig & desktop) & interview (virksomhedsbesøg)
+                   ========================= -->
+        <section class="tema-section tema-block" id="tema05-research-redesign"
+            aria-labelledby="tema05-research-redesign-title">
+            <div class="container">
+                <h2 id="tema05-research-redesign-title">9) Research — virksomhed, bruger & kontekst & interview —
+                    virksomhedsbesøg</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Research som grundlag for kvalificerede designbeslutninger</li>
+                            <li>Forståelse af målgruppe, kontekst og behov</li>
+                            <li>Analyse af eksisterende løsning (styrker/svagheder)</li>
+                            <li>Interview som kvalitativ metode til indsigt</li>
+                            <li>Observation af rum, stemning og kontekst</li>
+                        </ul>
+
+                        <h3>Virksomhedsresearch</h3>
+                        <p>
+                            Vi analyserede virksomhedens eksisterende website med fokus på
+                            <strong>struktur, visuel identitet, indhold og brugerrejse</strong>.
+                            Her identificerede vi bl.a. manglende hierarki, uklar kommunikation og
+                            potentiale for et mere sammenhængende visuelt udtryk.
+                        </p>
+
+                        <h3>Personlig & desktop research</h3>
+                        <p>
+                            Jeg supplerede med personlig research og desktop research, hvor jeg
+                            undersøgte lignende virksomheder og digitale løsninger for inspiration
+                            til layout, indhold og tone of voice.
+                        </p>
+
+                        <h3>Virksomhedsbesøg & interview</h3>
+                        <p>
+                            Under virksomhedsbesøget observerede vi den fysiske lokation og
+                            gennemførte interview med virksomheden.
+                            Interviewet gav indsigt i <strong>værdier, målgruppe og ønsker for det digitale
+                                udtryk</strong>.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Indsigter</h3>
+                        <ul class="bullets">
+                            <li>Behov for tydeligere struktur og sektionering</li>
+                            <li>Større fokus på stemning og fortælling</li>
+                            <li>Mere brugervenlig navigation og indholdsprioritering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+                   10) MOODBOARD
+                   ========================= -->
+        <section class="tema-section tema-block" id="tema05-moodboard" aria-labelledby="tema05-moodboard-title">
+            <div class="container">
+                <h2 id="tema05-moodboard-title">10) Moodboard</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Moodboards som visuel research og fælles reference</li>
+                        </ul>
+
+                        <h3>Moodboard</h3>
+                        <p>
+                            På baggrund af interview og observationer udviklede vi et moodboard,
+                            som indfangede stemning, farver, materialer og visuelle referencer,
+                            der senere blev omsat til konkrete designvalg.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Resultat</h3>
+                        <figure class="shot">
+                            <img src="images/05moodboard.webp" alt="3 forskellige moodboards fra tema 05">
+                            <img src="images/05denzel.webp" alt="3 forskellige moodboards fra tema 05">
+                            <img src="images/05yasmin.webp" alt="3 forskellige moodboards fra tema 05">
+                            <img src="images/05isabella.webp" alt="3 forskellige moodboards fra tema 05">
+                        </figure>
+                        <p class="muted">
+                            Moodboardet fungerede som rettesnor for hele redesign-processen
+                            og sikrede visuel sammenhæng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+                   11) STYLETILE
+                   ========================= -->
+        <section class="tema-section tema-block" id="tema05-styletile" aria-labelledby="tema05-styletile-title">
+            <div class="container">
+                <h2 id="tema05-styletile-title">11) Styletile — fra stemning til designvalg</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Styletile som bro mellem moodboard og færdigt design</li>
+                            <li>Farver, typografi, UI-elementer og tone of voice</li>
+                            <li>Konsistens og genkendelighed</li>
+                        </ul>
+
+                        <h3>Mine designvalg</h3>
+                        <p>
+                            Styletilen samlede farvepalette, typografi og UI-komponenter i ét visuelt
+                            overblik.
+                            Fokus var på et udtryk, der matcher virksomhedens identitet og understøtter
+                            brugervenlighed og troværdighed.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Formål</h3>
+                        <figure class="shot">
+                            <img src="images/05styletile.webp" alt="Styletile af Helsam.dk">
+                        </figure>
+                        <p class="muted">
+                            Styletilen gjorde det lettere at tage konsekvente designbeslutninger
+                            under wireframing og kodning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+                   12) INDHOLDSPRODUKTION
+                   ========================= -->
+        <section class="tema-section tema-block" id="tema05-indhold" aria-labelledby="tema05-indhold-title">
+            <div class="container">
+                <h2 id="tema05-indhold-title">12) Indholdsproduktion — tekst, billeder & struktur</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Indhold skal understøtte brugerens mål</li>
+                            <li>Visuel hierarki og læsbarhed</li>
+                            <li>Sammenhæng mellem tekst og billeder</li>
+                        </ul>
+
+                        <h3>Sådan arbejdede jeg</h3>
+                        <p>
+                            Jeg arbejdede med indholdsproduktion med fokus på klar formidling,
+                            prioritering af information og visuel ro.
+                            Billeder og tekst blev tilpasset layoutet, så indholdet guider brugeren
+                            naturligt gennem siden.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Resultat</h3>
+                        <h3>Formål</h3>
+                        <figure class="shot">
+                            <img src="images/05indholdsproduktion1.webp" alt="Indholdsproduktion billeder">
+                            <img src="images/05indholdsproduktion2.webp" alt="Indholdsproduktion video + billeder">
+                        </figure>
+                        <p class="muted">
+                            Indholdet blev mere overskueligt, sammenhængende og brugervenligt
+                            end den oprindelige løsning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+                   13)   WIREFRAMES
+                   ========================= -->
+        <section class="tema-section tema-block" id="tema05-wireframes" aria-labelledby="tema05-wireframes-title">
+            <div class="container">
+                <h2 id="tema05-wireframes-title">13) Wireframes — LoFi & HiFi</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>LoFi wireframes: struktur og flow</li>
+                            <li>HiFi wireframes: visuelt hierarki og detaljer</li>
+                            <li>Mobil-first og responsiv tænkning</li>
+                        </ul>
+
+                        <h3>Proces</h3>
+                        <p>
+                            Jeg brugte LoFi wireframes til at fastlægge struktur og indholdsplacering,
+                            før der blev arbejdet videre med HiFi wireframes, hvor visuelle valg og
+                            interaktioner blev konkretiseret.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Formål</h3>
+                        <figure class="shot">
+                            <img src="images/05lofimobile.webp" alt="LoFi mobil 05">
+                            <img src="images/05lofidesktop.webp" alt="LoFi desktop 05">
+                            <img src="images/05hifimobile.webp" alt="HiFi mobil 05">
+                            <img src="images/05hifidesktop.webp" alt="HiFi desktop 05">
+                        </figure>
+                        <p class="muted">
+                            Wireframes sikrede, at designbeslutninger var baseret på struktur
+                            og brugervenlighed frem for mavefornemmelser.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+                   14) PROTOTYPE
+                   ========================= -->
+        <section class="tema-section tema-block" id="tema05-prototype" aria-labelledby="tema05-prototype-title">
+            <div class="container">
+                <h2 id="tema05-prototype-title">14) Prototype — fra wireframes til klikbar løsning</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Prototype bruges til at afprøve struktur, flow og interaktion</li>
+                            <li>Klikbar prototype gør det muligt at teste tidligt (før kodning)</li>
+                            <li>Iterativ proces: test → justér → forbedr</li>
+                        </ul>
+
+                        <h3>Sådan arbejdede jeg</h3>
+                        <p>
+                            På baggrund af LoFi og HiFi wireframes samlede jeg løsningen i en klikbar prototype,
+                            så vi kunne afprøve navigation, hierarki og brugerens flow, inden vi gik videre til kodning.
+                            Prototypen hjalp mig med at tage beslutninger om <strong>CTA’er, menustruktur og
+                                prioritering af
+                                indhold</strong>.
+                        </p>
+
+                        <h3>Hvad prototypen gjorde tydeligt</h3>
+                        <ul class="bullets">
+                            <li>Om navigationen føltes logisk og let at forstå</li>
+                            <li>Om brugeren blev guidet korrekt gennem indholdet</li>
+                            <li>Om der var nok visuelle “pauser” (spacing) og tydeligt hierarki</li>
+                        </ul>
+
+                        <p class="muted">
+                            Prototypen gav mig et stærkere grundlag for kodningen, fordi jeg kunne se,
+                            hvad der fungerede i praksis – før jeg brugte tid på at implementere det.
+                        </p>
+                        <div class="tema-links">
+                            <a class="link"
+                                href="https://www.figma.com/design/KSJ34XEF5ibWW3DHz2BQje/Virksomheds-Projekt-05?node-id=27-3&p=f&t=Nq4fjYaBpm4hyLDh-0"
+                                target="_blank" rel="noopener">
+                                Se prototype & proces i Figma
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/05prototype1.webp" alt="Screenshot af prototype i Figma">
+                            <img src="images/05prototype2.webp" alt="Screenshot af prototype i Figma">
+                            <figcaption>Prototype: klikbart flow der viste navigation, hierarki og CTA’er.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+            15) KODNING
+             ========================= -->
+        <section class="tema-section tema-block" id="tema05-kodning" aria-labelledby="tema05-kodning-title">
+            <div class="container">
+                <h2 id="tema05-kodning-title">15) Kodning — implementering & dokumentation</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Frontend-implementering: omsætte design til fungerende UI</li>
+                            <li>Responsiv tænkning (mobil-first) og webkonventioner</li>
+                            <li>Versionsstyring i Git/GitHub (commit, pull, push)</li>
+                            <li>Validering og optimering (struktur, performance, accessibility)</li>
+                        </ul>
+
+                        <h3>Min implementering</h3>
+                        <p>
+                            Jeg omsatte prototypen til et kodet site med fokus på
+                            <strong>struktur, genbrugelige komponenter og læsbarhed</strong>.
+                            Jeg arbejdede mobil-first og sikrede, at layout og indhold fungerer på både mobil og
+                            desktop.
+                        </p>
+
+                        <h3>Det jeg lagde vægt på i koden</h3>
+                        <ul class="bullets">
+                            <li>Semantisk HTML (nav, main, section, footer) for struktur og tilgængelighed</li>
+                            <li>Genbrugelige klasser og ensartet spacing for et roligt visuelt udtryk</li>
+                            <li>Billeder optimeret til web (fx WebP) og meningsfulde alt-tekster</li>
+                            <li>GitHub-workflow: små commits med klare beskeder, så processen er gennemsigtig</li>
+                        </ul>
+
+                        <div class="tema-links">
+                            <a class="btn" href="https://ddop711.github.io/virkssomhedssite/index.html" target="_blank"
+                                rel="noopener">
+                                Åbn live løsning (GitHub Pages)
+                            </a>
+                            <a class="btn btn--ghost" href="https://github.com/ddop711/virkssomhedssite" target="_blank"
+                                rel="noopener">
+                                Se repository (GitHub)
+                            </a>
+                        </div>
+
+                        <p class="muted">
+                            Bemærk: Jeg dokumenterer her den del af kodningen, som jeg selv har implementeret,
+                            så det er tydeligt, hvad jeg kan stå på mål for til eksamen.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Kode-dokumentation</h3>
+
+                        <figure class="shot">
+                            <img src="images/05kodning1.webp" alt="Screenshot af semantisk HTML i projektet">
+                            <figcaption>Semantisk HTML: tydelig struktur med sektioner og genbrugelige elementer.
+                            </figcaption>
+                        </figure>
+
+                        <figure class="shot">
+                            <img src="images/05kodning2.webp"
+                                alt="Screenshot af CSS med mobile-first og genbrugelige klasser">
+                            <figcaption>CSS: mobile-first, konsistente klasser og fokus på læsbarhed.</figcaption>
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/05branches.webp" alt="Screenshot af commit-historik på GitHub">
+                            <figcaption>GitHub: commit-historik der dokumenterer mit workflow og fremdrift.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+           16) TEST & EVALUERING
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-test" aria-labelledby="test-title">
+            <div class="container">
+                <h2 id="test-title">16) Test & evaluering (Likert + heuristik + Lighthouse)</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Metoder</h3>
+                        <ul class="checklist">
+                            <li><strong>Likert-skala:</strong> måler holdninger/oplevelse (fx 1–5 eller 1–7)</li>
+                            <li><strong>Heuristisk evaluering:</strong> hurtig ekspertgennemgang med
+                                usability-heuristikker</li>
+                            <li><strong>Lighthouse:</strong> performance, accessibility, SEO og best practices</li>
+                        </ul>
+
+                        <h3>Hvorfor test er vigtigt</h3>
+                        <p>
+                            Test gør det muligt at forbedre løsningen ud fra observationer og målinger
+                            (ikke kun mavefornemmelser) – og det gør processen lettere at forklare til eksamen.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <!-- OBS: Skift til dine egne test- og lighthouse screenshots -->
+                        <figure class="shot">
+                            <img src="images/05test1.webp" alt="Screenshot af testnoter og resultater">
+                            <img src="images/05lighthousemobile.webp" alt="Lighthouse mobile">
+                            <img src="images/05lighthousedesktop.webp" alt="Lighthouse desktop">
+                            <figcaption>Testresultater + Lighthouse mobile & desktop bruges til konkrete forbedringer.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+            17) PRÆSENTATION
+             ========================= -->
+
+        <section class="tema-section tema-block" id="tema05-praesentation" aria-labelledby="tema05-praesentation-title">
+            <div class="container">
+                <h2 id="tema05-praesentation-title">17) Præsentation — pitch & formidling</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Teori fra pensum</h3>
+                        <ul class="checklist">
+                            <li>Klar struktur: indledning → proces → løsning → konklusion</li>
+                            <li>Show & tell: vis proces og beslutninger</li>
+                            <li>Tidsstyring og prioritering af pointer</li>
+                        </ul>
+
+                        <h3>Præsentationen</h3>
+                        <p>
+                            Præsentationen samlede research, designvalg, indholdsproduktion og
+                            refleksioner i et overskueligt pitch.
+                            Fokus var på at forklare <strong>hvorfor</strong> løsningen ser ud, som den gør,
+                            ikke kun <em>hvordan</em>.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Resultat</h3>
+                        <figure class="shot">
+                            <img src="images/05præsentation3.webp" alt="Lighthouse desktop">
+                            <img src="images/05valgafvirksomhed.webp" alt="Screenshot af testnoter og resultater">
+                            <img src="images/05præsentation1.webp" alt="Screenshot af testnoter og resultater">
+                            <img src="images/05præsentation2.webp" alt="Lighthouse mobile">
+                        </figure>
+                        <p class="muted">
+                            Præsentationen gjorde processen tydelig og sammenhængende
+                            for både undervisere og medstuderende.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+           18) KONKLUSION & REFLEKSION
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-refleksion" aria-labelledby="ref-title">
+            <div class="container">
+                <h2 id="ref-title">18) Konklusion & refleksion</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Det vigtigste jeg lærte</h3>
+                        <ul class="bullets">
+                            <li>God præproduktion giver bedre optagelser og lettere redigering</li>
+                            <li>Lyd er mindst lige så vigtig som billede for stemning</li>
+                            <li>Systematik (Trello + GitHub) skaber overblik og fremdrift</li>
+                            <li>Test giver et stærkere grundlag for forbedringer og argumentation</li>
+                        </ul>
+
+                        <h3>Refleksion over forløbet</h3>
+                        <p>
+                            Tema 05 var specielt, fordi vi skiftede grupper midt i forløbet.
+                            I redesign-delen gav det mig en læring i at håndtere et projekt under pres og sikre
+                            fremdrift,
+                            også når leverancer udebliver. Jeg er stolt af, at jeg kunne drive opgaven så langt i mål
+                            på kort tid – og samtidig bevare kvalitet og struktur i processen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           18) PRODUKTER / LINKS (SAMLET)
+           ========================= -->
+        <section class="tema-section tema-block" id="tema05-produkter" aria-labelledby="tema05-links">
+            <div class="container">
+                <h2 id="tema05-links">Produkter & links</h2>
+
+                <div class="link-grid">
+                    <a class="card-link" href="https://youtu.be/oq8WpailpBM" target="_blank" rel="noopener">
+                        <span class="card-title">“En lille historie” — video</span>
+                        <span class="card-meta">YouTube</span>
+                    </a>
+
+                    <a class="card-link"
+                        href="https://www.figma.com/board/36QHyEFjA9W5ExeELhsNWU/en-lille-historie?node-id=0-1&p=f&t=v60NLsN5VjpRy1MY-0"
+                        target="_blank" rel="noopener">
+                        <span class="card-title">Procesbilleder & plan</span>
+                        <span class="card-meta">Figma board</span>
+                    </a>
+
+                    <!-- =========================
+               TEMA 05 — REDESIGN (Gruppe 11)
+               ========================= -->
+
+                    <a class="card-link"
+                        href="https://www.figma.com/design/KSJ34XEF5ibWW3DHz2BQje/Virksomheds-Projekt-05?node-id=50-49&t=J5Zd15HiwCf5OtNN-1"
+                        target="_blank" rel="noopener">
+                        <span class="card-title">Teamkontrakt & proces (Gruppe 11)</span>
+                        <span class="card-meta">Figma</span>
+                    </a>
+
+                    <a class="card-link" href="https://github.com/ddop711/virkssomhedssite" target="_blank"
+                        rel="noopener">
+                        <span class="card-title">GitHub repository</span>
+                        <span class="card-meta">Versionsstyring</span>
+                    </a>
+
+                    <a class="card-link" href="https://ddop711.github.io/virkssomhedssite/index.html" target="_blank"
+                        rel="noopener">
+                        <span class="card-title">Færdig løsning (GitHub Pages)</span>
+                        <span class="card-meta">Live site</span>
+                    </a>
+
+                    <a class="card-link"
+                        href="https://docs.google.com/document/d/1-NbiOsp48ZjunXF0Qjm-Hf2JBXiu1g1Q-xToO9tDk2o/edit?usp=sharing"
+                        target="_blank" rel="noopener">
+                        <span class="card-title">Procesdokumentation</span>
+                        <span class="card-meta">Google Docs</span>
+                    </a>
+
+                    <a class="card-link"
+                        href="https://docs.google.com/presentation/d/1Z0ouUkNjVR2juuLGM0olct_ONrc9gVAgBRVujZcP6Jw/edit?usp=sharing"
+                        target="_blank" rel="noopener">
+                        <span class="card-title">Præsentation</span>
+                        <span class="card-meta">Google Slides</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="footer-text">© <span id="year"></span> Isabella Vest</p>
+            <a class="footer-link" href="kontakt.html">Kontakt</a>
+        </div>
+    </footer>
+
+    <script defer src="js/main.js"></script>
+</body>
+
+</html>

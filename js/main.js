@@ -1,10 +1,17 @@
-const header = document.querySelector("#siteHeader");
+/******* HEADER effekt fra transparent til synlig ved scroll ******/
+const header = document.getElementById("siteHeader");
 
-function onScroll() {
-  if (!header) return;
-  const scrolled = window.scrollY > 40;
-  header.classList.toggle("is-solid", scrolled);
+if (header) {
+  const toggleHeader = () => {
+    if (window.scrollY > 40) {
+      header.classList.remove("is-transparent");
+      header.classList.add("is-solid");
+    } else {
+      header.classList.add("is-transparent");
+      header.classList.remove("is-solid");
+    }
+  };
+
+  toggleHeader();
+  window.addEventListener("scroll", toggleHeader);
 }
-
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();

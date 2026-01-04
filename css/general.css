@@ -1,28 +1,133 @@
+/* =========================================================
+   BLOOM — general.css (Mobile-first)
+   Indeholder: tokens, reset/base, utilities, typografi helpers
+   ========================================================= */
+
+/* ---------- 1) Design tokens (variabler) ---------- */
 :root {
+  /* Farver */
+  --bg: #f6f3ea;
+  --surface: #fffdf7;
+  --text: #1b1b1b;
+  --muted: #555;
+  --green: #2f3f33;
+  --border: rgba(0, 0, 0, 0.12);
+
+  /* Form / skygge */
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  /* Layout */
+  --container: 1100px;
+
+  /* Typografi */
   --font-heading: "Italiana", serif;
   --font-body: "Inria Serif", serif;
+
+  /* Alias */
+  --card: var(--surface);
+  --accent: var(--green);
+}
+
+/* ---------- 2) Base / reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   font-family: var(--font-body);
-  font-size: 17.5px;
   line-height: 1.75;
   color: var(--text);
+  background: var(--bg);
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  letter-spacing: 0.03em;
+img,
+video {
+  max-width: 100%;
+  display: block;
 }
 
-.hero-title {
-  font-size: clamp(2.6rem, 6vw, 3.6rem);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.brand-text {
-  font-family: var(--font-heading);
+/* ---------- 3) Utilities ---------- */
+.container {
+  width: min(100% - 32px, var(--container));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link (tilgængelighed) */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ---------- 4) Magasin helpers ---------- */
+.kicker {
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.dropcap::first-letter {
+  font-size: 3.2rem;
+  line-height: 1;
+  float: left;
+  margin: 0.2rem 0.5rem 0 0;
+  font-weight: 600;
+}
+
+.pullquote {
+  margin: 1.2rem 0 0;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 1rem;
+  max-width: 60ch;
+  font-style: italic;
+}
+
+body {
+  padding-top: 72px; /* ca. header-højde (juster hvis din header er højere/lavere) */
+}
+
+.hero-video,
+.hero.hero--image {
+  margin-top: -72px;
+}
+
+/* Sikrer at Bloom-logoet altid bruger samme font som forsiden */
+.site-header .brand-text {
+  font-family: "Italiana", serif;
 }

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tema 2</title>
+
+    <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/burger.css" />
+    <link rel="stylesheet" href="css/tema.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="site-header is-transparent" id="siteHeader">
+
+        <div class="container header-inner">
+
+            <a class="brand" href="index.html" aria-label="Gå til forsiden">
+                <span class="brand-text">Bloom</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="sr-only">Åbn menu</span>
+                <span class="nav-toggle-lines" aria-hidden="true"></span>
+            </button>
+
+            <nav id="site-nav" class="site-nav" aria-label="Hovedmenu">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
+                    <li><a class="nav-link" href="projekter.html">Projekter</a></li>
+                    <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================
+       MAIN
+       ========================= -->
+
+    <main id="main">
+
+        <!-- HERO med billede (samme “format” som forsiden) -->
+        <section class="hero hero--image">
+            <!-- Skift billedet til dit tema02-hero -->
+            <img src="images/tema02-hero.webp"
+                alt="Billede der symboliserer grundlæggende web: struktur, layout og designprincipper"
+                class="hero__image" />
+
+            <div class="hero__overlay" aria-hidden="true"></div>
+
+            <div class="container hero__content">
+                <p class="kicker">Tema 02 · Grundlæggende Web</p>
+
+                <h1 class="hero-title">Pensum & studiestartsprøve</h1>
+
+                <p class="hero-lead">
+                    Her samler jeg mit pensum fra Tema 02 og min studiestartsprøve, så det er tydeligt, hvordan jeg
+                    forstår teorien og anvender den i praksis.
+                </p>
+            </div>
+        </section>
+
+        <!-- =========================
+           TEMA 02 — INTRO
+           ========================= -->
+        <section class="tema-section tema-intro" aria-labelledby="tema02-intro">
+            <div class="container">
+                <h2 id="tema02-intro">Overblik: Hvad handler Tema 02 om?</h2>
+
+                <p class="tema-lead">
+                    Tema 02 introducerer mig til grundlæggende webudvikling og webdesign. Fokus er at kunne bygge et
+                    website fra bunden med korrekt HTML-struktur, CSS styling/layout og en mobile-first tilgang — samt
+                    kunne analysere design med korrekt fagsprog.
+                </p>
+
+                <div class="tema-links">
+                    <a class="btn" href="https://isabellavest.github.io/website2/index.html" target="_blank"
+                        rel="noopener">
+                        Se mit færdige website (Tema 02)
+                    </a>
+                    <a class="btn btn--ghost" href="#tema02-produkter">
+                        Se produkter & links
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           PROCES-OVERBLIK
+           ========================= -->
+        <section class="tema-section tema-overview" aria-labelledby="tema02-overblik">
+            <div class="container">
+                <h2 id="tema02-overblik">Proces-overblik (progression)</h2>
+
+                <ol class="process-steps">
+                    <li>
+                        <h3>1) HTML-struktur</h3>
+                        <p>Semantisk HTML + ens struktur på 5 sider (header/nav/main/footer).</p>
+                    </li>
+                    <li>
+                        <h3>2) Mobile-first CSS</h3>
+                        <p>Én CSS-fil, reset, farver + 2 fonte, spacing med margin/padding.</p>
+                    </li>
+                    <li>
+                        <h3>3) Layout & responsivitet</h3>
+                        <p>Media queries + Grid/Flex → fra mobil til desktop.</p>
+                    </li>
+                    <li>
+                        <h3>4) Designanalyse</h3>
+                        <p>Gestaltlove, hierarki, typografi, farver og stiløvelser (interface audit + style tile).</p>
+                    </li>
+                    <li>
+                        <h3>5) Samlet studiestartsprøve</h3>
+                        <p>Et færdigt site der viser teori + praksis i én løsning (validering, struktur, layout,
+                            design).</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- =========================
+           1) TEMA 02 — TEORI & TEKNIK
+           ========================= -->
+        <section class="tema-section tema-block" id="tema02-teori" aria-labelledby="tema02-teori-title">
+            <div class="container">
+                <h2 id="tema02-teori-title">1) Teknik: HTML, CSS og mobile-first</h2>
+
+                <p class="tema-lead">
+                    I Tema 02 lærte jeg at bygge et website fra bunden. Jeg arbejdede med HTML som struktur og CSS som
+                    styling og layout — og jeg kodede mobile-first, så indhold prioriteres før dekoration.
+                </p>
+
+                <div class="two-col">
+
+                    <div>
+                        <h3>HTML (struktur & semantik)</h3>
+                        <ul class="checklist">
+                            <li>HTML er et markup-sprog der beskriver struktur og indhold</li>
+                            <li>Semantiske tags: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+                                <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>
+                            </li>
+                            <li>Fordele: bedre tilgængelighed, bedre SEO og lettere kodeforståelse</li>
+                        </ul>
+
+                        <h3>CSS (styling & layout)</h3>
+                        <ul class="checklist">
+                            <li>CSS styrer layout, farver, fonte, spacing og responsivitet</li>
+                            <li>Reset for ens udgangspunkt på tværs af browsere</li>
+                            <li>Box model: content, padding, border, margin</li>
+                            <li>Specificity, kaskade og nedarvning</li>
+                        </ul>
+
+                        <h3>Mobile-first</h3>
+                        <ul class="bullets">
+                            <li>Jeg designer og koder først til mobil</li>
+                            <li>Desktop kommer senere via breakpoints/media queries</li>
+                            <li>Giver tydeligere struktur, bedre performance og stærkere UX</li>
+                        </ul>
+
+                        <p class="muted">
+                            Note: Alle sider havde <code>&lt;meta name="robots" content="noindex"&gt;</code>, så de ikke
+                            indekseres.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation (valgfrit)</h3>
+                        <figure class="shot">
+                            <!-- Tilføj screenshots, hvis du vil (ellers slet figure) -->
+                            <img src="images/02indexmobil.webp" alt="Mobilsite index">
+                            <img src="images/02komponentermobil.webp" alt="Mobilsite komponenter">
+                            <figcaption>Eksempler på mobilsite fra Tema 02.</figcaption>
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           2) LAYOUT: FLEX/GRID/MQ
+           ========================= -->
+        <section class="tema-section tema-block" id="tema02-layout" aria-labelledby="tema02-layout-title">
+            <div class="container">
+                <h2 id="tema02-layout-title">2) Layout: Flexbox, Grid og media queries</h2>
+
+                <div class="two-col">
+
+                    <div>
+                        <h3>Flexbox (1-dimensionelt)</h3>
+                        <p>
+                            Flexbox bruges til layout i én retning (række eller kolonne). Det er godt til navigation,
+                            cards i en række og simple layouts.
+                        </p>
+
+                        <h3>Grid (2-dimensionelt)</h3>
+                        <p>
+                            Grid bruges til layouts med både rækker og kolonner. I Tema 02 brugte jeg især Grid til at
+                            følge layoutdiagrammer og lave stabile desktop-layouts.
+                        </p>
+
+                        <h3>Responsivt design (media queries)</h3>
+                        <ul class="checklist">
+                            <li>Jeg brugte breakpoints til at tilpasse layout fra mobil → desktop</li>
+                            <li>Ved større skærme skifter layout typisk til grid/kolonner</li>
+                            <li>Fokus på læsbarhed, luft og tydeligt hierarki</li>
+                        </ul>
+
+                        <p class="muted">
+                            I layout-arbejdet lærte jeg også, at grid-classes kan genbruges (fx <code>.grid_1-1</code>)
+                            i stedet for at blive skrevet flere gange.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           3) PERFORMANCE: FONTE/BILLEDER/RETTIGHEDER
+           ========================= -->
+        <section class="tema-section tema-block" id="tema02-performance" aria-labelledby="tema02-performance-title">
+            <div class="container">
+                <h2 id="tema02-performance-title">3) Webfonte, billeder og performance</h2>
+
+                <div class="two-col">
+
+                    <div>
+                        <h3>Webfonte</h3>
+                        <ul class="checklist">
+                            <li>Man kan ikke regne med, at brugeren har samme fonte installeret</li>
+                            <li>Google Fonts eller self-hostede fonte</li>
+                            <li>WOFF2 er optimeret til web (TTF → WOFF2)</li>
+                        </ul>
+
+                        <h3>Billeder & filformater</h3>
+                        <ul class="bullets">
+                            <li><strong>JPG:</strong> fotos</li>
+                            <li><strong>PNG:</strong> transparens</li>
+                            <li><strong>SVG:</strong> vektor (skarpt i alle størrelser)</li>
+                            <li><strong>WEBP:</strong> god performance og kvalitet</li>
+                        </ul>
+
+                        <h3>Brugsrettigheder & metadata</h3>
+                        <p>
+                            Jeg lærte, at ophavsret opstår automatisk, og at man skal tjekke licens/brugsrettigheder.
+                            Metadata kan hjælpe (CopyrightNotice/Rights/UsageTerms), men man skal altid dobbelttjekke
+                            kilden.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation (valgfrit)</h3>
+                        <figure class="shot">
+                            <img src="images/02index.webp" alt="Oversigt over billedformater og performance">
+                            <img src="images/02mincomputer.webp" alt="Oversigt over billedformater og performance">
+                            <img src="images/02operativsystemer.webp" alt="Oversigt over billedformater og performance">
+                            <img src="images/02komponenter.webp" alt="Oversigt over billedformater og performance">
+                            <img src="images/02galleri.webp" alt="Oversigt over billedformater og performance">
+                            <figcaption>Dokumentation af studiestartsprøven</figcaption>
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           4) DESIGN & ANALYSE
+           ========================= -->
+        <section class="tema-section tema-block" id="tema02-design" aria-labelledby="tema02-design-title">
+            <div class="container">
+                <h2 id="tema02-design-title">4) Design & analyse: gestalt, hierarki, typografi og farver</h2>
+
+                <p class="tema-lead">
+                    Udover kodning arbejdede jeg med at kunne analysere design og forklare valg med korrekt fagsprog.
+                    Det gjorde jeg gennem interface audits og stiløvelser (style tiles).
+                </p>
+
+                <div class="two-col">
+
+                    <div>
+                        <h3>Gestaltlove</h3>
+                        <ul class="checklist">
+                            <li><strong>Nærhed:</strong> elementer tæt på hinanden opfattes som relaterede</li>
+                            <li><strong>Lighed:</strong> samme farve/form/stil skaber sammenhæng</li>
+                            <li><strong>Kontinuitet:</strong> øjet følger linjer og retninger</li>
+                            <li><strong>Lukkethed:</strong> hjernen udfylder manglende dele</li>
+                            <li><strong>Figur/baggrund:</strong> vi skelner mellem forgrund og baggrund</li>
+                        </ul>
+
+                        <h3>Visuelt hierarki</h3>
+                        <ul class="bullets">
+                            <li>Størrelse, placering, kontrast og typografi guider brugerens blik</li>
+                            <li>H1 → underoverskrift → brødtekst skaber naturlig læseretning</li>
+                        </ul>
+
+                        <h3>Typografi (readability & opsætning)</h3>
+                        <ul class="bullets">
+                            <li>45–65 tegn pr. linje (tommelfingerregel)</li>
+                            <li>Line-height/leading for ro og læsbarhed</li>
+                            <li>Kerning/tracking påvirker tekstens “luft”</li>
+                        </ul>
+
+                        <h3>Farver & kontraster</h3>
+                        <p>
+                            Jeg arbejdede med farveharmoni og kontrast for overblik, usability og accessibility
+                            (fx komplementær, monokromatisk, mætning og varme/kulde).
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation (valgfrit)</h3>
+                        <figure class="shot">
+                            <img src="images/02styletile.webp" alt="Style tile fra Tema 02 med farver og typografi">
+                            <figcaption>Style tile: farver, fonte og UI-elementer samlet i ét visuelt overblik.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           5) STUDIESTARTSPRØVEN / AFLEVERINGER
+           ========================= -->
+        <section class="tema-section tema-block" id="tema02-afleveringer" aria-labelledby="tema02-afleveringer-title">
+            <div class="container">
+                <h2 id="tema02-afleveringer-title">5) Studiestartsprøven: afleveringer og progression</h2>
+
+                <p class="tema-lead">
+                    Studiestartsprøven blev udviklet i flere trin. Mine afleveringer viser en tydelig progression:
+                    fra HTML-struktur → mobile-first styling → responsivt layout til desktop.
+                </p>
+
+                <div class="two-col">
+
+                    <div>
+                        <h3>Afleveringer (kort)</h3>
+                        <ul class="bullets">
+                            <li><strong>Visitkortøvelse:</strong> grundlæggende HTML + publicering via GitHub Pages</li>
+                            <li><strong>Sæt indhold i HTML:</strong> 5 sider, semantik og korrekt indholdsrækkefølge
+                                uden CSS</li>
+                            <li><strong>Mobilsite:</strong> én CSS-fil + reset + farver + 2 fonte + spacing
+                                (mobile-first)</li>
+                            <li><strong>Website_v1 / Website:</strong> responsivt design, grid, media queries, to
+                                CSS-filer (styling/layout)</li>
+                            <li><strong>Stiløvelser:</strong> mini interface audit + style tile
+                                (gestalt/hierarki/typografi)</li>
+                        </ul>
+
+                        <h3>Samlet eksamenskonklusion</h3>
+                        <p>
+                            Mine afleveringer viser en tydelig progression fra HTML-struktur til mobile-first CSS og
+                            videre til responsivt webdesign. Samtidig har jeg arbejdet analytisk med designprincipper,
+                            gestaltlove, typografi og visuel hierarki — så jeg både kan forklare teorien og vise den i
+                            praksis.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation (valgfrit)</h3>
+                        <figure class="shot">
+                            <img src="images/02visitkort.webp" alt="Screenshot af mobilsitet fra Tema 02">
+                            <figcaption>Visitkort.</figcaption>
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/02sætihtml.webp" alt="Screenshot af desktop-version fra Tema 02">
+                            <figcaption>Sæt indhold ind i html</figcaption>
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/02css.webp" alt="Screenshot af desktop-version fra Tema 02">
+                            <figcaption>CSS design</figcaption>
+                        </figure>
+
+                        <figure class="shot">
+                            <img src="images/02layoutcss.webp" alt="Screenshot af desktop-version fra Tema 02">
+                            <figcaption>Fra mobilsite til desktop: samme indhold, men layout tilpasset med Grid og media
+                                queries.</figcaption>
+                        </figure>
+
+                        <figure class="shot">
+                            <img src="images/02northface1.webp" alt="Screenshot af desktop-version fra Tema 02">
+                            <figcaption>Stiløvelser: mini interface audit + style tile (gestalt/hierarki/typografi)
+                            </figcaption>
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/02northfaceWF.webp" alt="Screenshot af desktop-version fra Tema 02">
+                            <figcaption>Stiløvelser: mini interface audit + style tile (gestalt/hierarki/typografi)
+                            </figcaption>
+                        </figure>
+
+                        <figure class="shot">
+                            <img src="images/02northfavestyletile.webp" alt="Screenshot af desktop-version fra Tema 02">
+                            <figcaption>Stiløvelser: mini interface audit + style tile (gestalt/hierarki/typografi)
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+           PRODUKTER / LINKS (samlet)
+           ========================= -->
+        <section class="tema-section tema-block" id="tema02-produkter" aria-labelledby="tema02-links">
+            <div class="container">
+                <h2 id="tema02-links">Produkter & links</h2>
+
+                <div class="link-grid">
+                    <a class="card-link" href="https://isabellavest.github.io/visitkort/" target="_blank"
+                        rel="noopener">
+                        <span class="card-title">Visitkortøvelse</span>
+                        <span class="card-meta">GitHub Pages</span>
+                    </a>
+
+                    <a class="card-link"
+                        href="https://www.figma.com/design/kCwsq1OAijOuR2xQXcTpG2/The-North-Face-analyse?node-id=0-1&t=buVvTht4xFXsNHXj-1"
+                        target="_blank" rel="noopener">
+                        <span class="card-title">Stiløvelse af The North Face</span>
+                        <span class="card-meta">Figma</span>
+                    </a>
+
+                    <a class="card-link"
+                        href="https://www.figma.com/design/Q8r7eU8zyyTAkq3iM4U0Bm/WF-The-North-Face?node-id=0-1&t=he4LKDL9nY2Yg8wa-1"
+                        target="_blank" rel="noopener">
+                        <span class="card-title">Stiløvelse: Wireframe & styletile for The North Face</span>
+                        <span class="card-meta">Figma</span>
+                    </a>
+
+                    <a class="card-link" href="https://isabellavest.github.io/Mobilsite1/index.html" target="_blank"
+                        rel="noopener">
+                        <span class="card-title">Mobilsite</span>
+                        <span class="card-meta">GitHub Pages</span>
+                    </a>
+
+                    <a class="card-link" href="https://isabellavest.github.io/website2/index.html" target="_blank"
+                        rel="noopener">
+                        <span class="card-title">Website (responsivt)</span>
+                        <span class="card-meta">GitHub Pages</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer" id="kontakt">
+        <div class="container footer-inner">
+            <p class="footer-text">© <span id="year"></span> Isabella Vest</p>
+            <a class="footer-link" href="kontakt.html">Kontakt</a>
+        </div>
+    </footer>
+
+    <script defer src="js/main.js"></script>
+</body>
+
+</html>

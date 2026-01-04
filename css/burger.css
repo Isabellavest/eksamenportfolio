@@ -1,0 +1,94 @@
+/* =========================================================
+   BLOOM — burger.css (Mobile-first)
+   Indeholder: burger-knap + dropdown nav (mobil)
+   ========================================================= */
+
+/* Burger-knap (mobil) */
+.nav-toggle {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+/* Burger-linjer */
+.nav-toggle-lines {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+}
+
+.nav-toggle-lines::before,
+.nav-toggle-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+}
+
+.nav-toggle-lines::before {
+  top: -7px;
+}
+
+.nav-toggle-lines::after {
+  top: 7px;
+}
+
+/* Dropdown menu (mobil) */
+.site-nav {
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 62px;
+  width: min(260px, calc(100% - 32px));
+  padding: 10px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.site-nav.is-open {
+  display: block;
+}
+
+/* Når header er transparent på hero (hvid burger) */
+.site-header.is-transparent .nav-toggle {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.site-header.is-transparent .nav-toggle-lines,
+.site-header.is-transparent .nav-toggle-lines::before,
+.site-header.is-transparent .nav-toggle-lines::after {
+  background: var(--bg);
+}
+
+/* Desktop: burger væk + menu normal */
+@media (min-width: 840px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+    position: static;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+  }
+}

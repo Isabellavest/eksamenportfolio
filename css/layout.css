@@ -1,0 +1,127 @@
+/* =========================================================
+   BLOOM — layout.css (Mobile-first)
+   Indeholder: grids + breakpoints (layout only)
+   ========================================================= */
+
+/* Shared grid helper */
+.grid_1-1 {
+  display: grid; /* mobil: stack */
+  gap: 24px;
+  align-items: start;
+}
+
+/* Shared grid helper */
+.grid_1-1 {
+  display: grid; /* mobil: stack */
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---------- ABOUT: Focus grid (SPREAD 2) ---------- */
+.focus-grid {
+  display: grid; /* mobil: stack */
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---------- Desktop layout rules ---------- */
+@media (min-width: 840px) {
+  /* grid_1-1 bliver 2 kolonner */
+  .grid_1-1 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* About hero content lidt mere luft */
+  .about-hero__content,
+  .about_hero_text {
+    left: 2rem;
+    bottom: 3rem;
+  }
+
+  /* About intro billede “magasin forskydning” */
+  .about_intro_img {
+    transform: translateY(-12px);
+  }
+  .about_intro_img img {
+    height: 620px;
+  }
+
+  /* ABOUT: Focus (SPREAD 2) — tekst venstre, billede højre */
+  .focus-grid {
+    grid-template-columns: 1fr 1fr; /* 2 kolonner på desktop */
+    align-items: center;
+  }
+
+  /* Vender rækkefølgen ift. spread 1 */
+  .focus-left {
+    order: 1; /* tekst venstre */
+  }
+  .focus-right {
+    order: 2; /* billede højre */
+  }
+
+  /* Samme billed-højde som første spread (match) */
+  .focus-photo img {
+    height: 620px; /* matcher din about_intro_img img på desktop */
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Projekter: chapters “spread” */
+  .chapter__link {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+  }
+
+  .chapter__text {
+    padding: 1.8rem 1.8rem 1.5rem;
+    align-content: center;
+  }
+
+  .chapter__media img {
+    height: 100%;
+    min-height: 340px;
+  }
+
+  /* Zig-zag: hver 2. vender om */
+  .chapter:nth-of-type(even) .chapter__link {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+  .chapter:nth-of-type(even) .chapter__text {
+    order: 2;
+  }
+  .chapter:nth-of-type(even) .chapter__media {
+    order: 1;
+  }
+
+  /* About “fokus-billede” større */
+  .about_img img {
+    height: 680px;
+  }
+}
+
+@media (min-width: 900px) {
+  /* CV: 2 kolonner */
+  .cv__grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 32px;
+  }
+
+  .cv__side {
+    position: sticky;
+    top: 110px;
+    align-self: start;
+  }
+
+  /* Projekt-side: sidebar + content */
+  .project-grid {
+    grid-template-columns: 0.85fr 1.6fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .project-aside {
+    position: sticky;
+    top: 90px;
+  }
+}

@@ -1,193 +1,120 @@
 /* =========================================================
-   BLOOM — CLEAN (mobile-first)
-   Mål: samme design, færre gentagelser, nemt at forklare.
+   BLOOM — style.css (Mobile-first)
+   Indeholder: komponenter / styling (ikke layout-breakpoints)
+   Fokus: genbrug, færre gentagelser, nemt at forklare.
    ========================================================= */
 
-/* ---------- 1) Design tokens (variabler) ---------- */
-:root {
-  /* Farver */
-  --bg: #f6f3ea; /* sidebaggrund */
-  --surface: #fffdf7; /* “papir/kort” */
-  --text: #1b1b1b; /* primær tekst */
-  --muted: #555; /* sekundær tekst */
-  --green: #2f3f33; /* accent/primær grøn */
-  --border: rgba(0, 0, 0, 0.12); /* diskret kant */
-
-  /* Form / skygge */
-  --radius: 18px; /* runde hjørner */
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* soft shadow */
-
-  /* Layout */
-  --container: 1100px; /* max indholds-bredde */
-
-  /* Typografi */
-  --font-heading: "Italiana", serif; /* overskrifter */
-  --font-body: "Inria Serif", serif; /* brødtekst */
-
-  /* Alias (hvis gamle navne bruges et sted) */
-  --card: var(--surface);
-  --accent: var(--green);
-}
-
-/* ---------- 2) Base / reset ---------- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* forudsigelig box-model */
-}
-
-html:focus-within {
-  scroll-behavior: smooth; /* blød scroll ved fokus/anker */
-}
-
-body {
-  margin: 0; /* fjerner default margin */
-  font-family: var(--font-body); /* body-font */
-  line-height: 1.75; /* læsbarhed */
-  color: var(--text); /* tekstfarve */
-  background: var(--bg); /* baggrund */
-}
-
-img,
-video {
-  max-width: 100%; /* bryder ikke layout */
-  display: block; /* fjerner inline-gap */
-}
-
-a {
-  color: inherit; /* links arver farve */
-  text-decoration: none; /* ingen underline default */
-}
-
-/* ---------- 3) Utilities ---------- */
-.container {
-  width: min(100% - 32px, var(--container)); /* padding + max bredde */
-  margin-inline: auto; /* centrer */
-}
-
-.sr-only {
-  position: absolute; /* skjult men tilgængelig for screenreaders */
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.skip-link {
-  position: absolute; /* skip link til keyboard */
-  left: 12px;
-  top: 12px;
-  padding: 10px 12px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transform: translateY(-200%);
-}
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-/* ---------- 4) Reusable “magasin” helpers ---------- */
-
-/* Små caps label (“CHAPTERS”, “ABOUT”, “INTRODUCING” osv.) */
-.kicker {
-  margin: 0 0 0.4rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  opacity: 0.75;
-}
-
-/* Drop cap på første bogstav i et afsnit */
-.dropcap::first-letter {
-  font-size: 3.2rem;
-  line-height: 1;
-  float: left;
-  margin: 0.2rem 0.5rem 0 0;
-  font-weight: 600;
-}
-
-/* Pull quote (magasin-citat) */
-.pullquote {
-  margin: 1.2rem 0 0;
-  padding: 1rem 1.1rem;
-  border-left: 3px solid rgba(0, 0, 0, 0.22);
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 1rem;
-  max-width: 60ch;
-  font-style: italic;
-}
-
-/* “Card/papir” container */
+/* =========================================================
+   1) KORT / CARD (genbrugelig “glas”-boks)
+   ========================================================= */
 .card {
+  /* Let transparent hvid for “soft card”-look */
   background: rgba(255, 255, 255, 0.35);
+
+  /* Diskret kant + runde hjørner fra dine tokens */
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
-/* ---------- 5) Buttons ---------- */
+/* =========================================================
+   2) KNAPPER (CTA)
+   ========================================================= */
 .btn {
-  display: inline-flex; /* knap kan have ikon + tekst */
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  /* Inline-flex: gør knappen til en fleksibel “pill” der kan holde ikon + tekst */
+  display: inline-flex;
+  align-items: center; /* centrerer lodret */
+  justify-content: center; /* centrerer vandret */
+  gap: 8px; /* luft mellem evt. ikon og tekst */
 
+  /* Komfortabel klikflade (mobile-first) */
   padding: 12px 14px;
+
+  /* 999px = “pill” (helt runde ender) */
   border-radius: 999px;
 
+  /* Primær farveknap */
   border: 1px solid var(--green);
   background: var(--green);
   color: var(--bg);
 
+  /* Gør tekst en smule tydeligere */
   font-weight: 600;
 }
 
+/* Ghost = samme knap, men transparent baggrund (sekundær CTA) */
 .btn-ghost {
   background: transparent;
   color: var(--green);
 }
 
-/* Samme knap, men bruges i about/projekter */
+/* “Soft button” bruges andre steder (alias beholdes for kompatibilitet) */
 .soft-btn,
 .soft_btn {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
+
+  /* fit-content: knappen fylder kun så meget som indholdet */
   width: fit-content;
 
   padding: 0.65rem 0.95rem;
   border-radius: 999px;
+
+  /* Lys “soft” stil */
   border: 1px solid rgba(0, 0, 0, 0.14);
   background: rgba(255, 255, 255, 0.55);
-  color: inherit;
+  color: inherit; /* tager farve fra parent (godt til mørk/lys baggrund) */
 }
 
+/* Fokus-styles til keyboard navigation (tilgængelighed) */
 .soft-btn:focus-visible,
 .soft_btn:focus-visible,
 .chapter__link:focus-visible,
 .site-nav a:focus-visible {
-  outline: 3px solid rgba(0, 0, 0, 0.25); /* tydelig keyboard-fokus */
+  outline: 3px solid rgba(0, 0, 0, 0.25);
   outline-offset: 4px;
 }
 
-/* ---------- 6) Header / nav (mobile-first) ---------- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+/* =========================================================
+   3) HEADER + NAV (global menu)
+   Mål: Transparent på hero, solid ved scroll (styres af JS)
+   ========================================================= */
+/* =========================================================
+   HEADER + NAV (fixed overlay)
+   Mål:
+   - Transparent ovenpå hero (smukt)
+   - Solid ved scroll (læsbarhed)
+   - Ingen “pink flash” ved transition
+   ========================================================= */
 
-  background: rgba(246, 243, 234, 0.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+.site-header {
+  /* Fixed gør at headeren kan “ligge ovenpå” hero */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /* Sørger for at den altid ligger over hero/video */
+  z-index: 60;
+
+  /* Start: usynlig kant (bliver synlig i solid state) */
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+
+  /* VIGTIGT:
+     Brug background-color (ikke background) for stabil transition
+     og undgå at animere backdrop-filter (kan glitch’e/pinke) */
+  background-color: rgba(246, 243, 234, 0);
+
+  transition: background-color 250ms ease, border-color 250ms ease;
 }
 
 .header-inner {
+  /* Flex: logo til venstre, menu/hamburger til højre */
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  /* Luft i headeren */
   padding: 14px 0;
   gap: 12px;
 }
@@ -196,103 +123,142 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+
+  /* Lidt “branding weight” */
   font-weight: 650;
   letter-spacing: 0.2px;
 }
+
 .brand-text {
   font-size: 1.05rem;
 }
 
-/* Burger-knap (mobil) */
-.nav-toggle {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  border-radius: 14px;
-  padding: 10px 12px;
-  cursor: pointer;
-}
-
-/* Burger-linjer */
-.nav-toggle-lines {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text);
-  position: relative;
-}
-.nav-toggle-lines::before,
-.nav-toggle-lines::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 22px;
-  height: 2px;
-  background: var(--text);
-}
-.nav-toggle-lines::before {
-  top: -7px;
-}
-.nav-toggle-lines::after {
-  top: 7px;
-}
-
-/* Dropdown menu (mobil) */
-.site-nav {
-  display: none;
-  position: absolute;
-  right: 16px;
-  top: 62px;
-  width: min(260px, calc(100% - 32px));
-  padding: 10px;
-
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.site-nav.is-open {
-  display: block;
-}
-
+/* Nav-liste (mobil dropdown styres i burger.css) */
 .nav-list {
-  list-style: none;
+  list-style: none; /* fjerner bullets */
   margin: 0;
   padding: 0;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* mobil: menu i kolonne */
   gap: 6px;
 }
 
 .nav-link {
-  display: block;
+  display: block; /* gør hele området klikbart */
   padding: 10px 12px;
   border-radius: 14px;
-}
-.nav-link.is-active {
-  font-weight: 600; /* aktiv markering uden “glow” */
+
+  /* Nav-tekst i din heading-font for “Magasin look” */
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
 }
 
-/* ---------- 7) Hero (video) ---------- */
+.nav-link.is-active {
+  font-weight: 600; /* markerer aktiv side */
+}
+
+/* --- Header state: TRANSPARENT (på hero / øverst på siden) --- */
+.site-header.is-transparent {
+  /* 0 opacity = gennemsigtig uden rendering-glitch */
+  background-color: rgba(246, 243, 234, 0);
+
+  /* ingen kant synlig */
+  border-color: rgba(0, 0, 0, 0);
+
+  /* ingen blur i toppen */
+  backdrop-filter: none;
+
+  /* Tynd, elegant streg over hero (magasin-look) */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* På hero: hvid tekst så menuen er synlig */
+.site-header.is-transparent .brand-text,
+.site-header.is-transparent .nav-link {
+  color: var(--bg);
+}
+
+/* --- Header state: SOLID (når du scroller ned) --- */
+.site-header.is-solid {
+  /* lys “glass” baggrund */
+  background-color: rgba(246, 243, 234, 0.92);
+
+  /* blur på baggrunden (skifter “instant”, men ser smooth ud pga. farvefade) */
+  backdrop-filter: blur(10px);
+
+  /* diskret kant */
+  border-color: var(--border);
+}
+
+/* På solid: mørk tekst for læsbarhed */
+.site-header.is-solid .brand-text,
+.site-header.is-solid .nav-link {
+  color: var(--text);
+}
+
+/* =========================
+   NAV LINK — Hover effect
+   ========================= */
+
+/* Grundstate */
+.nav-link {
+  position: relative; /* nødvendigt for ::after */
+  transition: opacity 200ms ease;
+}
+
+/* Underline (skjult som default) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+
+  height: 1px;
+  background: currentColor; /* matcher tekstfarven automatisk */
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+  opacity: 0.6;
+}
+
+/* Hover + keyboard focus */
+.nav-link:hover,
+.nav-link:focus-visible {
+  opacity: 0.85;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   4) HERO — VIDEO (forsiden)
+   ========================================================= */
 .hero-video {
   position: relative;
-  min-height: 90vh;
+  min-height: 90vh; /* “stor hero” men ikke altid 100vh */
   display: grid;
-  place-items: center;
+  place-items: center; /* centrerer hero-content i midten */
   overflow: hidden;
-  background: #000;
+  background: #000; /* fallback hvis video ikke loader */
 }
 
 .hero-video__media {
+  /* Video fylder hele heroen */
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1.02);
+  object-fit: cover; /* beskærer pænt uden at strække */
+  transform: scale(1.02); /* lille zoom = mere “cinematic” */
 }
 
 .hero-video__overlay {
+  /* Overlay gør tekst læsbar på video */
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -304,73 +270,97 @@ a {
 }
 
 .hero-video__content {
+  /* Tekst ovenpå video */
   position: relative;
   z-index: 2;
   color: var(--bg);
+
+  /* Plads til header + “magasin spacing” */
   padding: 90px 0 30px;
 }
 
+/* Hero-typografi (genbruges på image-hero via samme classes) */
 .hero-title {
   margin: 0 0 10px;
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-size: clamp(2rem, 6vw, 3.2rem); /* responsiv tekst */
   line-height: 1.05;
 }
 
 .hero-lead {
   margin: 0 0 16px;
-  max-width: 60ch;
-  color: rgba(246, 243, 234, 0.85);
+  max-width: 60ch; /* læsbar linjelængde */
+  color: rgba(246, 243, 234, 0.85); /* lidt blødere end ren hvid */
 }
 
 .hero-actions {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* knapper må gerne hoppe ned på små skærme */
   margin-bottom: 14px;
 }
 
-/* Header states (JS styrer om header er transparent på hero) */
-.site-header.is-transparent {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 60;
-  background: transparent;
-  backdrop-filter: none;
+/* =========================================================
+   5) HERO — IMAGE (alle andre sider)
+   Mål: samme look/placering som video-hero.
+   HTML-struktur:
+   <section class="hero hero--image">
+     <img class="hero__image">
+     <div class="hero__overlay"></div>
+     <div class="container hero__content"> ... (hero-title etc.) ...
+   </section>
+   ========================================================= */
+.hero.hero--image {
+  position: relative;
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #000; /* fallback */
 }
-.site-header.is-transparent .brand-text,
-.site-header.is-transparent .nav-link {
+
+.hero__image {
+  /* Billedet fylder hele hero */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__overlay {
+  /* Overlay for læsbarhed (samme idé som video) */
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.hero.hero--image .hero__content {
+  /* Content ovenpå billedet */
+  position: relative;
+  z-index: 2;
   color: var(--bg);
-}
-.site-header.is-transparent .nav-toggle {
-  background: rgba(0, 0, 0, 0.25);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-.site-header.is-transparent .nav-toggle-lines,
-.site-header.is-transparent .nav-toggle-lines::before,
-.site-header.is-transparent .nav-toggle-lines::after {
-  background: var(--bg);
+
+  /* Match præcis video-hero spacing */
+  padding: 90px 0 30px;
 }
 
-.site-header.is-solid {
-  background: rgba(246, 243, 234, 0.92);
-  backdrop-filter: blur(10px);
-}
-
-/* ---------- 8) Shared grid helper ---------- */
-.grid_1-1 {
-  display: grid; /* mobil: stack */
-  gap: 24px; /* luft */
-  align-items: start; /* top-align */
-}
-
-/* fjerner default figure-margin når figure bruges i grid */
+/* =========================================================
+   6) SHARED HELPERS (små resets)
+   ========================================================= */
 .grid_1-1 figure,
 .grid_2-1 figure {
-  margin: 0;
+  margin: 0; /* fjerner default figure-margin så layout ikke “hopper” */
 }
 
-/* ---------- 9) PROJECTS — Chapters (simple) ---------- */
+/* =========================================================
+   7) PROJECTS — Chapters (projekter.html)
+   ========================================================= */
 .chapters {
   padding: 3.5rem 1.25rem;
   max-width: var(--container);
@@ -394,7 +384,6 @@ a {
   opacity: 0.85;
 }
 
-/* Chapter card */
 .chapter {
   margin-top: 1.25rem;
 }
@@ -410,6 +399,7 @@ a {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
+
 .chapter__link:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.26);
@@ -441,7 +431,6 @@ a {
   max-width: 62ch;
 }
 
-/* tags */
 .chapter__tags {
   list-style: none;
   padding: 0;
@@ -450,6 +439,7 @@ a {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
 .tag {
   font-size: 0.8rem;
   padding: 0.35rem 0.6rem;
@@ -466,19 +456,23 @@ a {
   display: block;
   transition: transform 220ms ease;
 }
+
 .chapter__link:hover .chapter__media img {
   transform: scale(1.03);
 }
 
-/* ---------- 10) ABOUT — One clean system (med alias) ---------- */
-/* Vi matcher både: .about-hero og .about_hero (så intet knækker) */
+/* =========================================================
+   8) ABOUT (om-mig.html)
+   Bemærk: du har både dash og underscore klasser (legacy).
+   Jeg bevarer dem for at intet går i stykker.
+   ========================================================= */
 .about,
 .about-page {
   max-width: var(--container);
   margin: 0 auto;
 }
 
-/* Hero (billede) */
+/* Hero på about (hvis du stadig bruger den gamle variant nogle steder) */
 .about-hero,
 .about_hero {
   position: relative;
@@ -487,7 +481,6 @@ a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Hero image */
 .about-hero__img,
 .about_hero_img {
   width: 100%;
@@ -495,7 +488,6 @@ a {
   object-fit: cover;
 }
 
-/* Hero overlay */
 .about-hero__overlay,
 .about_hero_overlay {
   position: absolute;
@@ -503,7 +495,6 @@ a {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.1));
 }
 
-/* Hero tekst */
 .about-hero__content,
 .about_hero_text {
   position: absolute;
@@ -512,7 +503,6 @@ a {
   color: #fff;
 }
 
-/* Hero titel */
 .about-hero__title,
 .hero_title {
   margin: 0;
@@ -521,28 +511,27 @@ a {
   line-height: 0.95;
 }
 
-/* Intro section (billede venstre, tekst højre) */
+/* Intro */
 .about_intro {
   padding: 3rem 1.25rem;
   gap: 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Billede-box */
 .about_intro_img {
   border-radius: 1.25rem;
   overflow: hidden;
   border: 1px solid var(--border);
   background: rgba(0, 0, 0, 0.03);
 }
+
 .about_intro_img img {
   width: 100%;
-  height: 520px;
+  height: 620px;
   object-fit: cover;
   object-position: center;
 }
 
-/* Tekst */
 .about_intro_text h2 {
   margin: 0 0 0.6rem;
   font-family: var(--font-heading);
@@ -550,18 +539,20 @@ a {
   font-size: clamp(1.8rem, 4vw, 2.4rem);
   line-height: 1.05;
 }
+
 .about_intro_text p {
   max-width: 60ch;
   opacity: 0.9;
 }
 
-/* Fokus sektion: genbrug samme billed-styles */
+/* Billedeblokke */
 .about_img {
   border-radius: 1.25rem;
   overflow: hidden;
   border: 1px solid var(--border);
   background: rgba(0, 0, 0, 0.03);
 }
+
 .about_img img {
   width: 100%;
   height: 520px;
@@ -569,7 +560,49 @@ a {
   object-position: center;
 }
 
-/* Fokusområder (liste) */
+/* ---------- ABOUT: Focus image (match intro image) ---------- */
+.focus-photo {
+  border-radius: 1.25rem; /* samme afrunding som intro-billedet */
+  overflow: hidden; /* klipper billedet indenfor rammen */
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.focus-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- ABOUT: Shared image card ---------- */
+.about_intro_img,
+.focus-photo {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.03);
+
+  /* VIGTIGT: samme størrelse */
+  max-width: 520px; /* styrer bredden */
+  width: 100%;
+}
+
+.about_intro_img img,
+.focus-photo img {
+  width: 100%;
+  height: 620px; /* ens højde */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/**** centrér billedet i kolonnen - begge billeder kommer til at “stå lige pænt” i hver kolonne: ***/
+.about_intro_img,
+.focus-photo {
+  margin-inline: auto;
+}
+
+/* Skills / process-lister */
 .skills {
   list-style: none;
   padding: 0;
@@ -577,6 +610,7 @@ a {
   display: grid;
   gap: 0.55rem;
 }
+
 .skills li,
 .skills__item {
   padding: 0.85rem 0.95rem;
@@ -585,7 +619,6 @@ a {
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* Process (simple liste variant) */
 .process_list {
   margin: 0;
   padding: 0;
@@ -593,12 +626,14 @@ a {
   display: grid;
   gap: 0.75rem;
 }
+
 .process_list li {
   padding: 1rem 1.1rem;
   border-radius: 1.25rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 0.35);
 }
+
 .process_list span {
   display: inline-block;
   min-width: 2.2rem;
@@ -607,7 +642,313 @@ a {
   opacity: 0.75;
 }
 
-/* ---------- 11) Footer ---------- */
+/* Caption under about intro image */
+.about_intro_media {
+  display: grid;
+  gap: 14px;
+}
+
+.about_intro_caption {
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  max-width: 95ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* =========================================================
+   9) CV (cv-sektion)
+   ========================================================= */
+.cv {
+  padding: 3.2rem 1.25rem;
+}
+
+.cv__grid {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.cv__side {
+  padding: 1.6rem;
+  border-radius: var(--radius);
+}
+
+.cv__name {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+}
+
+.cv__profile {
+  margin: 0.6rem 0 0;
+  max-width: 42ch;
+  opacity: 0.9;
+}
+
+.cv__rule {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 1.2rem 0;
+}
+
+.cv__list {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+  opacity: 0.9;
+}
+
+.cv__contact {
+  margin-top: 1.4rem;
+}
+
+.cv__contactLine {
+  margin: 0.2rem 0 0;
+  opacity: 0.9;
+}
+
+.cv__main {
+  display: grid;
+  gap: 2rem;
+}
+
+.cv__section {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1.2rem;
+}
+
+.cv__heading {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.cv__entry {
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cv__entryHead {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv__entryTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.cv__entryMeta {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 0.95rem;
+}
+
+.cv__entryText {
+  margin: 0;
+  max-width: 75ch;
+  opacity: 0.9;
+}
+
+.cv__bullets {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+  opacity: 0.9;
+}
+
+/* =========================================================
+   10) PROJECT PAGE (projektsider)
+   ========================================================= */
+.project-hero {
+  padding: 2.5rem 0 1.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.project-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.project-lead {
+  margin: 0.8rem 0 0;
+  max-width: 65ch;
+  opacity: 0.9;
+}
+
+.project-meta {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.meta-chip {
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.35);
+  font-size: 0.92rem;
+}
+
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.project-aside {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.aside-title {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+
+.aside-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.aside-link {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.aside-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.project-flow {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.step-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.35);
+  padding: 1rem 1.1rem;
+}
+
+.step-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: baseline;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.step-no {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}
+
+.step-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+
+.step-body {
+  padding-top: 0.8rem;
+}
+
+.step-body p {
+  margin: 0 0 0.9rem;
+  max-width: 70ch;
+  opacity: 0.9;
+}
+
+.step-media {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.step-media img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.step-media figcaption {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Farveprøver (visuelle chips til farvepalette) */
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.swatch {
+  /* CSS custom property: kan overrides inline pr. farve */
+  --swatch: #ddd;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.45rem 0.65rem;
+  border-radius: 999px;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.35);
+  font-size: 0.92rem;
+}
+
+/* Den lille farvecirkel i chippen */
+.swatch::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--swatch);
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   11) FOOTER
+   ========================================================= */
 .site-footer {
   padding: 28px 0;
   background: var(--green);
@@ -643,368 +984,4 @@ a {
   font-size: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 12px;
-}
-
-/* =========================================================
-   DESKTOP (samlet, så det er nemt at forklare)
-   ========================================================= */
-
-@media (min-width: 840px) {
-  /* Grid 1-1 bliver 2 kolonner på desktop */
-  .grid_1-1 {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* Desktop nav: burger væk, nav inline */
-  .nav-toggle {
-    display: none;
-  }
-
-  .site-nav {
-    display: block;
-    position: static;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    padding: 0;
-    width: auto;
-  }
-
-  .nav-list {
-    flex-direction: row;
-    align-items: center;
-    gap: 2px;
-  }
-
-  /* About hero tekst flyttes lidt (mere luft) */
-  .about-hero__content,
-  .about_hero_text {
-    left: 2rem;
-    bottom: 3rem;
-  }
-
-  /* About intro: billed-forskydning (magasin) */
-  .about_intro_img {
-    transform: translateY(-12px);
-  }
-  .about_intro_img img {
-    height: 620px;
-  }
-
-  /* Hvis du bruger en wrapper på fokus-sektionen: forskyd modsat */
-  .about_focus .about_img {
-    transform: translateY(14px);
-  }
-
-  /* Projekter: chapters bliver “spread” */
-  .chapter__link {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 0;
-  }
-  .chapter__text {
-    padding: 1.8rem 1.8rem 1.5rem;
-    align-content: center;
-  }
-  .chapter__media img {
-    height: 100%;
-    min-height: 340px;
-  }
-
-  /* Zig-zag: hver 2. vender om */
-  .chapter:nth-of-type(even) .chapter__link {
-    grid-template-columns: 0.9fr 1.1fr;
-  }
-  .chapter:nth-of-type(even) .chapter__text {
-    order: 2;
-  }
-  .chapter:nth-of-type(even) .chapter__media {
-    order: 1;
-  }
-
-  /* About “fokus-billede” større på desktop */
-  .about_img img {
-    height: 680px;
-  }
-}
-
-@media (min-width: 900px) {
-  /* Ekstra layout upgrades hvis du bruger dem */
-  .skills-list {
-    grid-template-columns: repeat(2, 1fr);
-  } /* hvis du bruger skills-list */
-  .featured {
-    grid-template-columns: 1.1fr 0.9fr;
-  } /* hvis du bruger featured */
-  .vision_grid {
-    grid-template-columns: 1.1fr 0.9fr;
-  } /* hvis du bruger vision_grid */
-}
-
-/* =========================
-   CV — Magazine grid section
-   Mobile-first
-   ========================= */
-
-.cv {
-  /* Luft omkring CV-sektionen */
-  padding: 3.2rem 1.25rem;
-}
-
-/* Grid wrapper: sidebar + main */
-.cv__grid {
-  display: grid; /* vi bruger grid (krav fra undervisning) */
-  gap: 24px; /* luft mellem kolonner/sektioner */
-  align-items: start; /* top-align så intet “hænger” */
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-/* Sidebar (venstre) */
-.cv__side {
-  padding: 1.6rem; /* luft i sidebar */
-  border-radius: var(--radius);
-}
-
-/* Navn / titel i sidebar */
-.cv__name {
-  margin: 0 0 1rem;
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.05;
-}
-
-/* Profiltekst */
-.cv__profile {
-  margin: 0.6rem 0 0;
-  max-width: 42ch; /* pæn linjelængde */
-  opacity: 0.9;
-}
-
-/* Divider i sidebar */
-.cv__rule {
-  border: 0; /* fjerner default hr look */
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-  margin: 1.2rem 0;
-}
-
-/* Lister i sidebar */
-.cv__list {
-  margin: 0.6rem 0 0;
-  padding-left: 1.1rem; /* plads til bullets */
-  display: grid;
-  gap: 0.4rem;
-  opacity: 0.9;
-}
-
-/* Kontaktblok */
-.cv__contact {
-  margin-top: 1.4rem;
-}
-
-.cv__contactLine {
-  margin: 0.2rem 0 0;
-  opacity: 0.9;
-}
-
-/* Højre content */
-.cv__main {
-  display: grid;
-  gap: 2rem; /* luft mellem Erfaring / Uddannelse */
-}
-
-/* Hver CV sektion */
-.cv__section {
-  border-top: 1px solid rgba(0, 0, 0, 0.1); /* magasin-linje */
-  padding-top: 1.2rem;
-}
-
-/* Overskrift (Erfaring/Uddannelse) */
-.cv__heading {
-  margin: 0 0 1rem;
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: 1.8rem;
-}
-
-/* Entry */
-.cv__entry {
-  padding: 1.1rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08); /* diskret skillelinje */
-}
-
-/* Entry header: titel + dato */
-.cv__entryHead {
-  display: grid;
-  gap: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.cv__entryTitle {
-  margin: 0;
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-}
-
-.cv__entryMeta {
-  margin: 0;
-  opacity: 0.75;
-  font-size: 0.95rem;
-}
-
-/* Entry text */
-.cv__entryText {
-  margin: 0;
-  max-width: 75ch; /* læsevenlig bredde */
-  opacity: 0.9;
-}
-
-/* Bullet-lister i uddannelse */
-.cv__bullets {
-  margin: 0.6rem 0 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.35rem;
-  opacity: 0.9;
-}
-
-/* Desktop: 2 kolonner (sidebar + main) */
-@media (min-width: 900px) {
-  .cv__grid {
-    grid-template-columns: 0.85fr 1.15fr; /* sidebar mindre end main */
-    gap: 32px;
-  }
-
-  .cv__side {
-    position: sticky; /* sidebar følger lidt med (magasin feel) */
-    top: 110px; /* plads til din sticky header */
-    align-self: start;
-  }
-}
-/* Wrapper til billede + tekst */
-.about_intro_media {
-  display: grid;
-  gap: 14px; /* luft mellem billede og tekst */
-}
-
-/* Billed-boks (som du allerede har) */
-.about_intro_img {
-  margin: 0;
-  overflow: hidden;
-}
-
-/* 👇 TEKSTEN – SELVSTÆNDIG BOKS */
-.about_intro_caption {
-  border-radius: 1rem;
-  padding: 1rem 1.1rem;
-  max-width: 95ch;
-
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* =========================
-   FOCUS (skills + photo)
-   Mobile-first
-   ========================= */
-
-/* Hele sektionen får luft + en rolig top-linje (magasin vibe) */
-.focus {
-  padding: 3rem 0; /* luft over/under sektionen */
-  border-top: 1px solid rgba(0, 0, 0, 0.08); /* subtil “magasin-linje” */
-}
-
-/* Grid wrapper: 1 kolonne på mobil, 2 på desktop */
-.focus-grid {
-  display: grid; /* aktiver grid */
-  gap: 2rem; /* afstand mellem kolonner/elementer */
-  align-items: start; /* top-align så intet “hænger” */
-}
-
-/* Desktop: 2 kolonner */
-@media (min-width: 840px) {
-  .focus-grid {
-    grid-template-columns: 1fr 1.1fr; /* billede får mere plads */
-  }
-}
-
-/* Venstre kolonne */
-.focus-title {
-  margin: 0.25rem 0 0.75rem; /* spacing omkring overskrift */
-  font-family: var(--font-heading); /* din “Italiana” */
-  font-weight: 400; /* let, magasin */
-  font-size: clamp(1.8rem, 3vw, 2.4rem); /* responsiv størrelse */
-}
-
-.focus-lead {
-  margin: 0 0 1.25rem; /* afstand før skills */
-  max-width: 62ch; /* pæn linjelængde */
-  opacity: 0.9; /* let afdæmpet */
-}
-
-/* Skills som “chips” i grid (mindre “tungt” end lange bokse) */
-.skill-chips {
-  list-style: none; /* fjern bullets */
-  padding: 0; /* reset */
-  margin: 0; /* reset */
-  display: grid; /* grid-liste */
-  gap: 0.7rem; /* luft mellem chips */
-}
-
-/* Desktop: 2 kolonner chips → kortere venstre side */
-@media (min-width: 840px) {
-  .skill-chips {
-    grid-template-columns: 1fr 1fr; /* 2 kolonner */
-  }
-}
-
-/* Selve “chippen” */
-.skill-chips li {
-  padding: 0.85rem 1rem; /* klik/luft */
-  border-radius: 999px; /* pille-form */
-  border: 1px solid rgba(0, 0, 0, 0.12); /* subtil kant */
-  background: rgba(255, 255, 255, 0.35); /* let papir-følelse */
-}
-
-/* Højre kolonne wrapper */
-.focus-right {
-  display: grid; /* billede + caption */
-  gap: 1rem; /* afstand mellem billede og tekstboks */
-}
-
-/* Foto-ramme */
-.focus-photo {
-  margin: 0; /* fjerner figure default margin */
-  border-radius: 1.25rem; /* runde hjørner */
-  overflow: hidden; /* klipper billedet til radius */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* ramme */
-  background: rgba(0, 0, 0, 0.03); /* fallback baggrund */
-}
-
-/* Billedet fylder pænt */
-.focus-photo img {
-  width: 100%; /* fyld container */
-  height: 520px; /* giver stabil højde */
-  object-fit: cover; /* cover uden at strække */
-  object-position: center; /* fokus midt */
-  display: block; /* fjerner inline-gap */
-}
-
-/* Desktop: lidt højere billede */
-@media (min-width: 840px) {
-  .focus-photo img {
-    height: 720px; /* mere presence på desktop */
-  }
-}
-
-/* Separat tekstboks under billedet (som du ønskede) */
-.focus-caption {
-  padding: 1rem 1.1rem; /* luft i boksen */
-  border-radius: 1.1rem; /* rund */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* kant */
-  background: rgba(255, 255, 255, 0.35); /* “papir” */
-  font-style: italic; /* editorial feel */
-  max-width: 55ch; /* læsbar linjelængde */
 }
