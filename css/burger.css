@@ -1,94 +1,176 @@
 /* =========================================================
    BLOOM — burger.css (Mobile-first)
-   Indeholder: burger-knap + dropdown nav (mobil)
+   Formål:
+   - Mobil: burger-knap + dropdown-menu
+   - Desktop: burger skjules, menu vises inline i header
    ========================================================= */
 
-/* Burger-knap (mobil) */
+/* ---------------------------------------------------------
+   1) Grund-setup: Sørg for at dropdown (position: absolute)
+      placerer sig i forhold til headerens indhold
+   --------------------------------------------------------- */
+.header-inner {
+  position: relative; /* gør header-inner til "reference" for absolut position */
+}
+
+/* ---------------------------------------------------------
+   2) Burger-knap (MOBIL)
+   --------------------------------------------------------- */
 .nav-toggle {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  border-radius: 14px;
-  padding: 10px 12px;
-  cursor: pointer;
+  border: 1px solid var(--border); /* diskret kant */
+  background: var(--surface); /* lys "papir" baggrund */
+  border-radius: 14px; /* bløde hjørner (Bloom look) */
+  padding: 10px 12px; /* klik-område (touch friendly) */
+  cursor: pointer; /* viser at knappen kan klikkes */
 }
 
-/* Burger-linjer */
+/* ---------------------------------------------------------
+   3) Burger-ikon: 3 linjer lavet med pseudo-elementer
+   --------------------------------------------------------- */
 .nav-toggle-lines {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text);
-  position: relative;
+  display: block; /* gør span til et "blok"-element */
+  width: 22px; /* længde på linjerne */
+  height: 2px; /* tykkelse på linjen */
+  background: var(--text); /* farve på linjen (mørk tekstfarve) */
+  position: relative; /* giver reference til ::before/::after */
 }
 
+/* De to ekstra linjer (top + bund) */
 .nav-toggle-lines::before,
 .nav-toggle-lines::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 22px;
-  height: 2px;
-  background: var(--text);
+  content: ""; /* nødvendigt for at pseudo-elementet vises */
+  position: absolute; /* placeres i forhold til .nav-toggle-lines */
+  left: 0; /* start fra venstre */
+  width: 22px; /* samme længde som midterlinjen */
+  height: 2px; /* samme tykkelse */
+  background: var(--text); /* samme farve */
 }
 
+/* Top-linje */
 .nav-toggle-lines::before {
-  top: -7px;
+  top: -7px; /* flyttes op, så vi får 3 linjer */
 }
 
+/* Bund-linje */
 .nav-toggle-lines::after {
-  top: 7px;
+  top: 7px; /* flyttes ned */
 }
 
-/* Dropdown menu (mobil) */
+/* ---------------------------------------------------------
+   4) Dropdown-menu (MOBIL)
+   - Skjult som standard
+   - Vises når JS toggler .is-open på .site-nav
+   --------------------------------------------------------- */
 .site-nav {
-  display: none;
-  position: absolute;
-  right: 16px;
-  top: 62px;
-  width: min(260px, calc(100% - 32px));
-  padding: 10px;
+  display: none; /* skjult indtil menuen åbnes */
 
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  position: absolute; /* dropdown ligger "ovenpå" layoutet */
+  right: 16px; /* afstand til højre side af header */
+  top: 62px; /* placering under headerens top (tilpas ved behov) */
+
+  width: min(
+    260px,
+    calc(100% - 32px)
+  ); /* max 260px, men altid med margin på små skærme */
+  padding: 10px; /* luft inde i dropdown */
+
+  background: var(--surface); /* lys card-baggrund */
+  border: 1px solid var(--border); /* kant */
+  border-radius: var(--radius); /* runde hjørner */
+  box-shadow: var(--shadow); /* dybde (card-effekt) */
 }
 
+/* Når menuen er åben (JS toggler denne klasse) */
 .site-nav.is-open {
-  display: block;
+  display: block; /* viser dropdownen */
 }
 
-/* Når header er transparent på hero (hvid burger) */
+/* ---------------------------------------------------------
+   5) Link-styling i dropdown (MOBIL)
+   - vigtigt: dropdown skal altid have god kontrast
+     (sort tekst på lys baggrund) – også når header er transparent
+   --------------------------------------------------------- */
+.site-nav .nav-link {
+  color: var(--text); /* mørk tekst for læsbarhed */
+  display: block; /* gør hele link-området klikbart */
+  padding: 10px 12px; /* større klikflade */
+  text-decoration: none; /* fjerner standard understregning */
+  border-radius: 12px; /* blød hover/klikform */
+}
+
+/* MOBIL: links i dropdown-menu (kun når den er åben) */
+.site-nav.is-open .nav-link {
+  color: var(--text); /* sort tekst på lys dropdown */
+}
+
+/* Lille, classy hover (mobil/desktop-friendly) */
+.site-nav .nav-link:hover {
+  background: rgba(0, 0, 0, 0.04); /* diskret hover på lys baggrund */
+}
+
+/* ---------------------------------------------------------
+   6) Transparent header (på hero): burger-knap skal være "lys"
+   - selve dropdownen ændrer vi IKKE her
+   - kun knappen/ikonet (så den kan ses ovenpå video)
+   --------------------------------------------------------- */
 .site-header.is-transparent .nav-toggle {
-  background: rgba(0, 0, 0, 0.25);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.25); /* mørk glas-effekt ovenpå video */
+  border-color: rgba(255, 255, 255, 0.25); /* lys kant */
 }
 
+/* Burger-linjer bliver lyse på hero */
 .site-header.is-transparent .nav-toggle-lines,
 .site-header.is-transparent .nav-toggle-lines::before,
 .site-header.is-transparent .nav-toggle-lines::after {
-  background: var(--bg);
+  background: var(--bg); /* lys/off-white så den står tydeligt på hero */
 }
 
-/* Desktop: burger væk + menu normal */
+/* ---------------------------------------------------------
+   7) DESKTOP (>= 840px)
+   - Burger skjules
+   - Menu vises inline i header (ikke dropdown)
+   --------------------------------------------------------- */
 @media (min-width: 840px) {
+  /* Burgerknappen skal ikke vises på desktop */
   .nav-toggle {
     display: none;
   }
 
+  /* Navigation bliver "normal" (inline) */
   .site-nav {
-    display: block;
-    position: static;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    padding: 0;
-    width: auto;
+    display: block; /* altid synlig */
+    position: static; /* ingen absolute dropdown på desktop */
+    width: auto; /* følger layoutets bredde */
+    padding: 0; /* ingen dropdown-padding */
+    background: transparent; /* transparent så hero-header forbliver clean */
+    border: 0; /* fjerner card-kant */
+    border-radius: 0; /* ingen "bobbel" */
+    box-shadow: none; /* fjerner card-skygge */
   }
 
+  /* Menuen som række (kræver at .nav-list er display:flex i din layout.css) */
   .nav-list {
-    flex-direction: row;
-    align-items: center;
-    gap: 2px;
+    flex-direction: row; /* links står ved siden af hinanden */
+    align-items: center; /* lodret centrering */
+    gap: 2px; /* lille afstand mellem links */
+  }
+
+  /* DESKTOP: på transparent header skal links være lyse/hvide */
+  .site-header.is-transparent .nav-link {
+    color: var(--bg); /* off-white/hvid, så det kan læses på hero */
+  }
+}
+
+/* ---------------------------------------------------------
+   8) Sikkerhedsnet (hvis dropdown-regler "lækkede" ind før)
+   - Desktop skal ALDRIG have dropdown-card styling
+   - !important bruges kun til at håndhæve mode-skiftet
+   --------------------------------------------------------- */
+@media (min-width: 840px) {
+  .site-header .site-nav {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
   }
 }

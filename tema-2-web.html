@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="css/burger.css" />
     <link rel="stylesheet" href="css/tema.css">
 
+    <link rel="icon" type="image/webp" href="images/logoskitse.webp">
+    <!-- Favicon -->
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +61,7 @@
         <!-- HERO med billede (samme “format” som forsiden) -->
         <section class="hero hero--image">
             <!-- Skift billedet til dit tema02-hero -->
-            <img src="images/tema02-hero.webp"
+            <img src="images/liljecomputer.webp"
                 alt="Billede der symboliserer grundlæggende web: struktur, layout og designprincipper"
                 class="hero__image" />
 
@@ -67,7 +70,7 @@
             <div class="container hero__content">
                 <p class="kicker">Tema 02 · Grundlæggende Web</p>
 
-                <h1 class="hero-title">Pensum & studiestartsprøve</h1>
+                <h1 class="hero-title">Studiestartsprøven & stiløvelser</h1>
 
                 <p class="hero-lead">
                     Her samler jeg mit pensum fra Tema 02 og min studiestartsprøve, så det er tydeligt, hvordan jeg
@@ -106,20 +109,21 @@
            ========================= -->
         <section class="tema-section tema-overview" aria-labelledby="tema02-overblik">
             <div class="container">
-                <h2 id="tema02-overblik">Proces-overblik (progression)</h2>
+                <h2 id="tema02-overblik">Proces-overblik</h2>
 
                 <ol class="process-steps">
                     <li>
-                        <h3>1) HTML-struktur</h3>
+                        <h3>1) HTML-struktur & Mobile-first CSS</h3>
                         <p>Semantisk HTML + ens struktur på 5 sider (header/nav/main/footer).</p>
-                    </li>
-                    <li>
-                        <h3>2) Mobile-first CSS</h3>
                         <p>Én CSS-fil, reset, farver + 2 fonte, spacing med margin/padding.</p>
                     </li>
                     <li>
-                        <h3>3) Layout & responsivitet</h3>
+                        <h3>2) Layout & responsivitet</h3>
                         <p>Media queries + Grid/Flex → fra mobil til desktop.</p>
+                    </li>
+                    <li>
+                        <h3>3) Webfonte, billeder & performance</h3>
+                        <p>Webfonte og filformater</p>
                     </li>
                     <li>
                         <h3>4) Designanalyse</h3>
@@ -163,7 +167,6 @@
                             <li>CSS styrer layout, farver, fonte, spacing og responsivitet</li>
                             <li>Reset for ens udgangspunkt på tværs af browsere</li>
                             <li>Box model: content, padding, border, margin</li>
-                            <li>Specificity, kaskade og nedarvning</li>
                         </ul>
 
                         <h3>Mobile-first</h3>
@@ -180,7 +183,7 @@
                     </div>
 
                     <div class="evidence">
-                        <h3>Dokumentation (valgfrit)</h3>
+                        <h3>Dokumentation</h3>
                         <figure class="shot">
                             <!-- Tilføj screenshots, hvis du vil (ellers slet figure) -->
                             <img src="images/02indexmobil.webp" alt="Mobilsite index">
@@ -256,17 +259,10 @@
                             <li><strong>SVG:</strong> vektor (skarpt i alle størrelser)</li>
                             <li><strong>WEBP:</strong> god performance og kvalitet</li>
                         </ul>
-
-                        <h3>Brugsrettigheder & metadata</h3>
-                        <p>
-                            Jeg lærte, at ophavsret opstår automatisk, og at man skal tjekke licens/brugsrettigheder.
-                            Metadata kan hjælpe (CopyrightNotice/Rights/UsageTerms), men man skal altid dobbelttjekke
-                            kilden.
-                        </p>
                     </div>
 
                     <div class="evidence">
-                        <h3>Dokumentation (valgfrit)</h3>
+                        <h3>Dokumentation</h3>
                         <figure class="shot">
                             <img src="images/02index.webp" alt="Oversigt over billedformater og performance">
                             <img src="images/02mincomputer.webp" alt="Oversigt over billedformater og performance">
@@ -311,13 +307,6 @@
                             <li>H1 → underoverskrift → brødtekst skaber naturlig læseretning</li>
                         </ul>
 
-                        <h3>Typografi (readability & opsætning)</h3>
-                        <ul class="bullets">
-                            <li>45–65 tegn pr. linje (tommelfingerregel)</li>
-                            <li>Line-height/leading for ro og læsbarhed</li>
-                            <li>Kerning/tracking påvirker tekstens “luft”</li>
-                        </ul>
-
                         <h3>Farver & kontraster</h3>
                         <p>
                             Jeg arbejdede med farveharmoni og kontrast for overblik, usability og accessibility
@@ -326,7 +315,7 @@
                     </div>
 
                     <div class="evidence">
-                        <h3>Dokumentation (valgfrit)</h3>
+                        <h3>Dokumentation</h3>
                         <figure class="shot">
                             <img src="images/02styletile.webp" alt="Style tile fra Tema 02 med farver og typografi">
                             <figcaption>Style tile: farver, fonte og UI-elementer samlet i ét visuelt overblik.
@@ -353,9 +342,9 @@
                 <div class="two-col">
 
                     <div>
-                        <h3>Afleveringer (kort)</h3>
+                        <h3>Afleveringer</h3>
                         <ul class="bullets">
-                            <li><strong>Visitkortøvelse:</strong> grundlæggende HTML + publicering via GitHub Pages</li>
+                            <li><strong>Visitkortøvelse:</strong> Introduktion til Figma</li>
                             <li><strong>Sæt indhold i HTML:</strong> 5 sider, semantik og korrekt indholdsrækkefølge
                                 uden CSS</li>
                             <li><strong>Mobilsite:</strong> én CSS-fil + reset + farver + 2 fonte + spacing
@@ -376,7 +365,7 @@
                     </div>
 
                     <div class="evidence">
-                        <h3>Dokumentation (valgfrit)</h3>
+                        <h3>Dokumentation</h3>
                         <figure class="shot">
                             <img src="images/02visitkort.webp" alt="Screenshot af mobilsitet fra Tema 02">
                             <figcaption>Visitkort.</figcaption>
@@ -463,11 +452,41 @@
 
     </main>
 
-    <!-- ========== Footer ========== -->
-    <footer class="site-footer" id="kontakt">
-        <div class="container footer-inner">
-            <p class="footer-text">© <span id="year"></span> Isabella Vest</p>
-            <a class="footer-link" href="kontakt.html">Kontakt</a>
+    <!-- =========================
+         FOOTER (din eksisterende)
+         ========================= -->
+    <footer class="footer footer--editorial" id="kontakt">
+        <div class="footer-inner">
+
+            <!-- LEFT: Editorial typography -->
+            <div class="footer-left">
+                <h2 class="footer-title">Let’s connect</h2>
+            </div>
+
+            <!-- RIGHT: Paper card -->
+            <div class="footer-card">
+                <p class="footer-card-title">Kontakt</p>
+
+                <ul class="footer-list">
+                    <li>
+                        <span>Email</span>
+                        <a href="mailto:Isabellabuchter@outlook.dk">Isabellabuchter@outlook.dk</a>
+                    </li>
+                    <li>
+                        <span>Instagram</span>
+                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
+                            @isabellavest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom line -->
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> Bloom — Portfolio</p>
+            <p class="footer-signature">Design & kode af Isabella Vest</p>
         </div>
     </footer>
 

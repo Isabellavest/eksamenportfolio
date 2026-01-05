@@ -26,8 +26,12 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/burger.css" />
-
+    <link rel="stylesheet" href="css/tema.css" />
     <!-- link til CSS sider. -->
+
+
+    <link rel="icon" type="image/webp" href="images/logoskitse.webp">
+    <!-- Favicon -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,6 +107,9 @@
         </div>
     </header>
 
+    <!-- =========================
+        MAIN
+    ========================= -->
     <main id="main">
         <!-- main = sidens primære indhold (vigtig semantik).
              id="main" kan bruges til "skip-to-content" link (tilgængelighed), hvis du har det. -->
@@ -151,11 +158,10 @@
 
                 <div class="hero-actions">
                     <!-- Wrapper til CTA-knapperne (Call To Action). -->
-
-                    <a class="btn" href="projekter.html">Se projekter</a>
+                    <a class="btn" href="om-mig.html">Læs om mig</a>
                     <!-- Primær CTA: leder brugeren direkte til projekter (vigtig brugerrejse). -->
 
-                    <a class="btn btn-ghost btn-on-hero" href="#process">Se proces</a>
+                    <a class="btn" href="projekter.html">Se projekter</a>
                     <!-- Sekundær CTA: scroll til proces-sektionen på siden.
                          btn-ghost = alternativ knapstil (mindre dominerende).
                          btn-on-hero = evt. special styling på video baggrund. -->
@@ -163,245 +169,556 @@
             </div>
         </section>
 
-        <!-- INTRO / VISION -->
-        <section class="section">
-            <div class="container chapter-wrap">
+        <!-- =========================
+       INTRO / VISION (flyttet ind i Tema 3-layout)
+       ========================= -->
+        <section class="tema-section tema-intro" aria-labelledby="vision-intro">
+            <div class="container">
+                <h2 id="vision-intro">Vision</h2>
 
-                <div class="chapter-meta">
-                    <span class="chapter-no">01</span>
-                    <h2 class="chapter-title">Vision</h2>
-                    <p class="chapter-lead">
-                        Bloom er min måde at samle 1. semester på: en læringsrejse med klare beslutninger, refleksion og
-                        et
-                        roligt,
-                        naturligt udtryk.
-                    </p>
+                <p class="tema-lead">
+                    Projektet Bloom er min måde at samle 1. semester på: en læringsrejse med klare beslutninger,
+                    refleksion i et roligt og naturligt udtryk.
+                </p>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Hvad Bloom er</h3>
+                        <p>
+                            Bloom er mit portfolio-univers, hvor hvert tema er en blomst. Liljen er den gennemgående
+                            metafor: som omhandler udviklingen af et projekt over tid med pleje og forfinelse indtil det
+                            blomstre smukt i
+                            sidste ende. Derfor præsenterer jeg ikke kun det færdige resultat, men også processen og
+                            læringen undervejs.
+                        </p>
+
+                        <h3>Det visuelle udtryk</h3>
+                        <p>
+                            Udtrykket er holdt i grøn/hvid og beige for at skabe ro og kvalitet. Layoutet er
+                            inspireret af editorials, hvor indholdet får luft, og brugeren guides tydeligt gennem
+                            struktur og
+                            navigation.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Visuel signatur</h3>
+                        <figure class="shot">
+                            <img src="images/liljecomputer.webp" alt="Bloom signaturbillede: liljer og laptop"
+                                loading="lazy">
+                            <figcaption>Liljen er den gennemgående metafor: som omhandler udviklingen af et projekt over
+                                tid,
+                                pleje og forfinelse indtil det blomstre smukt i sidste ende.</figcaption>
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/moodboard.webp" alt="Bloom signaturbillede: liljer og laptop"
+                                loading="lazy">
+                            <figcaption>Moodboard, som illustrerer vigtigheden af at pleje sine projekter (læs:blomster)
+                                under hele processen.</figcaption>
+                        </figure>
+                    </div>
                 </div>
-
-                <div class="chapter-body">
-                    <p>
-                        Bloom er mit portfolio-univers, hvor hvert tema er en blomst. Liljen er den gennemgående
-                        metafor:
-                        udvikling over
-                        tid, pleje og forfinelse. Derfor præsenterer jeg ikke kun det færdige resultat, men også proces
-                        og
-                        læring.
-                    </p>
-
-                    <p>
-                        Det visuelle udtryk er holdt i grøn/hvid/beige/guld for at skabe ro og kvalitet. Layoutet er
-                        inspireret
-                        af
-                        editorials, hvor indholdet får luft, og brugeren guides tydeligt gennem struktur og navigation.
-                    </p>
-                </div>
-
             </div>
         </section>
-
-        <section class="hero_insert">
-            <div class="hero_image hero_overlay">
-                <img src="images/liljecomputer.webp" alt="MacBook med liljer der vokser ud af skærmen" loading="lazy">
-            </div>
-        </section>
-
-
-        <!-- PROCESS TEASER -->
-        <section id="process" class="section section-alt process-editorial">
-            <div class="container process-wrap">
-
-                <!-- Venstre: kapitel -->
-                <div class="process-meta">
-                    <span class="process-chapter process-chapter--watermark">02</span>
-                    <h2 class="process-title">The process</h2>
-                    <p class="process-intro">
-                        Et overblik over, hvordan projekterne er udviklet — fra idé til test og iteration.
-                    </p>
-                </div>
-
-
-                <!-- Højre: timeline -->
-                <div class="process-timeline" aria-label="Procestrin">
-                    <ol class="timeline">
-                        <li class="timeline-item">
-                            <span class="timeline-no">01</span>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title">Brainstorm & retning</h3>
-                                <p class="timeline-text">Mind map, vision og afsender. Hvad skal Bloom kommunikere?</p>
-                            </div>
-                        </li>
-
-                        <li class="timeline-item">
-                            <span class="timeline-no">02</span>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title">Research</h3>
-                                <p class="timeline-text">Analyse af brand, målgruppe, struktur, billedstil og
-                                    brugeropfattelse.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="timeline-item">
-                            <span class="timeline-no">03</span>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title">UX & design</h3>
-                                <p class="timeline-text">Sitemap, wireframes, styletile og indholdshierarki.</p>
-                            </div>
-                        </li>
-
-                        <li class="timeline-item">
-                            <span class="timeline-no">04</span>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title">Test & iteration</h3>
-                                <p class="timeline-text">5-sekunders-test og Likert. Justeringer baseret på feedback.
-                                </p>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-
-            </div>
-        </section>
-
-        <!--  03 — KEY SKILLS (Chapter style)
-             Formål: vise læringsmål hurtigt og tydeligt (eksamensvenligt)  -->
-        <section class="section">
-            <div class="container chapter-wrap">
-
-                <!-- Venstre kolonne: editorial chapter-meta -->
-                <div class="chapter-meta">
-                    <!-- Watermark-kapitelnummer (visuelt hierarki) -->
-                    <span class="chapter-no" aria-hidden="true">03</span>
-
-                    <!-- Kapiteloverskrift -->
-                    <h2 class="chapter-title">Key skills</h2>
-
-                    <!-- Intro (lead) som forklarer formålet med sektionen -->
-                    <p class="chapter-lead">
-                        Et hurtigt overblik over de kompetencer og metoder jeg har arbejdet med på 1. semester.
-                    </p>
-                </div>
-
-                <!-- Højre kolonne: indholdet -->
-                <div class="chapter-body">
-
-                    <!-- Liste over “skills” (semantisk: en liste af punkter) -->
-                    <ul class="skills-list">
-                        <li class="skill-item">
-                            <h3 class="skill-title">HTML & semantik</h3>
-                            <p class="skill-text">
-                                Struktur med header/main/footer, meningsfulde elementer og tilgængelighed (fx skip-link
-                                og
-                                aria-labels).
-                            </p>
-                        </li>
-
-                        <li class="skill-item">
-                            <h3 class="skill-title">CSS & responsive design</h3>
-                            <p class="skill-text">
-                                Mobile-first, grid/flex, custom properties (CSS-variables) og et roligt editorialt
-                                layout.
-                            </p>
-                        </li>
-
-                        <li class="skill-item">
-                            <h3 class="skill-title">JavaScript & interaktion</h3>
-                            <p class="skill-text">
-                                Navigation (toggle), header-state ved scroll og små dynamiske detaljer (fx årstal i
-                                footer).
-                            </p>
-                        </li>
-
-                        <li class="skill-item">
-                            <h3 class="skill-title">UX-metoder</h3>
-                            <p class="skill-text">
-                                Research, sitemap, wireframes, styletile og brugerfeedback via 5-sekunders-test og
-                                Likert-skala.
-                            </p>
-                        </li>
-                    </ul>
-
-                </div>
-
-            </div>
-        </section>
-
 
         <!-- =========================
-             FEATURED PROJECT (Editorial teaser)
-             Formål: guide brugeren til “start her”-case
-             ========================= -->
-        <section class="section section-alt">
-            <div class="container featured">
+       PROCES-OVERBLIK (alle punkter som på Tema 3 + dine egne)
+       ========================= -->
+        <section class="tema-section tema-overview" id="proces-overblik" aria-labelledby="proces-title">
+            <div class="container">
+                <h2 id="proces-title">Proces-overblik</h2>
 
-                <!-- Venstre kolonne: editorial chapter-meta -->
-                <div class="chapter-meta">
-                    <!-- Watermark-kapitelnummer (visuelt hierarki) -->
-                    <span class="chapter-no" aria-hidden="true">04</span>
+                <ol class="process-steps">
+                    <li>
+                        <h3>1) Brainstorm & retning</h3>
+                        <p>Mind map, vision og afsender: hvad skal Bloom/projektet kommunikere?</p>
+                    </li>
+                    <li>
+                        <h3>2) Research</h3>
+                        <p>Desk research + brugerindsigter: målgruppe, konventioner og behov.</p>
+                    </li>
+                    <li>
+                        <h3>3) Moodboard</h3>
+                        <p>Visuel inspiration: stemning, materialer, typografi, komposition og “tone”.</p>
+                    </li>
+                    <li>
+                        <h3>4) StyleTile</h3>
+                        <p>Farver, typografi og UI-elementer: et samlet “look & feel” og et lille design-system.</p>
+                    </li>
+                    <li>
+                        <h3>5) Wireframes</h3>
+                        <p>LoFi/HiFi: struktur, hierarki og flow før designet låses.</p>
+                    </li>
+                    <li>
+                        <h3>6) Prototype</h3>
+                        <p>Klikbar prototype (Figma): testbar løsning før kodning.</p>
+                    </li>
+                    <li>
+                        <h3>7) Kodning</h3>
+                        <p>HTML/CSS/JS: responsivt, semantisk og med fokus på tilgængelighed.</p>
+                    </li>
+                    <li>
+                        <h3>8) Test</h3>
+                        <p>5-sekunders test / tænke-højt / Likert + Lighthouse: forbedringer via feedback.</p>
+                    </li>
+                    <li>
+                        <h3>9) Refleksion</h3>
+                        <p>Læring, iteration og hvad jeg vil gøre endnu bedre næste gang.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                    <!-- Kapiteloverskrift -->
-                    <h2 class="chapter-title">Featured project</h2>
+        <!-- =========================
+       BLOKKE (som Tema 3) — her kan du løbende indsætte dokumentation
+       ========================= -->
 
-                    <!-- Intro (lead) som forklarer formålet med sektionen -->
-                    <p class="chapter-lead">
-                        Hvis du kun skal se ét projekt først, så start her. Her viser jeg både løsning, proces og
-                        læring.
-                    </p>
+        <section class="tema-section tema-block" id="brainstorm" aria-labelledby="brainstorm-title">
+            <div class="container">
+                <h2 id="brainstorm-title">1) Brainstorm & retning</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Hvad jeg gjorde</h3>
+                        <p>
+                            Jeg startede med at definere afsender, vision og det univers Bloom skulle kommunikere.
+                            Derefter
+                            indsnævrede jeg til en tydelig retning med metaforen “blomst = projekt” og “proces =
+                            det, der får det til
+                            at gro”.
+                        </p>
+
+                        <ul class="bullets">
+                            <li>Mind map / idé-skitser</li>
+                            <li>Metafor og narrativ (Bloom + liljen)</li>
+                            <li>Valg af tone: rolig, naturlig, editorial</li>
+                        </ul>
+
+                        <p>I den indledende fase arbejdede jeg med idéudvikling gennem mind maps og skitser for at
+                            afklare projektets vision,
+                            afsender og overordnede retning. Formålet var at definere, hvad Bloom skulle kommunikere –
+                            både visuelt og
+                            indholdsmæssigt – samt hvilken fortælling og oplevelse brugeren skulle møde.</p>
+
+                        <p>Gennem brainstormen indsnævrede jeg projektets kerne til metaforen “blomst = projekt”, hvor
+                            processen ses som det, der
+                            får et projekt til at gro. Denne metafor blev det bærende koncept for hele portfolien og
+                            skabte en tydelig sammenhæng
+                            mellem indhold, struktur og visuel identitet. Fokus blev dermed ikke kun på færdige
+                            resultater, men også på proces,
+                            refleksion og læring.</p>
+
+                        <p>Denne fase svarer til define-fasen i en designproces, hvor problemforståelse, mål og retning
+                            fastlægges, før der
+                            arbejdes videre med konkrete løsninger.</p>
+
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <!-- Skift til dine egne brainstorm-billeder hvis du har dem -->
+                            <img src="images/06brainstorm.webp" alt="Eksempel på Bloom-retning og metafor"
+                                loading="lazy">
+                            <img src="images/06mindmapd.webp" alt="Eksempel på Bloom-retning og metafor" loading="lazy">
+                            <img src="images/06sitemap.webp" alt="Eksempel på Bloom-retning og metafor" loading="lazy">
+                        </figure>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Knapper: leder direkte videre -->
-                <div class="featured-actions">
-                    <a class="btn" href="projekter.html">Se alle projekter</a>
-                    <!-- Skift href til din konkrete case-side, når du ved hvilken der er featured -->
-                    <a class="btn btn-ghost" href="tema-3-ux-ui.html">Gå til casen</a>
+        <section class="tema-section tema-block" id="research" aria-labelledby="research-title">
+            <div class="container">
+                <h2 id="research-title">2) Research</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Hvad jeg kiggede på</h3>
+                        <ul class="checklist">
+                            <li>Brand/udtryk: hvordan et roligt “premium” univers bygges op</li>
+                            <li>Konventioner: navigation, hierarchy, CTA-placering</li>
+                            <li>Billedstil: natur, tekstur, editorial komposition</li>
+                            <li>Brugerens opfattelse: hvad føles tydeligt og overskueligt?</li>
+                        </ul>
+
+                        <p>I researchfasen arbejdede jeg primært med desk research og analyse af eksisterende
+                            portfolios, editoriale websites og
+                            digitale identiteter. Formålet var at forstå gældende konventioner inden for navigation,
+                            hierarki og indholdsopbygning –
+                            særligt i portfolier rettet mod undervisere og potentielle samarbejdspartnere.</p>
+
+                        <h3>Jeg analyserede blandt andet:</h3>
+                        <ul class="checklist">
+                            <li>hvordan et roligt og “premium” udtryk skabes digitalt</li>
+                            <li>hvordan information struktureres, så indhold opleves overskueligt</li>
+                            <li>hvordan brugeren guides intuitivt gennem siden</li>
+                        </ul>
+                        <p>Samtidig tog jeg højde for målgruppen: undervisere og censorer, der har behov for hurtigt at
+                            forstå projektets formål,
+                            struktur og faglige niveau. Dette førte til fokus på klar informationsarkitektur, tydelige
+                            overskrifter og en konsekvent
+                            opdeling mellem proces og dokumentation.</p>
+                        <p>Researchfasen gav konkrete indsigter, som senere blev omsat til visuelle og strukturelle valg
+                            i designet.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/06research1.webp" alt="Research dokumentation" loading="lazy">
+                        </figure>
+
+                        <figure class="shot">
+                            <img src="images/06research2.webp" alt="Research dokumentation" loading="lazy">
+                        </figure>
+
+                        <figure class="shot">
+                            <img src="images/06research3.webp" alt="Research dokumentation" loading="lazy">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-section tema-block" id="moodboard" aria-labelledby="moodboard-title">
+            <div class="container">
+                <h2 id="moodboard-title">3) Moodboard</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Formål</h3>
+                        <p>
+                            Moodboardet fungerede som et visuelt referencepunkt, der samlede projektets stemning og
+                            æstetiske retning. Her arbejdede
+                            jeg med billeder, farver, materialer og typografi for at definere den overordnede “tone of
+                            voice”.
+                        </p>
+                        <h3>De centrale visuelle pejlemærker var:</h3>
+
+                        <ul class="bullets">
+                            <li>Natur og organiske former</li>
+                            <li>Rolige farver i grøn, beige og off-white</li>
+                            <li>Indbydende hero og organiserede sektioner</li>
+                        </ul>
+
+                        <p>Moodboardet hjalp med at sikre konsistens i designbeslutningerne og fungerede som et bindeled
+                            mellem research og konkret
+                            design. Det gjorde det lettere at vurdere, om senere valg harmonerede med den ønskede
+                            stemning og identitet.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/06moodboard.webp" alt="Moodboard dokumentation" loading="lazy">
+                            <figcaption>Inspireret af naturelementer, blomster og især liljen.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-section tema-block" id="styletile" aria-labelledby="styletile-title">
+            <div class="container">
+                <h2 id="styletile-title">4) StyleTile</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Hvad style tile fastlåste</h3>
+                        <ul class="checklist">
+                            <li>Typografi (Italiana + Inria Serif)</li>
+                            <li>Farver og kontrast</li>
+                            <li>Knapper, kort og spacing</li>
+                            <li>Editorialt layout med “luft”</li>
+                        </ul>
+
+                        <h3>Farver, typografi og UI-elementer</h3>
+                        <p>StyleTilet samlede de visuelle beslutninger i et konkret og anvendeligt format. Her fastlagde
+                            jeg farvepalette,
+                            typografi, knapper, kort og spacing – som et lille, simpelt design-system.</p>
+                        <h3>Formålet var at:</h3>
+                        <ul class="checklist">
+                            <li>Skabe et ensartet “look & feel” på tværs af sider</li>
+                            <li>Sikre god kontrast og læsbarhed</li>
+                            <li>Understøtte det editoriale udtryk digitalt</li>
+                        </ul>
+                        <p>Ved at arbejde med StyleTile før det endelige layout blev designbeslutningerne mere bevidste
+                            og konsekvente, hvilket
+                            gjorde overgangen til wireframes og kodning mere struktureret.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/06farvepalette.webp" alt="farvepalettedokumentation" loading="lazy">
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/06styletile.png" alt="StyleTile dokumentation" loading="lazy">
+
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-section tema-block" id="wireframe" aria-labelledby="wireframe-title">
+            <div class="container">
+                <h2 id="wireframe-title">5) Wireframe</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Struktur & flow</h3>
+                        <p>
+                            Wireframes hjalp med at planlægge: hero → intro → proces → skills → featured, så
+                            forsiden guider brugeren
+                            tydeligt videre.
+                        </p>
+
+                        <h3>LoFi og HiFi – struktur og flow</h3>
+                        <p>Wireframes blev brugt til at planlægge struktur, hierarki og brugerflow, før designet blev
+                            låst visuelt. I
+                            LoFi-wireframes fokuserede jeg på indholdets placering og rækkefølge uden visuelle detaljer,
+                            mens HiFi-wireframes
+                            integrerede typografi, farver og billedbrug.</p>
+
+                        <h3>Formålet var at:</h3>
+                        <ul class="checklist">
+                            <li>Teste navigation og informationsarkitektur tidligt</li>
+                            <li>Sikre logisk opbygning fra hero → intro → proces → dokumentation</li>
+                            <li>Skabe et naturligt flow gennem siden</li>
+                        </ul>
+                        <p>Denne fase reducerede risikoen for større ændringer senere i processen og gav et solidt
+                            fundament for prototypen.</p>
+
+                        <div class="tema-links">
+                            <!-- Indsæt dine Figma-links hvis du vil -->
+                            <a class="link" href="#" target="_blank" rel="noopener">LoFi wireframe (Figma)</a>
+                            <a class="link" href="#" target="_blank" rel="noopener">HiFi wireframe (Figma)</a>
+                        </div>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/06lofi.webp" alt="Wireframe dokumentation" loading="lazy">
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/06hifi.webp" alt="Wireframe dokumentation" loading="lazy">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-section tema-block" id="prototype" aria-labelledby="prototype-title">
+            <div class="container">
+                <h2 id="prototype-title">6) Prototype</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Klikbar prototype</h3>
+                        <p>
+                            Den klikbare prototype gjorde det muligt at teste oplevelsen af siden, før kodning
+                            påbegyndtes. Her kunne jeg vurdere,
+                            om navigation, hierarki og flow fungerede i praksis, og om brugeren intuitivt blev guidet
+                            gennem indholdet.
+                        </p>
+                        <p>Prototypen fungerede som et iterativt værktøj, hvor små justeringer kunne foretages hurtigt.
+                            Det sikrede, at den
+                            endelige løsning var gennemtænkt og brugervenlig, inden den tekniske implementering.</p>
+
+                        <div class="tema-links">
+                            <a class="link" href="#" target="_blank" rel="noopener">Prototype (Figma)</a>
+                        </div>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/06prototype.webp" alt="Prototype dokumentation" loading="lazy">
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/06prototype2.webp" alt="Prototype dokumentation" loading="lazy">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-section tema-block" id="kodning" aria-labelledby="code-title">
+            <div class="container">
+                <h2 id="code-title">7) Kodning</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Hvad jeg fokuserede på</h3>
+                        <ul class="checklist">
+                            <li>Semantisk HTML (header/main/footer)</li>
+                            <li>Mobile-first og responsive layouts</li>
+                            <li>Genbrugelige komponent-klasser</li>
+                        </ul>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Kode-dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/06kodning1.webp" alt="Kodning dokumentation" loading="lazy">
+                            <img src="images/06kodning2.webp" alt="Kodning dokumentation" loading="lazy">
+                            <img src="images/06kodning3.webp" alt="Kodning dokumentation" loading="lazy">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-section tema-block" id="test" aria-labelledby="test-title">
+            <div class="container">
+                <h2 id="test-title">8) Test</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Metoder</h3>
+                        <ul class="checklist">
+                            <li>5-sekunders test (førstehåndsindtryk)</li>
+                            <li>Likert (oplevelse/værdiord)</li>
+                            <li>Tænke-højt (navigation og forståelse)</li>
+                            <li>Lighthouse (performance, accessibility, SEO)</li>
+                        </ul>
+
+                        <h3>Brugertest og teknisk evaluering</h3>
+                        <p>Jeg anvendte flere testmetoder for at evaluere både brugeroplevelse og teknisk kvalitet.
+                            Herunder 5-sekunders test,
+                            tænke-højt-test og Likert-skala, som gav indsigt i førstehåndsindtryk, forståelse og oplevet
+                            kvalitet.</p>
+                        <p>Derudover blev Lighthouse brugt til at vurdere performance, tilgængelighed og best practices.
+                            Feedback fra testene førte
+                            til justeringer i blandt andet kontrast, struktur og tydelighed i indholdet.</p>
+                        <p>Testfasen understøttede en iterativ tilgang, hvor designet blev forbedret på baggrund af
+                            konkret feedback.</p>
+
+                        <p class="muted">
+                            Resultatet af test bruges til iteration: bedre hierarki, tydeligere CTA’er og roligere
+                            sektionering.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <h3>Dokumentation</h3>
+                        <figure class="shot">
+                            <img src="images/06test1.webp" alt="Test dokumentation" loading="lazy">
+                            <img src="images/06test2.webp" alt="Test dokumentation" loading="lazy">
+                            <img src="images/06test3.webp" alt="Test dokumentation" loading="lazy">
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/06lighthousedesktop.webp" alt="Lighthouse desktop" loading="lazy">
+                            <figure>Lighthouse desktop</figure>
+                        </figure>
+                        <figure class="shot">
+                            <img src="images/06lighthousemobile.webp" alt="Lighthouse mobile" loading="lazy">
+                            <figure>Lighthouse mobile</figure>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-section tema-block" id="refleksion" aria-labelledby="reflection-title">
+            <div class="container">
+                <h2 id="reflection-title">9) Refleksion</h2>
+
+                <div class="two-col">
+                    <div>
+                        <h3>Hvad jeg tager med videre</h3>
+                        <p>Dette projekt har tydeliggjort, hvor afgørende en velstruktureret proces er for det endelige
+                            resultat. Ved at
+                            dokumentere mine designvalg løbende har jeg fået et mere bevidst forhold til både æstetik,
+                            funktionalitet og tekniske
+                            beslutninger.</p>
+                        <p>Jeg har erfaret, at et roligt og minimalistisk udtryk ikke opstår tilfældigt, men kræver
+                            konsekvent brug af spacing,
+                            typografi og hierarki. Små justeringer i struktur og afstand har haft stor betydning for den
+                            samlede oplevelse.</p>
+                        <p>Bloom repræsenterer både et færdigt portfolio-univers og en dokumentation af min faglige
+                            udvikling gennem 1. semester.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+       FEATURED PROJECT (Tema 3-format)
+       ========================= -->
+        <section class="tema-section tema-block" id="featured" aria-labelledby="featured-title">
+            <div class="container">
+                <h2 id="featured-title">Featured project</h2>
+
+                <div class="two-col">
+                    <div>
+                        <p class="tema-lead">
+                            Hvis du kun skal se ét projekt først, så start her. Her viser jeg både løsning, proces
+                            og læring.
+                        </p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="tema-links">
+                            <a class="btn" href="projekter.html">Se alle projekter</a>
+                            <a class="btn btn--ghost" href="tema-3-ux-ui.html">Gå til casen</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer id="kontakt" class="site-footer">
-        <!-- Footer = bund på siden.
-             id="kontakt" gør at linket i menuen (#kontakt) scroller hertil. -->
+    <!-- =========================
+     FOOTER (din eksisterende)
+     ========================= -->
+    <footer class="footer footer--editorial" id="kontakt">
+        <div class="footer-inner">
 
-        <div class="container footer-inner">
-            <!-- container styrer bredde/centrering.
-                 footer-inner styrer layout (grid/flex). -->
-
-            <div>
-                <!-- En simpel wrapper til kontakt-teksten. -->
-
-                <p class="footer-title">Kontakt</p>
-                <!-- Footer-titel (stylet som overskrift, men her som p).
-                     Hvis du vil være ekstra semantisk kan det være en h2/h3 – men p er ok i en footer. -->
-
-                <p class="footer-text">
-                    Vil du høre mere eller se mine cases? Skriv endelig.
-                </p>
-                <!-- Brødtekst i footer. -->
+            <!-- LEFT: Editorial typography -->
+            <div class="footer-left">
+                <h2 class="footer-title">Let’s connect</h2>
             </div>
 
-            <div class="footer-actions">
-                <!-- Wrapper til knapper/links i footer. -->
+            <!-- RIGHT: Paper card -->
+            <div class="footer-card">
+                <p class="footer-card-title">Kontakt</p>
 
-                <a class="btn btn-ghost" href="mailto:dinmail@eksempel.dk">Send mail</a>
-                <!-- mailto: åbner brugerens mail-program med en ny mail.
-                     Husk at ændre til din rigtige mail før aflevering. -->
-
-                <a class="btn btn-ghost" href="om-mig.html">Læs om mig</a>
-                <!-- Link til om-mig-side. -->
+                <ul class="footer-list">
+                    <li>
+                        <span>Email</span>
+                        <a href="mailto:Isabellabuchter@outlook.dk">Isabellabuchter@outlook.dk</a>
+                    </li>
+                    <li>
+                        <span>Instagram</span>
+                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
+                            @isabellavest
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <p class="footer-small">© <span id="year"></span> Isabella Vest — Bloom Portfolio</p>
-            <!-- Footer-linje med copyright.
-                 <span id="year"></span> udfyldes typisk af JavaScript med aktuelt år, så du ikke skal ændre det manuelt. -->
+        </div>
+
+        <!-- Bottom line -->
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> Bloom — Portfolio</p>
+            <p class="footer-signature">Design & kode af Isabella Vest</p>
         </div>
     </footer>
 
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+
+
+
     <script defer src="js/main.js"></script>
-    <!-- Loader JavaScript.
-         defer betyder: hent filen nu, men kør den først når HTML er færdig-parset.
-         Det sikrer at JS kan finde DOM-elementer uden at fejle, og forbedrer performance. -->
 </body>
 
 </html>

@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="css/burger.css" />
     <link rel="stylesheet" href="css/tema.css">
 
+    <link rel="icon" type="image/webp" href="images/logoskitse.webp">
+    <!-- Favicon -->
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +71,7 @@
             <div class="container hero__content">
                 <p class="kicker">Tema 03 · Grundlæggende UX/UI</p>
 
-                <h1 class="hero-title">Pensum & produkter</h1>
+                <h1 class="hero-title">Emnesite</h1>
 
                 <p class="hero-lead">
                     Her samler jeg mit pensum fra Tema 03 og mine afleveringsopgaver,
@@ -116,31 +119,27 @@
                         <p>Desk research + researchmetoder (interview/survey/observation) → indsigter → målgruppe.</p>
                     </li>
                     <li>
-                        <h3>3) Brugerens mål & user stories</h3>
-                        <p>Jeg definerede brugerens mål og skrev user stories for at styre indhold og funktioner.</p>
-                    </li>
-                    <li>
-                        <h3>4) Stil & tone</h3>
+                        <h3>3) Stil & tone</h3>
                         <p>3 værdiord + moodboards + style tile → konkrete visuelle valg og UI-konventioner.</p>
                     </li>
                     <li>
-                        <h3>5) Struktur & wireframes</h3>
+                        <h3>4) Struktur & wireframes</h3>
                         <p>Sitemap/flow + wireframes (LoFi/HiFi) for at planlægge struktur før visuelle valg.</p>
                     </li>
                     <li>
-                        <h3>6) Prototype i Figma</h3>
+                        <h3>5) Prototype i Figma</h3>
                         <p>Klikbar prototype til mobil og desktop med minimum ét flow (min. 3 sider).</p>
                     </li>
                     <li>
-                        <h3>7) Kodet site</h3>
+                        <h3>6) Kodet site</h3>
                         <p>HTML/CSS/JS baseret på prototypen – responsivt, webfonte, favicon og validering.</p>
                     </li>
                     <li>
-                        <h3>8) Test & evaluering</h3>
+                        <h3>7) Test & evaluering</h3>
                         <p>Brugertest (tænke-højt / 5-sek.) + Lighthouse → forbedringer og refleksion.</p>
                     </li>
                     <li>
-                        <h3>9) Konklusion og refleksion over forløb</h3>
+                        <h3>8) Konklusion og refleksion over forløb</h3>
                         <p>Erfaringer → forbedringer og refleksion.</p>
                     </li>
                 </ol>
@@ -166,11 +165,12 @@
                             indhold —
                             og mange ved ikke, hvordan de kan forbedre deres hverdagsvand konkret.</p>
 
-                        <p><strong>Problem statement:</strong><br>
+                        <p><strong>Problem:</strong><br>
                             “Hvordan hjælper vi almindelige danskere med nemt at forstå deres lokale vandkvalitet og
                             vælge et
                             relevant filter,
-                            så de oplever bedre smag og komfort i hverdagen – uden at blive skræmt af teknisk jargon?”
+                            så de oplever bedre smag og komfort i hverdagen – uden at blive skræmt af pesticider og
+                            mikroplast?”
                         </p>
 
                         <p><strong>Elevator pitch:</strong><br>
@@ -195,11 +195,12 @@
                         <p>
                             Jeg valgte vandkvalitet, fordi emnet blev personligt relevant for mig. Efter en rejse
                             oplevede jeg,
-                            at vandet hjemme smagte anderledes,
+                            at vandet herhjemme smagte anderledes,
                             og jeg begyndte at undersøge mit lokale vand. Jeg opdagede bl.a. høj kalk og spor af stoffer
                             som
                             pesticider/PFAS — og det blev drivkraften
-                            til at skabe et site, der både oplyser og giver en konkret løsning.
+                            til at skabe et site, der både oplyser og giver en konkret løsning. Det manglede jeg,
+                            på daværende tidspunkt.
                         </p>
 
                         <!-- Valgfrit: indsæt screenshot fra din brainstorm (PDF side 2) -->
@@ -221,7 +222,7 @@
             <div class="container">
                 <h2 id="research-title"> 2) Research og resultater</h2>
                 <p class="tema-lead">
-                    Jeg brugte research til at validere relevansen af emnet og forstå, hvad der motiverer brugere til at
+                    Jeg brugte research til at bekræfte relevansen af emnet og forstå, hvad der motiverer brugere til at
                     handle.
                 </p>
 
@@ -236,7 +237,7 @@
 
                         <h3>Metode</h3>
                         <ul class="checklist">
-                            <li>Online survey (36 besvarelser)</li>
+                            <li>Online survey</li>
                             <li>Fokus på: bevidsthed, bekymring, brug af filtre, motivationsfaktorer</li>
                         </ul>
 
@@ -255,7 +256,7 @@
                         <p class="muted">
                             Konklusion: der er en videnskløft mellem sundhedsbevidsthed og konkret viden om vandkvalitet
                             —
-                            derfor giver Aqua mening som “bro” mellem viden og handling.
+                            derfor giver min webiste Aqua mening som en “bro” mellem viden og handling.
                         </p>
                     </div>
 
@@ -273,50 +274,11 @@
         </section>
 
         <!-- =========================
-                       Brugerens mål & user stories
-                       ========================= -->
-        <section class="tema-section tema-block" aria-labelledby="tema03-userstories">
-            <div class="container">
-                <h2 id="tema03-userstories">3) Brugerens mål & user stories</h2>
-
-                <div class="two-col">
-                    <div>
-                        <h3>Teori fra pensum</h3>
-                        <ul class="checklist">
-                            <li>Brugeren kommer med et mål – sitet skal hjælpe dem hurtigt i mål</li>
-                            <li>User stories: <em>Som [bruger] vil jeg [handling], så jeg kan [formål]</em></li>
-                            <li>User stories skal kunne testes (måle om løsningen løser behovet)</li>
-                        </ul>
-
-                        <h3>Mine user stories (eksempler)</h3>
-                        <ul class="bullets">
-                            <li>Som besøgende vil jeg hurtigt forstå, hvorfor vand er vigtigt, så jeg lærer noget med
-                                det samme.
-                            </li>
-                            <li>Som bruger vil jeg kunne navigere mellem emner, så jeg kan finde den information jeg
-                                søger.</li>
-                            <li>Som mobilbruger vil jeg kunne læse tekst nemt, så jeg ikke mister overblik på små
-                                skærme.</li>
-                        </ul>
-                    </div>
-
-                    <div class="evidence">
-                        <h3>Dokumentation</h3>
-                        <figure class="shot">
-                            <img src="images/tema03/userstories.webp" alt="Screenshot af user stories" />
-                            <figcaption>User stories koblet til indhold og struktur.</figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================
            VISUEL RETNING
            ========================= -->
         <section class="tema-section tema-block" id="tema03-stil" aria-labelledby="stil-title">
             <div class="container">
-                <h2 id="stil-title"> 4) Visuel retning: moodboard → styletile</h2>
+                <h2 id="stil-title"> 3) Visuel retning: moodboard → styletile</h2>
 
                 <div class="two-col">
 
@@ -325,8 +287,7 @@
                         <ul class="checklist">
                             <li>3 værdiord styrer det visuelle udtryk</li>
                             <li>Moodboards: visuel research og retning</li>
-                            <li>Style tile: farver, typografi, UI-elementer og “look & feel”</li>
-                            <li>UI-konventioner, indholdskomponenter og design patterns</li>
+                            <li>Style tile: farver, typografi og UI-elementer</li>
                         </ul>
 
                         <h3>Mine valg</h3>
@@ -338,17 +299,10 @@
                             byggede prototypen.
                         </p>
 
-                        <h3>Hvordan jeg fandt stilen</h3>
-                        <p>
-                            Jeg brugte moodboards til at ramme en æstetik der føles ren, moderne og troværdig —
-                            inspireret af
-                            “clean” universer
-                            med transparens, lysreflektioner og laboratorie-referencer.
-                        </p>
-
                         <h3>Farvevalg (teal som signatur)</h3>
                         <p>
-                            Jeg startede mellem grøn (natur/sundhed) og blå (vand/teknologi) og endte med teal som bro
+                            Jeg startede mellem grøn (natur/sundhed) og blå (vand/teknologi) og endte med teal som en
+                            bro
                             mellem de
                             to udtryk.
                         </p>
@@ -384,7 +338,7 @@
            ========================= -->
         <section class="tema-section tema-block" id="tema03-wireframes" aria-labelledby="wf-title">
             <div class="container">
-                <h2 id="wf-title"> 5) Struktur og wireframes</h2>
+                <h2 id="wf-title"> 4) Struktur og wireframes</h2>
 
                 <div class="two-col">
                     <div>
@@ -402,8 +356,7 @@
 
                         <h3>Teori fra pensum</h3>
                         <ul class="checklist">
-                            <li>Informationsarkitektur: strukturere og indeksere indhold for tilgængelighed</li>
-                            <li>Sitemap = hierarki / Flowchart = brugerens trin</li>
+                            <li>Informationsarkitektur: strukturere indhold for tilgængelighed</li>
                             <li>LoFi: fokus på struktur og flow</li>
                             <li>HiFi: visuel identitet, hierarki og konkrete komponenter</li>
                             <li>Responsiv tænkning: mobil og desktop</li>
@@ -446,7 +399,7 @@
                    ========================= -->
         <section class="tema-section tema-block" aria-labelledby="tema03-prototype">
             <div class="container">
-                <h2 id="tema03-prototype">6) Klikbar prototype i Figma</h2>
+                <h2 id="tema03-prototype">5) Klikbar prototype i Figma</h2>
 
                 <div class="two-col">
                     <div>
@@ -484,7 +437,7 @@
         <!-- 6) Kodet site (MVP) -->
         <section class="tema-section tema-block" aria-labelledby="tema03-kode">
             <div class="container">
-                <h2 id="tema03-kode">7) Kodet site </h2>
+                <h2 id="tema03-kode">6) Kodet site </h2>
 
                 <div class="two-col">
                     <div>
@@ -506,7 +459,7 @@
                         <h3>Kode-dokumentation</h3>
                         <figure class="shot">
                             <img src="images/03kodning.webp" alt="Screenshot af kode og struktur" />
-                            <figcaption>Udklip af struktur og styling (HTML/CSS).</figcaption>
+                            <figcaption>Udklip af struktur og styling.</figcaption>
                         </figure>
                     </div>
                 </div>
@@ -517,7 +470,7 @@
                                ========================= -->
         <section class="tema-section tema-block" aria-labelledby="tema03-test">
             <div class="container">
-                <h2 id="tema03-test">8) Test & evaluering</h2>
+                <h2 id="tema03-test">7) Test og evaluering</h2>
 
                 <div class="two-col">
                     <div>
@@ -558,7 +511,7 @@
                            ========================= -->
         <section class="tema-section tema-block" id="tema03-iteration" aria-labelledby="iter-title">
             <div class="container">
-                <h2 id="iter-title"> 9) Konklusion og refleksion</h2>
+                <h2 id="iter-title"> 8) Konklusion og refleksion</h2>
 
                 <div class="two-col">
                     <div>
@@ -577,7 +530,6 @@
                             <li>Designprocessen er ikke lineær — den udvikler sig gennem iteration</li>
                             <li>Kodning og design påvirker hinanden: når jeg ændrede i koden, skærpede jeg også designet
                             </li>
-                            <li>Næste gang vil jeg planlægge tiden mere realistisk pr. fase</li>
                         </ul>
                     </div>
                 </div>
@@ -587,7 +539,7 @@
         <!-- Produkter / links (samlet) -->
         <section class="tema-section tema-block" id="tema03-produkter" aria-labelledby="tema03-links">
             <div class="container">
-                <h2 id="tema03-links">Produkter & links</h2>
+                <h2 id="tema03-links">Produkter og links</h2>
 
                 <div class="link-grid">
                     <a class="card-link" href="https://isabellavest.github.io/Emnesite3/" target="_blank"
@@ -636,11 +588,41 @@
 
     </main>
 
-    <!-- ========== Footer ========== -->
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <p class="footer-text">© <span id="year"></span> Isabella Vest</p>
-            <a class="footer-link" href="kontakt.html">Kontakt</a>
+    <!-- =========================
+         FOOTER (din eksisterende)
+         ========================= -->
+    <footer class="footer footer--editorial" id="kontakt">
+        <div class="footer-inner">
+
+            <!-- LEFT: Editorial typography -->
+            <div class="footer-left">
+                <h2 class="footer-title">Let’s connect</h2>
+            </div>
+
+            <!-- RIGHT: Paper card -->
+            <div class="footer-card">
+                <p class="footer-card-title">Kontakt</p>
+
+                <ul class="footer-list">
+                    <li>
+                        <span>Email</span>
+                        <a href="mailto:Isabellabuchter@outlook.dk">Isabellabuchter@outlook.dk</a>
+                    </li>
+                    <li>
+                        <span>Instagram</span>
+                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
+                            @isabellavest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom line -->
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> Bloom — Portfolio</p>
+            <p class="footer-signature">Design & kode af Isabella Vest</p>
         </div>
     </footer>
 
