@@ -1,57 +1,66 @@
-/* =========================================================
-   BLOOM — general.css (Mobile-first)
-   Indeholder: tokens, reset/base, utilities, typografi helpers
-   ========================================================= */
+/**********************************************************
+   
+BLOOM — general.css
 
-/* ---------- 1) Design tokens (variabler) ---------- */
+***********************************************************/
+/***********************************************************
+   1) DESIGN TOKENS (CSS variabler)
+   - Farver, fonte, radius, container osv.
+***********************************************************/
 :root {
-  /* Farver */
-  --bg: #f6f3ea;
-  --surface: #fffdf7;
-  --text: #1b1b1b;
-  --muted: #555;
-  --green: #2f3f33;
-  --border: rgba(0, 0, 0, 0.12);
+  /* ---------- Farver ---------- */
+  --bg: #f6f3ea; /* Sidebaggrund (varm beige) */
+  --surface: #fffdf7; /* “Papir”/kort-baggrund */
+  --text: #1b1b1b; /* Primær tekstfarve */
+  --muted: #555; /* Sekundær tekst (mere afdæmpet) */
+  --green: #2f3f33; /* Primær accent (Bloom grøn) */
+  --border: rgba(0, 0, 0, 0.12); /* Standard border (diskret) */
 
-  /* Form / skygge */
-  --radius: 18px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* ---------- Form / skygge ---------- */
+  --radius: 18px; /* Standard border-radius */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Standard soft shadow */
 
-  /* Layout */
-  --container: 1100px;
+  /* ---------- Layout ---------- */
+  --container: 1100px; /* Max bredde på indhold (container) */
+  --header-h: 72px; /* Ca. header-højde (bruges til sticky offset) */
 
-  /* Typografi */
-  --font-heading: "Italiana", serif;
-  --font-body: "Inria Serif", serif;
+  /* ---------- Typografi ---------- */
+  --font-heading: "Italiana", serif; /* Overskrifter */
+  --font-body: "Inria Serif", serif; /* Brødtekst */
 
-  /* Alias */
-  --card: var(--surface);
-  --accent: var(--green);
+  /* ---------- Alias / semantik ---------- */
+  --card: var(--surface); /* Alias: kort-baggrund */
+  --accent: var(--green); /* Alias: accentfarve */
 }
 
-/* ---------- 2) Base / reset ---------- */
+/***********************************************************
+   2) BASE / RESET
+   - Sikrer konsistent opførsel på tværs af browsere
+***********************************************************/
+
+/* Box-sizing: gør width/height mere “forudsigelig” */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
+/* Global body-styling (samlet i én blok) */
 body {
-  margin: 0;
-  font-family: var(--font-body);
-  line-height: 1.75;
-  color: var(--text);
-  background: var(--bg);
+  margin: 0; /* Fjerner standard browser-margin */
+  font-family: var(--font-body); /* Standard font til brødtekst */
+  line-height: 1.75; /* Behagelig læsbarhed */
+  color: var(--text); /* Primær tekstfarve */
+  background: var(--bg); /* Sidebaggrund */
+  padding-top: var(--header-h); /* Plads til sticky/fixed header */
 }
 
+/* Medieelementer må aldrig “sprænge” layout */
 img,
 video {
-  max-width: 100%;
-  display: block;
+  max-width: 100%; /* Skaler ned i container */
+  height: auto; /* Bevar proportioner */
+  display: block; /* Fjerner baseline-gap under billeder */
 }
 
 a {
@@ -59,284 +68,100 @@ a {
   text-decoration: none;
 }
 
-/* ---------- 3) Utilities ---------- */
+/* Sørger for at Bloom-logo/brand altid bruger korrekt font */
+.site-header .brand-text {
+  font-family: var(--font-heading);
+}
+
+/***********************************************************
+   3) UTILITIES (små genbrugelige klasser)
+***********************************************************/
+
+/* Container: centrerer indhold og giver “luft” på siderne
+   min() betyder: brug enten (100% - 32px) eller var(--container) */
 .container {
   width: min(100% - 32px, var(--container));
-  margin-inline: auto;
+  margin-inline: auto; /* Center vandret */
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+/***********************************************************
+   4) HEADER/HERO OFFSET (for sticky header)
+   - Når body har padding-top, kan hero trækkes op igen
+   - Så header ligger “ovenpå” hero-billedet (gennemsigtig header)
+***********************************************************/
 
-/* Skip link (tilgængelighed) */
-.skip-link {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  padding: 10px 12px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transform: translateY(-200%);
-}
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-/* ---------- 4) Magasin helpers ---------- */
-.kicker {
-  margin: 0 0 0.4rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  opacity: 0.75;
-}
-
-.pullquote {
-  margin: 1.2rem 0 0;
-  padding: 1rem 1.1rem;
-  border-left: 3px solid rgba(0, 0, 0, 0.22);
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 1rem;
-  max-width: 60ch;
-  font-style: italic;
-}
-
-body {
-  padding-top: 72px; /* ca. header-højde (juster hvis din header er højere/lavere) */
-}
-
+/* Hero-sektioner der skal starte helt oppe under headeren */
 .hero-video,
 .hero.hero--image {
-  margin-top: -72px;
+  margin-top: calc(var(--header-h) * -1); /* Trækker hero op */
 }
 
-/* Sikrer at Bloom-logoet altid bruger samme font som forsiden */
-.site-header .brand-text {
-  font-family: "Italiana", serif;
+/***********************************************************
+   5) MAGASIN HELPERS (små typografi-styles)
+***********************************************************/
+
+/* Kicker: lille overlinje, editorial / magasin vibe */
+.kicker {
+  margin: 0 0 0.4rem; /* Luft under */
+  letter-spacing: 0.18em; /* “Magazine spacing” */
+  text-transform: uppercase; /* Store bogstaver */
+  font-size: 0.75rem; /* Lille størrelse */
+  opacity: 0.75; /* Afdæmpet tone */
 }
 
-/* =========================
-   FOOTER — BLOOM (Federe)
-   Mobile-first
-   ========================= */
-
-.footer--bloom {
-  background: #2f3f33; /* Bloom grøn */
-  color: #f6f3ea; /* Bloom beige */
-  padding: 5rem 1.5rem 2rem;
-  position: relative;
-  overflow: hidden; /* så typografi kan “croppe” */
-}
-
-/* Container */
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  gap: 2.5rem;
-  align-items: end;
-}
-
-/* Stor titel – lidt “ud over kanten” */
-.footer-title {
-  font-family: "Italiana", serif;
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  font-size: clamp(3.2rem, 10vw, 7.5rem);
-  margin: 0;
-
-  /* den fede detalje */
-  transform: translateX(-0.25rem);
-}
-
-/* Microcopy under titlen */
-.footer-kicker {
-  max-width: 38ch;
-  margin: 1rem 0 0;
-  color: rgba(246, 243, 234, 0.85);
-  font-size: 1rem;
-}
-
-/* Kontakt “kort” */
-.footer-card {
-  background: rgba(246, 243, 234, 0.08);
-  border: 1px solid rgba(246, 243, 234, 0.18);
-  border-radius: 18px;
-  padding: 1.5rem 1.4rem;
-  backdrop-filter: blur(6px);
-}
-
-/* Lille label */
-.footer-label {
-  margin: 0 0 0.8rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(246, 243, 234, 0.75);
-}
-
-/* Liste */
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.8rem;
-}
-
-.footer-list li {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 0.8rem;
-  align-items: baseline;
-  font-size: 1rem;
-}
-
-/* Labels i venstre side */
-.footer-list span {
-  color: rgba(246, 243, 234, 0.7);
-  font-size: 0.95rem;
-}
-
-/* Links */
-.footer--bloom a {
-  color: #f6f3ea;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-}
-
-.footer--bloom a:hover {
-  border-bottom-color: rgba(246, 243, 234, 0.7);
-}
-
-/* Note */
-.footer-note {
-  margin: 1.2rem 0 0;
-  font-size: 0.95rem;
-  color: rgba(246, 243, 234, 0.75);
-}
-
-/* Bundlinje */
-.footer-bottom {
-  max-width: 1200px;
-  margin: 2rem auto 0;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(246, 243, 234, 0.18);
-  font-size: 0.95rem;
-  color: rgba(246, 243, 234, 0.75);
-}
-
-/* Desktop layout */
-@media (min-width: 900px) {
-  .footer-inner {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3rem;
-  }
-
-  .footer-title {
-    /* gør den endnu mere “editorial” */
-    transform: translateX(-1rem);
-  }
-}
-
-.footer-card {
-  position: relative;
-}
-
-/* =========================
-   FOOTER — Editorial / Magasin
-   Mobile-first
-   ========================= */
+/***********************************************************
+   6) FOOTER — Editorial / Magasin (Mobile-first)
+   - Bruges når footer har class: .footer.footer--editorial
+   - Vi bruger CSS-variabler internt til footer-farver
+***********************************************************/
 
 .footer--editorial {
-  /* Bloom palette */
-  --footer-bg: #2f3f33; /* mørk grøn */
-  --footer-fg: #f6f3ea; /* varm beige */
-  --footer-fg-dim: rgba(246, 243, 234, 0.78);
-  --footer-line: rgba(246, 243, 234, 0.16);
+  /* Footer palette (lokale tokens kun for footer) */
+  --footer-bg: #2f3f33; /* Mørk grøn baggrund */
+  --footer-fg: #f6f3ea; /* Varm beige tekst */
+  --footer-fg-dim: rgba(246, 243, 234, 0.78); /* Afdæmpet tekst */
+  --footer-line: rgba(246, 243, 234, 0.16); /* Linjer/borders */
 
   background: var(--footer-bg);
   color: var(--footer-fg);
-  padding: 5.5rem 1.5rem 2rem;
-  position: relative;
-  overflow: hidden; /* så typografi kan “croppe” */
+  padding: 5.5rem 1.5rem 2rem; /* Stor top padding (editorial look) */
+  position: relative; /* Needed til pseudo-element */
+  overflow: hidden; /* “Crop” store elementer + grain */
 }
 
-/* Grain/print texture (subtil) */
-.footer--editorial::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.1;
-  pointer-events: none;
-  background-image: radial-gradient(
-    rgba(246, 243, 234, 0.22) 1px,
-    transparent 1px
-  );
-  background-size: 7px 7px;
-  mix-blend-mode: overlay;
-}
-
+/* Wrapper til footer-indhold (grid layout) */
 .footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  gap: 2.75rem;
-  align-items: end;
-  position: relative; /* over grain */
-  z-index: 1;
+  max-width: 1200px; /* Lidt bredere end content */
+  margin: 0 auto; /* Center */
+  display: grid; /* Grid gør det nemt at lave 2 kolonner på desktop */
+  gap: 2.75rem; /* Luft mellem kolonner */
+  align-items: end; /* Læg indhold “nedad” for editorial alignment */
+  position: relative; /* Over grain */
+  z-index: 1; /* Sikrer at tekst ligger over ::after */
 }
 
-/* Eyebrow label */
-.footer-eyebrow {
-  margin: 0 0 0.9rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--footer-fg-dim);
-}
-
-/* Big editorial title */
+/* Stor titel: “Let’s connect” */
 .footer-title {
-  font-family: "Italiana", serif;
+  font-family: var(--font-heading);
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 0.9; /* Tæt linjehøjde for magasin look */
   letter-spacing: -0.02em;
-  font-size: clamp(3.2rem, 10vw, 7.7rem);
+  font-size: clamp(3.2rem, 10vw, 7.7rem); /* Responsiv overskrift */
   margin: 0;
-
-  /* editorial “crop” */
-  transform: translateX(-0.5rem);
+  transform: translateX(-0.5rem); /* “Crop”/editorial vibe */
 }
 
-/* Kicker text */
-.footer-kicker {
-  margin: 1.2rem 0 0;
-  max-width: 44ch;
-  font-size: 1rem;
-  color: var(--footer-fg-dim);
-}
-
-/* Paper card */
+/* Kontakt-kort på højre side */
 .footer-card {
-  background: rgba(246, 243, 234, 0.08);
-  border: 1px solid rgba(246, 243, 234, 0.18);
-  border-radius: 22px;
-  padding: 1.6rem 1.55rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  background: rgba(246, 243, 234, 0.08); /* Let “glas/papir” */
+  border: 1px solid rgba(246, 243, 234, 0.18); /* Diskret kant */
+  border-radius: 22px; /* Runde hjørner */
+  padding: 1.6rem 1.55rem; /* Indvendig luft */
+  backdrop-filter: blur(10px); /* Blød “glass” effekt */
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18); /* Dybere shadow */
 }
 
+/* “Kontakt” label i kortet */
 .footer-card-title {
   margin: 0 0 1rem;
   font-size: 0.85rem;
@@ -345,26 +170,29 @@ body {
   color: var(--footer-fg-dim);
 }
 
+/* Liste-styling (ingen bullets) */
 .footer-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
+  display: grid; /* Grid giver ens spacing */
 }
 
+/* Hver kontakt-linje: label + værdi */
 .footer-list li {
   display: grid;
-  grid-template-columns: 92px 1fr;
+  grid-template-columns: 92px 1fr; /* Venstre label / højre værdi */
   gap: 0.9rem;
   padding: 0.65rem 0;
   border-bottom: 1px solid rgba(246, 243, 234, 0.12);
 }
 
+/* Sidste item uden border */
 .footer-list li:last-child {
   border-bottom: none;
 }
 
-/* Left labels */
+/* Labels (Email/Instagram) i venstre kolonne */
 .footer-list span {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
@@ -372,13 +200,14 @@ body {
   color: rgba(246, 243, 234, 0.68);
 }
 
-/* Link styling: classy underline animation */
+/* Links i footer: classy underline animation */
 .footer--editorial a {
   color: var(--footer-fg);
   text-decoration: none;
-  position: relative;
+  position: relative; /* Needed til ::after underline */
 }
 
+/* Underline (starter skjult) */
 .footer--editorial a::after {
   content: "";
   position: absolute;
@@ -387,45 +216,41 @@ body {
   width: 100%;
   height: 1px;
   background: rgba(246, 243, 234, 0.75);
-  transform: scaleX(0);
+  transform: scaleX(0); /* Skjult */
   transform-origin: left;
-  transition: transform 200ms ease;
+  transition: transform 200ms ease; /* Smooth hover animation */
 }
 
+/* Hover: underline vises */
 .footer--editorial a:hover::after {
   transform: scaleX(1);
 }
 
-.footer-note {
-  margin: 1.1rem 0 0;
-  font-size: 0.95rem;
-  color: var(--footer-fg-dim);
-}
-
-/* Bottom */
+/* Footer bundlinje (copyright + signatur) */
 .footer-bottom {
   max-width: 1200px;
   margin: 2.2rem auto 0;
   padding-top: 1.25rem;
   border-top: 1px solid var(--footer-line);
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Over grain */
   color: var(--footer-fg-dim);
   font-size: 0.95rem;
 }
 
+/* Signatur-linje (Design & kode af...) */
 .footer-signature {
   margin: 0.35rem 0 0;
 }
 
-/* Desktop: 2 columns */
+/* Desktop: footer bliver 2 kolonner */
 @media (min-width: 900px) {
   .footer-inner {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.2fr 0.8fr; /* Venstre: stor titel, højre: kort */
     gap: 3.25rem;
   }
 
   .footer-title {
-    transform: translateX(-1.2rem);
+    transform: translateX(-1.2rem); /* Mere “editorial crop” på stor skærm */
   }
 }

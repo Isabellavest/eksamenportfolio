@@ -1,72 +1,75 @@
-/* =========================================================
-   BLOOM — style.css (Mobile-first)
+/**********************************************************
+   BLOOM — style.css
    Indeholder: komponenter / styling (ikke layout-breakpoints)
    Fokus: genbrug, færre gentagelser, nemt at forklare.
    ========================================================= */
 
-/* =========================================================
-   1) KORT / CARD (genbrugelig “glas”-boks)
+/**********************************************************
+   1) CARD (genbrugelig “glas”-boks)
+   Bruges til bokse/kort med let transparens
    ========================================================= */
 .card {
-  /* Let transparent hvid for “soft card”-look */
-  background: rgba(255, 255, 255, 0.35);
-
-  /* Diskret kant + runde hjørner fra dine tokens */
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.35); /* Soft “papir/glas” look */
+  border: 1px solid var(--border); /* Diskret kant (token fra general.css) */
+  border-radius: var(--radius); /* Runde hjørner (token) */
 }
 
-/* =========================================================
-   2) KNAPPER (CTA)
+/**********************************************************
+   2) BUTTONS (CTA)
+   - .btn = primær knap
+   - .btn--ghost / .btn-ghost = sekundær knap (transparent)
    ========================================================= */
 .btn {
-  /* Inline-flex: gør knappen til en fleksibel “pill” der kan holde ikon + tekst */
-  display: inline-flex;
-  align-items: center; /* centrerer lodret */
-  justify-content: center; /* centrerer vandret */
-  gap: 8px; /* luft mellem evt. ikon og tekst */
+  display: inline-flex; /* Gør knappen fleksibel (ikon + tekst) */
+  align-items: center; /* Center vertikalt */
+  justify-content: center; /* Center horisontalt */
+  gap: 8px; /* Luft mellem ikon og tekst */
 
-  /* Komfortabel klikflade (mobile-first) */
-  padding: 12px 14px;
+  padding: 12px 14px; /* Klikflade (mobile-friendly) */
+  border-radius: 999px; /* “Pill” form (runde ender) */
 
-  /* 999px = “pill” (helt runde ender) */
-  border-radius: 999px;
+  border: 1px solid var(--green); /* Accent kant */
+  background: var(--green); /* Primær knapfarve */
+  color: var(--bg); /* Tekstfarve på knap (beige) */
 
-  /* Primær farveknap */
-  border: 1px solid var(--green);
-  background: var(--green);
-  color: var(--bg);
-
-  /* Gør tekst en smule tydeligere */
-  font-weight: 600;
+  font-weight: 600; /* Lidt stærkere CTA-tekst */
+  cursor: pointer; /* Viser “klikbar” */
 }
 
-/* Ghost = samme knap, men transparent baggrund (sekundær CTA) */
-.btn-ghost {
-  background: transparent;
-  color: var(--green);
+/* Ghost button */
+.btn--ghost {
+  background: transparent; /* Ingen baggrund */
+  color: var(--green); /* Grøn tekst */
 }
 
-/* “Soft button” bruges andre steder (alias beholdes for kompatibilitet) */
+/* Hover: gør knapper en anelse tydeligere */
+.btn:hover {
+  opacity: 0.92;
+}
+
+/**********************************************************
+   2.1) SOFT BUTTON (legacy / alias)
+   - Rammer både soft-btn og soft_btn
+***********************************************************/
 .soft-btn,
 .soft_btn {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
 
-  /* fit-content: knappen fylder kun så meget som indholdet */
-  width: fit-content;
-
+  width: fit-content; /* Fylder kun indhold */
   padding: 0.65rem 0.95rem;
   border-radius: 999px;
 
-  /* Lys “soft” stil */
   border: 1px solid rgba(0, 0, 0, 0.14);
   background: rgba(255, 255, 255, 0.55);
-  color: inherit; /* tager farve fra parent (godt til mørk/lys baggrund) */
+  color: inherit; /* Arver farve fra container */
 }
 
-/* Fokus-styles til keyboard navigation (tilgængelighed) */
+/**********************************************************
+   2.2) FOCUS STYLES
+   - Viser tydelig outline, når man tab-navigerer
+***********************************************************/
 .soft-btn:focus-visible,
 .soft_btn:focus-visible,
 .chapter__link:focus-visible,
@@ -74,57 +77,41 @@
   outline: 3px solid rgba(0, 0, 0, 0.25);
   outline-offset: 4px;
 }
-
-/* =========================================================
+/**********************************************************
    3) HEADER + NAV (global menu)
-   Mål: Transparent på hero, solid ved scroll (styres af JS)
-   ========================================================= */
-/* =========================================================
-   HEADER + NAV (fixed overlay)
-   Mål:
-   - Transparent ovenpå hero (smukt)
-   - Solid ved scroll (læsbarhed)
-   - Ingen “pink flash” ved transition
-   ========================================================= */
-
+   - Header er fixed og ligger ovenpå hero
+   - JS skifter klasserne: .is-transparent / .is-solid
+***********************************************************/
 .site-header {
-  /* Fixed gør at headeren kan “ligge ovenpå” hero */
-  position: fixed;
+  position: fixed; /* Ligger fast i toppen */
   top: 0;
   left: 0;
   right: 0;
+  z-index: 60; /* Over hero/video */
 
-  /* Sørger for at den altid ligger over hero/video */
-  z-index: 60;
+  border-bottom: 1px solid rgba(0, 0, 0, 0); /* Usynlig default */
+  background-color: rgba(246, 243, 234, 0); /* Transparent default */
 
-  /* Start: usynlig kant (bliver synlig i solid state) */
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
-
-  /* VIGTIGT:
-     Brug background-color (ikke background) for stabil transition
-     og undgå at animere backdrop-filter (kan glitch’e/pinke) */
-  background-color: rgba(246, 243, 234, 0);
-
+  /* Animer kun farve/kant (stabilt) */
   transition: background-color 250ms ease, border-color 250ms ease;
 }
 
+/* Indhold i header */
 .header-inner {
-  /* Flex: logo til venstre, menu/hamburger til højre */
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  /* Luft i headeren */
-  padding: 14px 0;
+  padding: 14px 0; /* Luft i header */
   gap: 12px;
 }
 
+/* Brand/logo */
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
 
-  /* Lidt “branding weight” */
   font-weight: 650;
   letter-spacing: 0.2px;
 }
@@ -133,81 +120,65 @@
   font-size: 1.05rem;
 }
 
-/* Nav-liste (mobil dropdown styres i burger.css) */
+/* Nav-liste: mobil = kolonne (desktop styres i layout.css) */
 .nav-list {
-  list-style: none; /* fjerner bullets */
+  list-style: none;
   margin: 0;
   padding: 0;
 
   display: flex;
-  flex-direction: column; /* mobil: menu i kolonne */
+  flex-direction: column;
   gap: 6px;
 }
 
+/* Nav-link */
 .nav-link {
-  display: block; /* gør hele området klikbart */
+  display: block;
   padding: 10px 12px;
   border-radius: 14px;
 
-  /* Nav-tekst i din heading-font for “Magasin look” */
   font-family: var(--font-heading);
   letter-spacing: 0.02em;
+
+  position: relative; /* nødvendig for underline ::after */
+  transition: opacity 200ms ease;
 }
 
+/* Aktiv side */
 .nav-link.is-active {
-  font-weight: 600; /* markerer aktiv side */
+  font-weight: 600;
 }
 
-/* --- Header state: TRANSPARENT (på hero / øverst på siden) --- */
+/* -------- HEADER STATE: TRANSPARENT (på hero) -------- */
 .site-header.is-transparent {
-  /* 0 opacity = gennemsigtig uden rendering-glitch */
-  background-color: rgba(246, 243, 234, 0);
+  background-color: rgba(246, 243, 234, 0); /* transparent */
+  border-color: rgba(0, 0, 0, 0); /* ingen kant */
+  backdrop-filter: none; /* ingen blur */
 
-  /* ingen kant synlig */
-  border-color: rgba(0, 0, 0, 0);
-
-  /* ingen blur i toppen */
-  backdrop-filter: none;
-
-  /* Tynd, elegant streg over hero (magasin-look) */
+  /* Lys streg over hero (magasin vibe) */
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* På hero: hvid tekst så menuen er synlig */
+/* På hero: gør tekst hvid */
 .site-header.is-transparent .brand-text,
 .site-header.is-transparent .nav-link {
   color: var(--bg);
 }
 
-/* --- Header state: SOLID (når du scroller ned) --- */
+/* -------- HEADER STATE: SOLID (ved scroll) -------- */
 .site-header.is-solid {
-  /* lys “glass” baggrund */
-  background-color: rgba(246, 243, 234, 0.92);
-
-  /* blur på baggrunden (skifter “instant”, men ser smooth ud pga. farvefade) */
-  backdrop-filter: blur(10px);
-
-  /* diskret kant */
-  border-color: var(--border);
+  background-color: rgba(246, 243, 234, 0.92); /* lys “glass” */
+  backdrop-filter: blur(10px); /* blur */
+  border-color: var(--border); /* diskret kant */
 }
 
-/* På solid: mørk tekst for læsbarhed */
+/* På solid: gør tekst mørk */
 .site-header.is-solid .brand-text,
 .site-header.is-solid .nav-link {
   color: var(--text);
 }
 
-/* =========================
-   NAV LINK — Hover effect
-   ========================= */
-
-/* Grundstate */
-.nav-link {
-  position: relative; /* nødvendigt for ::after */
-  transition: opacity 200ms ease;
-}
-
-/* Underline (skjult som default) */
+/* Underline (skjult default) */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -216,7 +187,7 @@
   bottom: 6px;
 
   height: 1px;
-  background: currentColor; /* matcher tekstfarven automatisk */
+  background: currentColor;
 
   transform: scaleX(0);
   transform-origin: left;
@@ -225,40 +196,35 @@
 }
 
 /* Hover + keyboard focus */
-.nav-link:hover,
-.nav-link:focus-visible {
-  opacity: 0.85;
-}
 
 .nav-link:hover::after,
 .nav-link:focus-visible::after {
   transform: scaleX(1);
 }
 
-/* =========================================================
+/**********************************************************
    4) HERO — VIDEO (forsiden)
-   ========================================================= */
+***********************************************************/
 .hero-video {
   position: relative;
-  min-height: 90vh; /* “stor hero” men ikke altid 100vh */
+  min-height: 90vh;
   display: grid;
-  place-items: center; /* centrerer hero-content i midten */
+  place-items: center;
   overflow: hidden;
-  background: #000; /* fallback hvis video ikke loader */
+  background: #000; /* fallback */
 }
 
 .hero-video__media {
-  /* Video fylder hele heroen */
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
-  object-fit: cover; /* beskærer pænt uden at strække */
-  transform: scale(1.02); /* lille zoom = mere “cinematic” */
+  object-fit: cover;
+  transform: scale(1.02); /* lille cinematic zoom */
 }
 
 .hero-video__overlay {
-  /* Overlay gør tekst læsbar på video */
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -269,58 +235,48 @@
   );
 }
 
+/* Hero content ovenpå video */
 .hero-video__content {
-  /* Tekst ovenpå video */
   position: relative;
   z-index: 2;
   color: var(--bg);
-
-  /* Plads til header + “magasin spacing” */
-  padding: 90px 0 30px;
+  padding: 90px 0 30px; /* plads til header + luft */
 }
 
-/* Hero-typografi (genbruges på image-hero via samme classes) */
+/* Shared hero typografi */
 .hero-title {
   margin: 0 0 10px;
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 6vw, 3.2rem); /* responsiv tekst */
+  font-size: clamp(2rem, 6vw, 3.2rem);
   line-height: 1.05;
 }
 
 .hero-lead {
   margin: 0 0 16px;
-  max-width: 60ch; /* læsbar linjelængde */
-  color: rgba(246, 243, 234, 0.85); /* lidt blødere end ren hvid */
+  max-width: 60ch;
+  color: rgba(246, 243, 234, 0.85);
 }
 
 .hero-actions {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap; /* knapper må gerne hoppe ned på små skærme */
+  flex-wrap: wrap;
   margin-bottom: 14px;
 }
 
-/* =========================================================
-   5) HERO — IMAGE (alle andre sider)
-   Mål: samme look/placering som video-hero.
-   HTML-struktur:
-   <section class="hero hero--image">
-     <img class="hero__image">
-     <div class="hero__overlay"></div>
-     <div class="container hero__content"> ... (hero-title etc.) ...
-   </section>
-   ========================================================= */
+/**********************************************************
+   5) HERO — IMAGE (tema-sider)
+***********************************************************/
 .hero.hero--image {
   position: relative;
   min-height: 90vh;
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #000; /* fallback */
+  background: #000;
 }
 
 .hero__image {
-  /* Billedet fylder hele hero */
   position: absolute;
   inset: 0;
   width: 100%;
@@ -329,7 +285,6 @@
 }
 
 .hero__overlay {
-  /* Overlay for læsbarhed (samme idé som video) */
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -341,26 +296,15 @@
 }
 
 .hero.hero--image .hero__content {
-  /* Content ovenpå billedet */
   position: relative;
   z-index: 2;
   color: var(--bg);
-
-  /* Match præcis video-hero spacing */
   padding: 90px 0 30px;
 }
 
-/* =========================================================
-   6) SHARED HELPERS (små resets)
-   ========================================================= */
-.grid_1-1 figure,
-.grid_2-1 figure {
-  margin: 0; /* fjerner default figure-margin så layout ikke “hopper” */
-}
-
-/* =========================================================
-   7) PROJECTS — Chapters (projekter.html)
-   ========================================================= */
+/**********************************************************
+   6) PROJECTS — Chapters (projekter.html)
+***********************************************************/
 .chapters {
   padding: 3.5rem 1.25rem;
   max-width: var(--container);
@@ -461,18 +405,17 @@
   transform: scale(1.03);
 }
 
-/* =========================================================
-   8) ABOUT (om-mig.html)
-   Bemærk: du har både dash og underscore klasser (legacy).
-   Jeg bevarer dem for at intet går i stykker.
-   ========================================================= */
+/**********************************************************
+   7) ABOUT (om-mig.html)
+   - Bevarer både dash + underscore (legacy)
+***********************************************************/
 .about,
 .about-page {
   max-width: var(--container);
   margin: 0 auto;
 }
 
-/* Hero på about (hvis du stadig bruger den gamle variant nogle steder) */
+/* About hero (legacy variant) */
 .about-hero,
 .about_hero {
   position: relative;
@@ -511,71 +454,15 @@
   line-height: 0.95;
 }
 
-/* Intro */
+/* About intro (legacy) */
 .about_intro {
   padding: 3rem 1.25rem;
   gap: 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.about_intro_img {
-  border-radius: 1.25rem;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.about_intro_img img {
-  width: 100%;
-  height: 620px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.about_intro_text h2 {
-  margin: 0 0 0.6rem;
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  line-height: 1.05;
-}
-
-.about_intro_text p {
-  max-width: 60ch;
-  opacity: 0.9;
-}
-
-/* Billedeblokke */
-.about_img {
-  border-radius: 1.25rem;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.about_img img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* ---------- ABOUT: Focus image (match intro image) ---------- */
-.focus-photo {
-  border-radius: 1.25rem; /* samme afrunding som intro-billedet */
-  overflow: hidden; /* klipper billedet indenfor rammen */
-  border: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.focus-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ---------- ABOUT: Shared image card ---------- */
+/* Shared image “card” (intro + focus photo)
+   Samler de to gentagne blokke til én */
 .about_intro_img,
 .focus-photo {
   border-radius: 1.25rem;
@@ -583,29 +470,24 @@
   border: 1px solid var(--border);
   background: rgba(0, 0, 0, 0.03);
 
-  /* VIGTIGT: samme størrelse */
-  max-width: 520px; /* styrer bredden */
+  max-width: 520px;
   width: 100%;
+  margin-inline: auto; /* centrer i kolonne */
 }
 
 .about_intro_img img,
 .focus-photo img {
   width: 100%;
-  height: 620px; /* ens højde */
+  height: 620px;
   object-fit: cover;
   object-position: center;
   display: block;
 }
-/**** centrér billedet i kolonnen - begge billeder kommer til at “stå lige pænt” i hver kolonne: ***/
-.about_intro_img,
-.focus-photo {
-  margin-inline: auto;
-}
 
 .focus h2 {
-  font-family: "Italiana", serif;
-  font-size: 2.4rem; /* samme som dine andre h2 */
-  font-weight: lighter;
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 300;
 }
 
 /* Skills / process-lister */
@@ -664,9 +546,19 @@
   font-style: italic;
 }
 
-/* =========================================================
-   9) CV (cv-sektion)
-   ========================================================= */
+/* ABOUT: Intro title (Italiana) */
+#main .intro-title {
+  font-family: var(--font-heading); /* Italiana */
+  font-size: clamp(1.9rem, 3.8vw, 2.6rem); /* matcher h2 */
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.2rem;
+}
+
+/**********************************************************
+   8) CV (cv-sektion)
+***********************************************************/
 .cv {
   padding: 3.2rem 1.25rem;
 }
@@ -775,9 +667,9 @@
   opacity: 0.9;
 }
 
-/* =========================================================
-   10) PROJECT PAGE (projektsider)
-   ========================================================= */
+/**********************************************************
+   9) PROJECT PAGE (projektsider)
+***********************************************************/
 .project-hero {
   padding: 2.5rem 0 1.2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -818,38 +710,6 @@
   display: grid;
   gap: 1.5rem;
   padding: 2rem 0;
-}
-
-.project-aside {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 1.25rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.aside-title {
-  margin: 0 0 0.6rem;
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: 1.35rem;
-}
-
-.aside-list {
-  margin: 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.35rem;
-}
-
-.aside-link {
-  color: inherit;
-  opacity: 0.85;
-}
-
-.aside-link:hover {
-  opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 4px;
 }
 
 .project-flow {
@@ -917,77 +777,4 @@
   font-size: 0.9rem;
   opacity: 0.75;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-/* Farveprøver (visuelle chips til farvepalette) */
-.swatches {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.swatch {
-  /* CSS custom property: kan overrides inline pr. farve */
-  --swatch: #ddd;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  padding: 0.45rem 0.65rem;
-  border-radius: 999px;
-
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: rgba(255, 255, 255, 0.35);
-  font-size: 0.92rem;
-}
-
-/* Den lille farvecirkel i chippen */
-.swatch::before {
-  content: "";
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: var(--swatch);
-  border: 1px solid rgba(0, 0, 0, 0.18);
-}
-
-/* =========================================================
-   11) FOOTER
-   ========================================================= */
-.site-footer {
-  padding: 28px 0;
-  background: var(--green);
-  color: var(--bg);
-  margin-top: 20px;
-}
-
-.footer-inner {
-  display: grid;
-  gap: 14px;
-}
-
-.footer-title {
-  margin: 0 0 6px;
-  font-weight: 700;
-}
-
-.footer-text {
-  margin: 0;
-  opacity: 0.9;
-  max-width: 60ch;
-}
-
-.footer-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.footer-small {
-  margin: 0;
-  opacity: 0.85;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 12px;
 }

@@ -1,14 +1,7 @@
-/* =========================================================
+/**********************************************************
    BLOOM — layout.css (Mobile-first)
    Indeholder: grids + breakpoints (layout only)
-   ========================================================= */
-
-/* Shared grid helper */
-.grid_1-1 {
-  display: grid; /* mobil: stack */
-  gap: 24px;
-  align-items: start;
-}
+***********************************************************/
 
 /* Shared grid helper */
 .grid_1-1 {
@@ -42,27 +35,24 @@
   .about_intro_img {
     transform: translateY(-12px);
   }
-  .about_intro_img img {
-    height: 620px;
-  }
 
   /* ABOUT: Focus (SPREAD 2) — tekst venstre, billede højre */
   .focus-grid {
-    grid-template-columns: 1fr 1fr; /* 2 kolonner på desktop */
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
-  /* Vender rækkefølgen ift. spread 1 */
+  /* Grid-reordering */
   .focus-left {
-    order: 1; /* tekst venstre */
+    grid-column: 1;
   }
   .focus-right {
-    order: 2; /* billede højre */
+    grid-column: 2;
   }
 
   /* Samme billed-højde som første spread (match) */
   .focus-photo img {
-    height: 620px; /* matcher din about_intro_img img på desktop */
+    height: 620px;
     object-fit: cover;
     object-position: center;
   }
@@ -92,11 +82,6 @@
   }
   .chapter:nth-of-type(even) .chapter__media {
     order: 1;
-  }
-
-  /* About “fokus-billede” større */
-  .about_img img {
-    height: 680px;
   }
 }
 
