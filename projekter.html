@@ -1,110 +1,166 @@
 <!DOCTYPE html>
+<!-- Fortæller browseren at dokumentet er HTML5 (standard). -->
 <html lang="da">
+<!-- Starter HTML-dokumentet.
+     lang="da" hjælper skærmlæsere, oversættere og søgemaskiner med at forstå sproget (dansk). -->
 
 <head>
+    <!-- Head indeholder metadata: info om siden, links til CSS, fonts osv.
+         Det er ikke det synlige indhold på siden. -->
 
     <meta charset="UTF-8" />
+    <!-- Sætter tegnsæt til UTF-8, så danske bogstaver (æøå) og specialtegn vises korrekt. -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Gør siden responsiv på mobil. -->
+
+    <meta name="robots" content="noindex">
+    <!-- Forhindrer søgemaskiner i at indeksere siden (eksamenskrav). -->
 
     <title>Projekter</title>
+    <!-- Titel der vises i browser-tab. -->
 
     <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+    <!-- Kort beskrivelse til SEO/søgemaskiner. -->
 
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/burger.css" />
+    <!-- Link til CSS filer.
+         Rækkefølge betyder noget: senere CSS kan override tidligere. -->
 
     <link rel="icon" type="image/webp" href="images/logoskitse.webp">
-    <!-- Favicon -->
+    <!-- Favicon: lille ikon i browser-tab/favoritter. -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- preconnect: etablerer forbindelse tidligt (performance). -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- preconnect til fonts CDN. crossorigin sikrer korrekt hentning fra andet domæne. -->
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
         rel="stylesheet">
-
+    <!-- Loader to fonte: Italiana + Inria Serif.
+         display=swap forbedrer UX (ingen “usynlig tekst”). -->
 </head>
 
 <body>
+    <!-- Body indeholder alt synligt indhold. -->
 
     <header class="site-header is-transparent" id="siteHeader">
+        <!-- Header = topområde med navigation.
+             is-transparent bruges til at gøre header gennemsigtig over hero-billedet.
+             id="siteHeader" gør den nem at finde i JS (fx ved scroll-effekt). -->
 
         <div class="container header-inner">
+            <!-- container centrerer og begrænser bredde.
+                 header-inner styrer layout (flex/grid). -->
 
             <a class="brand" href="index.html" aria-label="Gå til forsiden">
+                <!-- Brand/Logo-link der altid leder til forsiden.
+                     aria-label giver en tydelig tekst til skærmlæsere. -->
                 <span class="brand-text">Bloom</span>
+                <!-- span er et inline-element til små tekstdele (fx logo/brand) uden at skabe nyt afsnit. -->
             </a>
 
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-                <span class="sr-only">Åbn menu</span>
+                <!-- Hamburger-knap til mobilmenu.
+                     aria-expanded skifter typisk til true/false i JS når menu åbnes/lukkes.
+                     aria-controls peger på menuen (id="site-nav"). -->
                 <span class="nav-toggle-lines" aria-hidden="true"></span>
+                <!-- Pynt/ikon: skal ikke læses op (selve burger ikonet - 3 streger). -->
             </button>
 
             <nav id="site-nav" class="site-nav" aria-label="Hovedmenu">
+                <!-- Nav = navigation.
+                     id matcher aria-controls fra burger-knappen. -->
                 <ul class="nav-list">
+                    <!-- ul (Unordered List) = punktliste. -->
                     <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
+                    <!-- li (List Item) = et menupunkt. a (anchor) = link. -->
                     <li><a class="nav-link" href="projekter.html">Projekter</a></li>
                     <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    <!-- Ankerlink: scroller til footer med id="kontakt". -->
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- =========================
-       MAIN
-       ========================= -->
 
+    <!-- MAIN -->
     <main id="main">
-        <!-- HERO med billede (samme “format” som forsiden) -->
-        <section class="hero hero--image">
-            <!-- Billedet ligger som baggrund i hero -->
-            <img src="images/liljecomputer.webp"
-                alt="Blomster der vokser ud af en laptop – symbol på proces og udvikling" class="hero__image" />
-            <!-- Overlay for læsbarhed -->
-            <div class="hero__overlay" aria-hidden="true"></div>
+        <!-- main = sidens primære indhold. -->
 
-            <!-- Indhold ovenpå billedet -->
+        <!-- HERO med billede (samme format/oplevelse som din forside) -->
+        <section class="hero hero--image">
+            <!-- Hero = øverste “intro”-sektion med stort visuelt udtryk. -->
+
+            <img src="images/liljecomputer.webp"
+                alt="Blomster der vokser ud af en laptop – symbol på proces og udvikling" class="hero__image"
+                loading="eager" />
+            <!-- Hero-billede.
+                 loading="eager" giver mening her, fordi hero ligger øverst og skal vises med det samme. -->
+
+            <div class="hero__overlay" aria-hidden="true"></div>
+            <!-- Overlay-lag for bedre læsbarhed på tekst. Kun visuelt. -->
+
             <div class="container hero__content">
+                <!-- Indhold ovenpå billedet. -->
                 <p class="kicker">Projekt • 1. semester</p>
+                <!-- Kicker = lille overlinje i editorial stil. -->
 
                 <h1 class="hero-title">Projekter</h1>
+                <!-- h1 = sidens vigtigste overskrift. -->
 
                 <p class="hero-lead">
-                    Her samler jeg mine projekter fra alle temaer i 1 semester,
+                    Her samler jeg mine projekter fra alle temaer i 1. semester,
                     så det er tydeligt, hvordan jeg forstår teorien og anvender den i praksis.
                 </p>
+
                 <p class="hero-lead">
                     Fire blomster — fire kapitler. Hvert projekt er en lille historie med proces og resultat.
                 </p>
             </div>
         </section>
 
+        <!-- PROJEKT-OVERSIGT -->
         <section class="chapters" aria-labelledby="chapters-title">
+            <!-- chapters = oversigtssektion med dine projekter.
+                 aria-labelledby peger på en overskrift med id="chapters-title" for bedre tilgængelighed. -->
+
+            <h2 id="chapters-title" class="sr-only">Projekter fra 1. semester</h2>
+            <!-- Skjult overskrift (sr-only) til skærmlæsere, så sektionen får et tydeligt navn. -->
 
             <!-- Chapter 02 -->
             <article class="chapter">
+                <!-- article = ét selvstændigt projekt-kort. -->
                 <a class="chapter__link" href="tema-2-web.html">
+                    <!-- a (anchor) = link. Her gør det hele “kortet” klikbart (god UX). -->
+
                     <div class="chapter__text">
-                        <p class="chapter__meta">Tema 02· Grundlæggende Web
-                        </p>
-                        <h2 class="chapter__title">Studietstartsprøven & stiløvelser</h2>
+                        <!-- Tekstindhold på projekt-kortet. -->
+                        <p class="chapter__meta">Tema 02 · Grundlæggende Web</p>
+                        <h2 class="chapter__title">Studietstartsprøven og stiløvelser</h2>
                         <p class="chapter__lede">
-                            En case bygget på: uddelte wireframes, koder og mobile-first.
+                            En case bygget på: uddelte wireframes, kode og mobile-first.
                         </p>
 
                         <ul class="chapter__tags" aria-label="Projekt tags">
+                            <!-- Tags = små label-ord der forklarer værktøjer/fokus. -->
                             <li class="tag">HTML</li>
                             <li class="tag">CSS</li>
                             <li class="tag">Mobile-first</li>
                         </ul>
 
                         <span class="chapter__cta">Se projektet →</span>
+                        <!-- CTA-tekst (Call To Action) der indikerer at man kan klikke videre. -->
                     </div>
 
                     <figure class="chapter__media" aria-hidden="true">
+                        <!-- Dekorativt billede til kortet.
+                             aria-hidden skjuler billedet for skærmlæsere, da teksten allerede forklarer projektet. -->
                         <img src="images/liljecomputer.webp" alt="" loading="lazy">
+                        <!-- alt="" fordi billedet er dekorativt i denne sammenhæng. -->
                     </figure>
                 </a>
             </article>
@@ -114,7 +170,7 @@
                 <a class="chapter__link" href="tema-3-ux-ui.html">
                     <div class="chapter__text">
                         <p class="chapter__meta">Tema 03 · Grundlæggende UX/UI</p>
-                        <h2 class="chapter__title"> Emnesite</h2>
+                        <h2 class="chapter__title">Emnesite</h2>
                         <p class="chapter__lede">
                             Et visuelt univers med typografi, farver og et design-system der holder.
                         </p>
@@ -164,7 +220,7 @@
                 <a class="chapter__link" href="tema-5-indhold.html">
                     <div class="chapter__text">
                         <p class="chapter__meta">Tema 05 · Grundlæggende Indhold</p>
-                        <h2 class="chapter__title">Indholdsproduktion & virksomhedssite</h2>
+                        <h2 class="chapter__title">Indholdsproduktion og virksomhedssite</h2>
                         <p class="chapter__lede">
                             Interview, brugertest og forbedringer der gør helheden mere skarp.
                         </p>
@@ -184,22 +240,20 @@
                 </a>
             </article>
         </section>
-
-
     </main>
 
-    <!-- =========================
-         FOOTER (din eksisterende)
-         ========================= -->
+    <!-- FOOTER -->
     <footer class="footer footer--editorial" id="kontakt">
-        <div class="footer-inner">
+        <!-- Footer har id="kontakt", så nav-linket i headeren kan linke hertil (href="#kontakt"). -->
 
-            <!-- LEFT: Editorial typography -->
+        <div class="footer-inner">
+            <!-- Wrapper til footer layout (venstre + højre). -->
+
             <div class="footer-left">
                 <h2 class="footer-title">Let’s connect</h2>
+                <!-- Stor, editorial overskrift. -->
             </div>
 
-            <!-- RIGHT: Paper card -->
             <div class="footer-card">
                 <p class="footer-card-title">Kontakt</p>
 
@@ -210,18 +264,16 @@
                     </li>
                     <li>
                         <span>Instagram</span>
-                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
-                            @isabellavest
-                        </a>
+                        <a href="https://instagram.com/isabellavest">@isabellavest</a>
+                        <!-- Link til Instagram (åbner i samme fane, for konsistens med dine andre sider). -->
                     </li>
                 </ul>
             </div>
-
         </div>
 
-        <!-- Bottom line -->
         <div class="footer-bottom">
-            <p>© <span id="year"></span> Bloom — Portfolio</p>
+            <!-- Bundlinje i footer -->
+            <p>Bloom — Portfolio</p>
             <p class="footer-signature">Design & kode af Isabella Vest</p>
         </div>
     </footer>

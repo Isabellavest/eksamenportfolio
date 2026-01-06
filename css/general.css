@@ -100,14 +100,6 @@ a {
   opacity: 0.75;
 }
 
-.dropcap::first-letter {
-  font-size: 3.2rem;
-  line-height: 1;
-  float: left;
-  margin: 0.2rem 0.5rem 0 0;
-  font-weight: 600;
-}
-
 .pullquote {
   margin: 1.2rem 0 0;
   padding: 1rem 1.1rem;

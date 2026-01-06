@@ -1,172 +1,218 @@
 <!DOCTYPE html>
+<!-- Fortæller browseren at dokumentet er HTML5 (standard). -->
 <html lang="da">
+<!-- Starter HTML-dokumentet.
+     lang="da" hjælper skærmlæsere, oversættere og søgemaskiner med at forstå sproget (dansk). -->
 
 <head>
+    <!-- Head indeholder metadata: info om siden, links til CSS, fonts osv.
+         Det er ikke det synlige indhold på siden. -->
 
     <meta charset="UTF-8" />
+    <!-- Sætter tegnsæt til UTF-8, så danske bogstaver (æøå) og specialtegn vises korrekt. -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Gør siden responsiv på mobil. -->
+
+    <meta name="robots" content="noindex">
+    <!-- Forhindrer søgemaskiner i at indeksere siden (eksamenskrav). -->
 
     <title>Om mig</title>
+    <!-- Titel der vises i browser-tab. -->
 
     <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+    <!-- Kort beskrivelse til SEO/søgemaskiner. -->
 
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/burger.css" />
+    <!-- Link til CSS filer.
+         Rækkefølge betyder noget: senere CSS kan override tidligere. -->
 
     <link rel="icon" type="image/webp" href="images/logoskitse.webp">
-    <!-- Favicon -->
+    <!-- Favicon: lille ikon i browser-tab/favoritter. -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- preconnect: etablerer forbindelse tidligt (performance). -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- preconnect til fonts CDN. crossorigin sikrer korrekt hentning fra andet domæne. -->
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
         rel="stylesheet">
-
+    <!-- Loader to fonte: Italiana + Inria Serif.
+         display=swap forbedrer UX (ingen “usynlig tekst”). -->
 </head>
 
 <body>
+    <!-- Body indeholder alt synligt indhold. -->
 
     <header class="site-header is-transparent" id="siteHeader">
+        <!-- Header = topområde med navigation.
+             is-transparent bruges til at gøre header gennemsigtig over hero-billedet.
+             id="siteHeader" gør den nem at finde i JS (fx ved scroll-effekt). -->
 
         <div class="container header-inner">
+            <!-- container centrerer og begrænser bredde.
+                 header-inner styrer layout (flex/grid). -->
 
             <a class="brand" href="index.html" aria-label="Gå til forsiden">
+                <!-- Brand/Logo-link der altid leder til forsiden.
+                     aria-label giver en tydelig tekst til skærmlæsere. -->
                 <span class="brand-text">Bloom</span>
+                <!-- span er et inline-element til små tekstdele (fx logo/brand) uden at skabe nyt afsnit. -->
             </a>
 
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-                <span class="sr-only">Åbn menu</span>
+                <!-- Hamburger-knap til mobilmenu.
+                     aria-expanded skifter typisk til true/false i JS når menu åbnes/lukkes.
+                     aria-controls peger på menuen (id="site-nav"). -->
                 <span class="nav-toggle-lines" aria-hidden="true"></span>
+                <!-- Pynt/ikon: skal ikke læses op (selve burger ikonet - 3 streger). -->
             </button>
 
             <nav id="site-nav" class="site-nav" aria-label="Hovedmenu">
+                <!-- Nav = navigation.
+                     id matcher aria-controls fra burger-knappen. -->
                 <ul class="nav-list">
+                    <!-- ul (Unordered List) = punktliste. -->
                     <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
+                    <!-- li (List Item) = et menupunkt. a (anchor) = link. -->
                     <li><a class="nav-link" href="projekter.html">Projekter</a></li>
                     <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    <!-- Ankerlink: scroller til footer med id="kontakt". -->
                 </ul>
             </nav>
         </div>
     </header>
 
     <main id="main">
-        <!-- HERO med billede (samme “format” som forsiden) -->
+        <!-- main = sidens primære indhold. -->
+
+        <!-- HERO med billede (samme format/oplevelse som din forside) -->
         <section class="hero hero--image">
-            <!-- Billedet ligger som baggrund i hero -->
-            <img class="hero__image" src="images/migogbuket.webp" alt="Stemningsbillede fra projektet"
+            <!-- Hero = øverste “intro”-sektion med stort visuelt udtryk. -->
+
+            <img class="hero__image" src="images/migogbuket.webp" alt="Stemningsbillede af Isabella med blomster"
                 loading="eager" />
+            <!-- Hero-billede.
+                 loading="eager" giver mening her, fordi hero ligger øverst og skal vises med det samme. -->
 
-            <!-- Overlay for læsbarhed -->
             <div class="hero__overlay" aria-hidden="true"></div>
+            <!-- Overlay-lag for bedre læsbarhed på tekst. Kun visuelt. -->
 
-            <!-- Indhold ovenpå billedet -->
             <div class="container hero__content">
+                <!-- Indhold ovenpå billedet. -->
                 <p class="kicker">Projekt • 1. semester</p>
+                <!-- Kicker = lille overlinje i editorial stil. -->
 
                 <h1 class="hero-title">About</h1>
+                <!-- h1 = sidens vigtigste overskrift. -->
 
-                <p class="hero-lead">
-                    Get to know the creator
-                </p>
+                <p class="hero-lead">Get to know the creator</p>
+                <!-- Kort intro-tekst under H1. -->
 
                 <div class="hero-actions">
+                    <!-- Wrapper til CTA-knap. -->
                     <a class="btn" href="projekter.html">Se projekter</a>
+                    <!-- CTA = leder brugeren videre til næste vigtigste område (projekter). -->
                 </div>
             </div>
         </section>
 
+        <!-- AFSNIT OM MIG -->
         <section class="about-page">
+            <!-- about-page = wrapper for resten af “Om mig”-indholdet. -->
 
-            <!-- SPREAD 1 (2-1) Tekst + billede (forskudt) -->
+            <!-- SPREAD 1 (1-1) Tekst + billede -->
             <section class="grid_1-1 about_intro">
+                <!-- grid_1-1 bruges typisk til 2 kolonner på desktop,
+                     og stacker på mobil (mobile-first). -->
 
-                <!-- BILLEDE (venstre kolonne) -->
                 <figure class="about_intro_img">
-                    <img src="./images/mig.webp" alt="Portræt af Isabella Vest">
+                    <!-- figure bruges til visuelt indhold (billede) som kan stå selvstændigt. -->
+                    <img src="images/mig.webp" alt="Portræt af Isabella Vest" loading="lazy">
+                    <!-- loading="lazy" = billedet hentes først når det nærmer sig viewport (performance). -->
                 </figure>
 
-                <!-- TEKST (højre kolonne) -->
                 <div class="about_intro_text">
+                    <!-- Tekstkolonnen -->
                     <h2>Introducing Isabella Vest</h2>
+                    <!-- h2 = næste overskriftsniveau efter H1. -->
 
-                    <p class="dropcap">
+                    <p>
                         Jeg er en 25-årig kreativ sjæl med en naturlig nysgerrighed for verden omkring mig og en stor
-                        passion for
-                        mødet
-                        mellem kreativitet og IT. Jeg elsker at fordybe mig i designverdenens mange facetter – fra
-                        digitalt design
-                        og
-                        frontend til SoMe, mode og interiør – og ser skønhed, struktur og inspiration i selv de mindste
-                        detaljer.
+                        passion for mødet mellem kreativitet og IT. Jeg elsker at fordybe mig i designverdenens mange
+                        facetter – fra digitalt design og frontend til SoMe, mode og interiør – og ser skønhed, struktur
+                        og inspiration i selv de mindste detaljer.
                     </p>
 
                     <p>
                         Min kreative proces starter ofte i omgivelserne: former, stemninger, materialer og visuelle
-                        udtryk, som jeg
-                        omsætter til mine egne idéer og løsninger. Jeg trives i udfordringen ved at tænke ud af boksen
-                        og skabe
-                        noget
-                        unikt eller give eksisterende koncepter et personligt præg.
+                        udtryk, som jeg omsætter til mine egne idéer og løsninger. Jeg trives i udfordringen ved at
+                        tænke
+                        ud af boksen og skabe noget unikt eller give eksisterende koncepter et personligt præg.
                     </p>
-
-                    <blockquote class="pullquote">
-                        “En kreativ, krøllet hjerne, som elsker at tænke ud af boksen, når man får lov”
-                    </blockquote>
                 </div>
-
             </section>
 
-
-            <!-- SPREAD 2 (1-1) Billede + fokusområder (vendt med order på desktop) -->
+            <!-- SPREAD 2: refleksion + billede -->
             <section class="focus section">
+                <!-- focus/section = sektion med et tydeligt tema + spacing via CSS. -->
                 <div class="container focus-grid">
+                    <!-- focus-grid = layout wrapper (typisk 2 kolonner). -->
 
-                    <!-- Venstre: intro + skills -->
                     <div class="focus-left">
-                        <h2 class="focus-title">Kort refleksion – hvad har jeg fået ud af 1. semester?</h2>
-                        <p class="focus-lead">
-                            1. semester har givet mig et solidt fundament inden for både design, brugeroplevelse og
-                            teknisk forståelse i kodning. Jeg har lært at
-                            arbejde struktureret med en digital designproces – fra idé og research til prototype,
-                            kodning og test – og forstået,
-                            hvordan de enkelte faser hænger sammen og påvirker det endelige resultat.
-                        </p>
-                        <p>Jeg har opnået en større bevidsthed om, kodning og alle de muligheder, som det indebærer.
-                            Jeg har fået praktisk
-                            erfaring med at omsætte designbeslutninger til semantisk og responsiv kode, hvor
-                            tilgængelighed og struktur spiller en
-                            central rolle. Samtidig har jeg fået en dybere forståelse for de aktive værktøjer som skaber
-                            de visuelle, grafiske og æstetiske dele af det endelige design.</p>
+                        <!-- Venstre kolonne: tekst -->
+                        <h2>Kort refleksion over 1. semester</h2>
 
-                        <p> Samlet set har 1. semester ikke kun udviklet mine færdigheder, men også min måde at tænke
+                        <p>
+                            1. semester har givet mig et solidt fundament inden for både design, brugeroplevelse og
+                            teknisk forståelse i kodning. Jeg har lært at arbejde struktureret med en digital
+                            designproces – fra idé og research til prototype, kodning og test – og forstået, hvordan de
+                            enkelte faser hænger sammen og påvirker det endelige resultat.
+                        </p>
+
+                        <p>
+                            Jeg har opnået en større bevidsthed om kodning og alle de muligheder, som det indebærer.
+                            Jeg har fået praktisk erfaring med at omsætte designbeslutninger til semantisk og responsiv
+                            kode, hvor tilgængelighed og struktur spiller en central rolle. Samtidig har jeg fået en
+                            dybere forståelse for de aktive værktøjer som skaber de visuelle, grafiske og æstetiske dele
+                            af det endelige design.
+                        </p>
+
+                        <p>
+                            Samlet set har 1. semester ikke kun udviklet mine færdigheder, men også min måde at tænke
                             design, proces og kvalitet på. Jeg har nydt 1. semester fra start til slut. Hvert projekt
-                            har været en fornøjelse at arbejde med, og jeg føler mig kun
-                            endnu mere motiveret og nysgerrig på, hvad 2. semester bringer.</p>
+                            har været en fornøjelse at arbejde med, og jeg føler mig kun endnu mere motiveret og
+                            nysgerrig
+                            på, hvad 2. semester bringer.
+                        </p>
                     </div>
 
-                    <!-- Højre: billede + separat tekstboks under -->
                     <div class="focus-right">
+                        <!-- Højre kolonne: billede -->
                         <figure class="focus-photo">
-                            <img src="images/migoghånd.webp" alt="Isabella Vest">
+                            <img src="images/migoghånd.webp" alt="Isabella Vest" loading="lazy">
                         </figure>
                     </div>
-
                 </div>
             </section>
 
-
-            <!-- =========================
-     CV / Resume section
-     ========================= -->
+            <!-- CV SEKTION -->
             <section class="cv" aria-labelledby="cv-title">
-                <div class="cv__grid">
+                <!-- CV-sektion.
+                     aria-labelledby peger på en overskrift med id="cv-title" for bedre tilgængelighed. -->
 
-                    <!-- VENSTRE: sidebar -->
-                    <aside class="cv__side card">
+                <div class="cv__grid">
+                    <!-- cv__grid = layout wrapper (sidebar + main). -->
+
+                    <div class="cv__side card">
+                        <!-- Sidebar/kolonne i CV-layoutet (profil, færdigheder, kontakt).
+                               card = styling-klasse (baggrund, radius, skygge). -->
+
                         <h2 id="cv-title" class="cv__name">Isabella Vest</h2>
+                        <!-- Overskrift for CV-sektionen (bruges også af aria-labelledby). -->
 
                         <p class="kicker">Profil</p>
                         <p class="cv__profile">
@@ -176,17 +222,18 @@
                         </p>
 
                         <hr class="cv__rule">
+                        <!-- hr = vandret separator (visuelt skiller indhold ad). -->
 
                         <p class="kicker">Færdigheder</p>
                         <ul class="cv__list">
-                            <li>Salg &amp; kundehåndtering</li>
-                            <li>Visual Merchandising &amp; Butiksopsætning</li>
-                            <li>SoMe Management &amp; Strategi</li>
-                            <li>IT &amp; Digital Værktøjer</li>
-                            <li>Flydende engelsk – Professionelt &amp; Privat</li>
-                            <li>Operations Sales Support &amp; logistik</li>
+                            <li>Salg og kundehåndtering</li>
+                            <li>Visual Merchandising og Butiksopsætning</li>
+                            <li>SoMe Management og Strategi</li>
+                            <li>IT og Digital Værktøjer</li>
+                            <li>Flydende engelsk – Professionelt og Privat</li>
+                            <li>Operations Sales Support og logistik</li>
                             <li>Visual Sales Support</li>
-                            <li>Kreativ Tænkning &amp; Problemløsning</li>
+                            <li>Kreativ Tænkning og Problemløsning</li>
                         </ul>
 
                         <hr class="cv__rule">
@@ -194,75 +241,71 @@
                         <p class="kicker">Priser</p>
                         <ul class="cv__list">
                             <li>Top 5-finalist til Fagprøveprisen 2023 – Danmarks Bedste Salgsassistent</li>
-                            <li>Indstillet til Årets Elev-prisen hos A/S Wessel &amp; Vett, Magasin Du Nord</li>
+                            <li>Indstillet til Årets Elev-prisen hos A/S Wessel og Vett, Magasin Du Nord</li>
                         </ul>
 
                         <div class="cv__contact">
                             <p class="kicker">Kontakt</p>
                             <p class="cv__contactLine">+45 21680864</p>
                             <p class="cv__contactLine">Isabellabuchter@outlook.dk</p>
+                            <!-- Kontaktlinjer i sidebar. -->
                         </div>
-                    </aside>
+                    </div>
 
-                    <!-- HØJRE: main CV -->
                     <div class="cv__main">
+                        <!-- Højre kolonne: CV indhold. -->
 
                         <!-- ERFARING -->
                         <section class="cv__section" aria-labelledby="exp">
                             <h3 id="exp" class="cv__heading">Erfaring</h3>
 
                             <article class="cv__entry">
-                                <header class="cv__entryHead">
+                                <!-- article = en selvstændig “entry” i CV’et. -->
+                                <div class="cv__entryHead">
                                     <h4 class="cv__entryTitle">Matas A/S | Matas logistics center</h4>
                                     <p class="cv__entryMeta">Juni 2025</p>
-                                </header>
+                                </div>
                                 <p class="cv__entryText">
                                     På Matas’ nyudviklede, højteknologiske og robotstyrede webshop-lager har jeg
-                                    arbejdet med
-                                    håndtering af
-                                    webshop-ordrer, herunder plukning, pakning og kvalitetskontrol af varer. Lageret er
-                                    fuldt
-                                    understøttet af
-                                    avanceret robotteknologi og IT-systemer, hvilket har medført grundig oplæring og en
-                                    mindre
-                                    uddannelse i
-                                    robotteknologi, deres digitale systemer samt lagerstyringssystemer. Gennem
-                                    stillingen har jeg
-                                    udvidet mine
+                                    arbejdet
+                                    med håndtering af webshop-ordrer, herunder plukning, pakning og kvalitetskontrol
+                                    af
+                                    varer. Lageret er fuldt understøttet af avanceret robotteknologi og IT-systemer,
+                                    hvilket har medført grundig oplæring og en mindre uddannelse i robotteknologi,
+                                    deres
+                                    digitale systemer samt lagerstyringssystemer. Gennem stillingen har jeg udvidet
+                                    mine
                                     faglige kompetencer og opnået solid erfaring med IT-baserede og teknologiske
                                     arbejdsgange.
                                 </p>
                             </article>
 
                             <article class="cv__entry">
-                                <header class="cv__entryHead">
-                                    <h4 class="cv__entryTitle">Magasin Du Nord | Salgsassistent &amp; Visual
+                                <div class="cv__entryHead">
+                                    <h4 class="cv__entryTitle">Magasin Du Nord | Salgsassistent og visual
                                         Merchandiser</h4>
                                     <p class="cv__entryMeta">Sep 2021 – Aug 2023</p>
-                                </header>
+                                </div>
                                 <p class="cv__entryText">
                                     Uddannet på tværs af flere afdelinger og opnåede bred faglig forståelse og
-                                    fleksibilitet. Ansvar
-                                    for visuel
-                                    merchandising i udvalgte afdelinger samt erfaring fra Magasins Visual
-                                    Merchandising-afdeling og
-                                    Operations
-                                    Sales Support (OSS).
+                                    fleksibilitet. Ansvar for visuel merchandising i udvalgte afdelinger samt
+                                    erfaring
+                                    fra Magasins Visual Merchandising-afdeling og Operations Sales Support (OSS).
                                 </p>
                             </article>
 
                             <article class="cv__entry">
-                                <header class="cv__entryHead">
+                                <div class="cv__entryHead">
                                     <h4 class="cv__entryTitle">Skistar, Sälen, Sverige | Skiinstruktør</h4>
                                     <p class="cv__entryMeta">Jan 2020 – Marts 2020</p>
-                                </header>
+                                </div>
                                 <p class="cv__entryText">
-                                    Udtaget som den eneste dansker til at repræsentere Danmark blandt skiinstruktører i
-                                    Norden.
-                                    Gennemførte
-                                    SLAG-uddannelsen og arbejdede efterfølgende som skiinstruktør for børn, unge og
-                                    voksne samt
-                                    privatundervisning.
+                                    Udtaget som den eneste dansker til at repræsentere Danmark blandt
+                                    skiinstruktører i
+                                    Norden. Gennemførte SLAG-uddannelsen og arbejdede efterfølgende som
+                                    skiinstruktør
+                                    for
+                                    børn, unge og voksne samt privatundervisning.
                                 </p>
                             </article>
                         </section>
@@ -272,44 +315,47 @@
                             <h3 id="edu" class="cv__heading">Uddannelse</h3>
 
                             <article class="cv__entry">
-                                <header class="cv__entryHead">
+                                <div class="cv__entryHead">
                                     <h4 class="cv__entryTitle">Copenhagen Business School</h4>
-                                    <p class="cv__entryMeta">Bachelor i Business Administration &amp; Digital Management
-                                        | Aug 2024
-                                        – April 2025</p>
-                                </header>
+                                    <p class="cv__entryMeta">
+                                        Bachelor i Business Administration and Digital Management | Aug 2024 –
+                                        April
+                                        2025
+                                    </p>
+                                </div>
                                 <ul class="cv__bullets">
                                     <li>Managing Innovation in Organizations</li>
                                     <li>Digital Technologies and Data-Driven Business</li>
                                     <li>Regulation and Governance of Digital Business</li>
-                                    <li>Economics &amp; Strategy in the Digital Age</li>
+                                    <li>Economics and Strategy in the Digital Age</li>
                                     <li>Business Data Analytics, Quantitative Methods and Visualization</li>
                                 </ul>
                             </article>
 
                             <article class="cv__entry">
-                                <header class="cv__entryHead">
+                                <div class="cv__entryHead">
                                     <h4 class="cv__entryTitle">Magasin Du Nord</h4>
-                                    <p class="cv__entryMeta">Salgsassistent med profil i stormagasin | Sep 2021 – Aug
+                                    <p class="cv__entryMeta">Salgsassistent med profil i stormagasin | Sep 2021 –
+                                        Aug
                                         2023</p>
-                                </header>
+                                </div>
                                 <ul class="cv__bullets">
                                     <li>Karakter gennemsnit: 12</li>
-                                    <li>Fag: Salg &amp; service, butiksdrift &amp; økonomi, markedsføring &amp;
+                                    <li>Fag: Salg og service, butiksdrift, økonomi, markedsføring og
                                         markedsanalyse</li>
                                     <li>Digital handel (speciale)</li>
-                                    <li>Praktisk forløb i VSS, OSS &amp; Visual Merchandising</li>
+                                    <li>Praktisk forløb i VSS, OSS og Visual Merchandising</li>
                                 </ul>
                             </article>
 
                             <article class="cv__entry">
-                                <header class="cv__entryHead">
+                                <div class="cv__entryHead">
                                     <h4 class="cv__entryTitle">Zealand Business College</h4>
                                     <p class="cv__entryMeta">EUS online – Detail | Marts 2021 – April 2021</p>
-                                </header>
+                                </div>
                                 <ul class="cv__bullets">
                                     <li>Karakter gennemsnit: 11,3</li>
-                                    <li>Grundfag: Afsætning C &amp; Virksomhedsøkonomi C</li>
+                                    <li>Grundfag: Afsætning C og Virksomhedsøkonomi C</li>
                                     <li>Uddannelsesspecifikt fag: Detail</li>
                                 </ul>
                             </article>
@@ -319,24 +365,21 @@
                 </div>
             </section>
 
-
         </section>
-
-
     </main>
 
-    <!-- =========================
-         FOOTER (din eksisterende)
-         ========================= -->
+    <!-- FOOTER -->
     <footer class="footer footer--editorial" id="kontakt">
-        <div class="footer-inner">
+        <!-- Footer har id="kontakt", så nav-linket i headeren kan linke hertil (href="#kontakt"). -->
 
-            <!-- LEFT: Editorial typography -->
+        <div class="footer-inner">
+            <!-- Wrapper til footer layout (venstre + højre). -->
+
             <div class="footer-left">
                 <h2 class="footer-title">Let’s connect</h2>
+                <!-- Stor, editorial overskrift. -->
             </div>
 
-            <!-- RIGHT: Paper card -->
             <div class="footer-card">
                 <p class="footer-card-title">Kontakt</p>
 
@@ -347,18 +390,15 @@
                     </li>
                     <li>
                         <span>Instagram</span>
-                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
-                            @isabellavest
-                        </a>
+                        <a href="https://instagram.com/isabellavest">@isabellavest</a>
                     </li>
                 </ul>
             </div>
-
         </div>
 
-        <!-- Bottom line -->
         <div class="footer-bottom">
-            <p>© <span id="year"></span> Bloom — Portfolio</p>
+            <!-- Bundlinje i footer -->
+            <p>Bloom — Portfolio</p>
             <p class="footer-signature">Design & kode af Isabella Vest</p>
         </div>
     </footer>

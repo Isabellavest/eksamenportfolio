@@ -1,72 +1,115 @@
 <!DOCTYPE html>
+<!-- Fortæller browseren at dokumentet er HTML5 (standard). -->
 <html lang="da">
+<!-- Starter HTML-dokumentet.
+     lang="da" hjælper skærmlæsere, oversættere og søgemaskiner med at forstå sproget (dansk). -->
 
 <head>
+    <!-- Head indeholder metadata: info om siden, links til CSS, fonts osv.
+         Det er ikke det synlige indhold på siden. -->
 
     <meta charset="UTF-8" />
+    <!-- Sætter tegnsæt til UTF-8, så danske bogstaver (æøå) og specialtegn vises korrekt. -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Gør siden responsiv på mobil. -->
+
+    <meta name="robots" content="noindex">
+    <!-- Forhindrer søgemaskiner i at indeksere siden (eksamenskrav). -->
 
     <title>Tema 4</title>
+    <!-- Titel der vises i browser-tab. -->
 
     <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+    <!-- Kort beskrivelse til SEO/søgemaskiner. -->
 
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/tema.css" />
+    <!-- Link til CSS filer.
+         Rækkefølge betyder noget: senere CSS kan override tidligere. -->
 
     <link rel="icon" type="image/webp" href="images/logoskitse.webp">
-    <!-- Favicon -->
+    <!-- Favicon: lille ikon i browser-tab/favoritter. -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- preconnect: etablerer forbindelse tidligt (performance). -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- preconnect til fonts CDN. crossorigin sikrer korrekt hentning fra andet domæne. -->
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
         rel="stylesheet">
-
+    <!-- Loader to fonte: Italiana + Inria Serif.
+         display=swap forbedrer UX. -->
 </head>
 
 <body>
+    <!-- Body indeholder alt synligt indhold. -->
 
     <header class="site-header is-transparent" id="siteHeader">
+        <!-- Header = topområde med navigation.
+             is-transparent bruges til at gøre header gennemsigtig over hero-billedet.
+             id="siteHeader" gør den nem at finde i JS (fx ved scroll-effekt). -->
 
         <div class="container header-inner">
+            <!-- container centrerer og begrænser bredde.
+                 header-inner styrer layout (flex/grid). -->
 
             <a class="brand" href="index.html" aria-label="Gå til forsiden">
+                <!-- Brand/Logo-link der altid leder til forsiden.
+                     aria-label giver en tydelig tekst til skærmlæsere. -->
                 <span class="brand-text">Bloom</span>
+                <!-- span er et inline-element til små tekstdele (fx logo/brand) uden at skabe nyt afsnit. -->
             </a>
 
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-                <span class="sr-only">Åbn menu</span>
+                <!-- Hamburger-knap til mobilmenu.
+                     aria-expanded skifter typisk til true/false i JS når menu åbnes/lukkes.
+                     aria-controls peger på menuen (id="site-nav"). -->
                 <span class="nav-toggle-lines" aria-hidden="true"></span>
+                <!-- Pynt/ikon:(selve burger ikonet - 3 streger). -->
             </button>
 
             <nav id="site-nav" class="site-nav" aria-label="Hovedmenu">
+                <!-- Nav = navigation.
+                     id matcher aria-controls fra burger-knappen. -->
                 <ul class="nav-list">
+                    <!-- ul (Unordered List) = punktliste. -->
                     <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
                     <li><a class="nav-link" href="projekter.html">Projekter</a></li>
                     <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    <!-- Ankerlink: scroller til footer med id="kontakt". -->
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- =========================
-     MAIN
-     ========================= -->
+    <!-- MAIN -->
     <main id="main">
+        <!-- main = sidens primære indhold. -->
 
-        <!-- HERO (samme format som tema 03) -->
+        <!-- HERO med billede -->
         <section class="hero hero--image">
+            <!-- Hero = øverste “intro”-sektion med stort visuelt udtryk. -->
+
             <img src="images/liljecomputer.webp" alt="Emergency site — interaktiv infografik og JavaScript"
-                class="hero__image" />
+                class="hero__image" loading="eager" />
+            <!-- Hero-billede.
+                 loading="eager" giver mening her, fordi hero ligger øverst og skal vises med det samme. -->
+
             <div class="hero__overlay" aria-hidden="true"></div>
+            <!-- Overlay-lag for bedre læsbarhed på tekst. Kun visuelt. -->
 
             <div class="container hero__content">
+                <!-- Indhold ovenpå billedet. -->
                 <p class="kicker">Tema 04 · Grundlæggende brugergrænsefladeudvikling</p>
+                <!-- Kicker = lille overlinje i editorial stil. -->
+
                 <h1 class="hero-title">Emergency site</h1>
+                <!-- h1 = sidens vigtigste overskrift. -->
+
                 <p class="hero-lead">
                     Her samler jeg mit pensum fra Tema 04 og mit Emergency Site,
                     så det er tydeligt, hvordan jeg bruger Illustrator, CSS og JavaScript i praksis.
@@ -74,9 +117,7 @@
             </div>
         </section>
 
-        <!-- =========================
-       TEMA 04 — INTRO
-       ========================= -->
+        <!-- TEMA 04 — INTRO -->
         <section class="tema-section tema-intro" aria-labelledby="tema04-intro">
             <div class="container">
                 <h2 id="tema04-intro">Sådan arbejdede jeg med Tema 04</h2>
@@ -88,24 +129,26 @@
                 </p>
 
                 <div class="tema-links">
+                    <!-- CTA-links der sender brugeren videre (eksterne links åbner i ny fane). -->
                     <a class="btn" href="https://isabellavest.github.io/emergency-main/" target="_blank" rel="noopener">
                         Se mit Emergency Site
                     </a>
+
                     <a class="btn btn--ghost" href="#tema04-produkter">
-                        Se produkter & links
+                        Se produkter og links
                     </a>
+                    <!-- Ankerlink til sektion længere nede på siden. -->
                 </div>
             </div>
         </section>
 
-        <!-- =========================
-       PROCES-OVERSIGT (samme stil som tema 03)
-       ========================= -->
+        <!-- PROCES-OVERBLIK -->
         <section class="tema-section tema-overview" aria-labelledby="tema04-overblik">
             <div class="container">
                 <h2 id="tema04-overblik">Proces-overblik</h2>
 
                 <ol class="process-steps">
+                    <!-- ol (Ordered List) = nummereret liste, giver mening fordi processen har en rækkefølge. -->
                     <li>
                         <h3>1) Koncept: Emergency-situation</h3>
                         <p>Idé, stil og tone, værdiord og målgruppe.</p>
@@ -116,11 +159,11 @@
                     </li>
                     <li>
                         <h3>3) Visuel retning: moodboard</h3>
-                        <p>Stil og moodboards → konkrete visuelle valg</p>
+                        <p>Stil og moodboards → konkrete visuelle valg.</p>
                     </li>
                     <li>
                         <h3>4) Style tile: farver, typografi og UI</h3>
-                        <p>Mine designvalg,farvepalette, typografi & UI</p>
+                        <p>Mine designvalg, farvepalette, typografi og UI.</p>
                     </li>
                     <li>
                         <h3>5) Papirprototype</h3>
@@ -132,7 +175,7 @@
                     </li>
                     <li>
                         <h3>7) Logo: udvikling fra skitse → digitalt logo</h3>
-                        <p>Udviklingen af mit logo: idé → til digital form → til færdigt, brandet logo</p>
+                        <p>Udviklingen af mit logo: idé → digital form → færdigt, brandet logo.</p>
                     </li>
                     <li>
                         <h3>8) Interaktivitet med JavaScript</h3>
@@ -144,7 +187,7 @@
                     </li>
                     <li>
                         <h3>10) AI-genererede billeder: visuel identitet og storytelling</h3>
-                        <p>Beskrivelse og formålet med billederne</p>
+                        <p>Beskrivelse og formålet med billederne.</p>
                     </li>
                     <li>
                         <h3>11) Dark mode</h3>
@@ -158,9 +201,7 @@
             </div>
         </section>
 
-        <!-- =========================
-       1) KONCEPT
-       ========================= -->
+        <!-- 1) KONCEPT -->
         <section class="tema-section tema-block" id="tema04-koncept" aria-labelledby="tema04-koncept-title">
             <div class="container">
                 <h2 id="tema04-koncept-title">1) Koncept: Emergency Site</h2>
@@ -176,9 +217,9 @@
 
                         <h3>Min pitch</h3>
                         <p>
-                            <strong>Emergency-situation:</strong> Har du set et spøgelse? <br>
-                            <strong>Stil & tone:</strong> Dramatisk og humoristisk <br>
-                            <strong>Værdiord:</strong> Tydelig, legende, sjov <br>
+                            <strong>Emergency-situation:</strong> Har du set et spøgelse?
+                            <strong>Stil og tone:</strong> Dramatisk og humoristisk
+                            <strong>Værdiord:</strong> Tydelig, legende, sjov
                             <strong>Målgruppe:</strong> Alle ramte
                         </p>
 
@@ -186,19 +227,15 @@
 
                         <p>
                             Mit emergency website tager udgangspunkt i et humoristisk, men gennemført univers, hvor
-                            brugeren kan få hjælp i
-                            akutte paranormale situationer. Idéen udspringer af tanken om at skabe et emergency-bureau:
-                            et sted, hvor man kan
-                            finde guider, eksperter, infografikker, akut-hjælp og udstyr til at håndtere genfærd i både
-                            hjemmet, på
-                            arbejdspladsen
-                            og “on the go”.
+                            brugeren kan få hjælp i akutte paranormale situationer. Idéen udspringer af tanken om at
+                            skabe et emergency-bureau: et sted, hvor man kan finde guider, eksperter, infografikker,
+                            akut-hjælp og udstyr til at håndtere genfærd i både hjemmet, på arbejdspladsen og “on the
+                            go”.
                         </p>
 
                         <p>
                             Konceptet ligger i krydsfeltet mellem humor, praktiske guides og et æstetisk sammenhængende
-                            univers.
-                            Tonen er varm, uhyggelig sjov, tryg og en smule dramatisk på den gode måde.
+                            univers. Tonen er varm, uhyggelig sjov, tryg og en smule dramatisk på den gode måde.
                         </p>
 
                         <h3>Universets 3 hovedelementer</h3>
@@ -206,57 +243,41 @@
                             <li><strong>Guider og artikler</strong>, som lærer brugeren at forstå og håndtere deres
                                 spøgelsesproblem.</li>
                             <li><strong>Eksperter</strong>, som man kan kontakte eller blive kontaktet af via formularen
-                                for personlig hjælp.
-                            </li>
+                                for personlig hjælp.</li>
                             <li><strong>Interaktive elementer</strong> (infografik + valg af spøgelsestype), der gør
-                                sitet levende og legende.
-                            </li>
+                                sitet levende og legende.</li>
                         </ul>
 
                         <h3>Valg af artikler</h3>
                         <p>
                             Jeg valgte artikler, der tilsammen skaber både læring, humor og dybde — så universet føles
-                            som et rigtigt
-                            emergency-center.
+                            som et rigtigt emergency-center.
                         </p>
 
                         <ul class="bullets">
-                            <li>
-                                <strong>“Guiden til håndtering af genfærd”</strong> — sitets primære how-to guide
-                                inspireret af beauty/livsstil,
-                                men oversat til spøgelsesjagt for at give brugeren tryghed og kontrol.
-                            </li>
-                            <li>
-                                <strong>“Sharing is Caring: Tips fra vores læsere”</strong> — community-side inspireret
-                                af brevkasser/læserbreve
-                                og
-                                crowdsourcede hacks fra sociale medier.
-                            </li>
-                            <li>
-                                <strong>“Bestil din emergency-kit!”</strong> — det kommercielle/merchandise-lag, hvor
-                                læring kobles til konkret
-                                “akut-hjælp”.
-                            </li>
-                            <li>
-                                <strong>“Lugter det lidt af genfærd?”</strong> — comic relief med et satirisk
-                                twist,
-                                baseret på et hverdagsproblem (lugt), som giver universet overraskelse og kant.
-                            </li>
+                            <li><strong>“Guiden til håndtering af genfærd”</strong> — sitets primære how-to guide
+                                inspireret af beauty/livsstil, men oversat til spøgelsesjagt.</li>
+                            <li><strong>“Sharing is Caring: Tips fra vores læsere”</strong> — community-side inspireret
+                                af brevkasser/læserbreve og crowdsourcede hacks.</li>
+                            <li><strong>“Bestil din emergency-kit!”</strong> — det kommercielle lag, hvor læring kobles
+                                til konkret “akut-hjælp”.</li>
+                            <li><strong>“Lugter det lidt af genfærd?”</strong> — comic relief med et satirisk twist
+                                baseret på et hverdagsproblem (lugt).</li>
                         </ul>
+
                         <p class="muted">
                             Samlet set er mit emergency site bygget som et fuldt udviklet univers med humor,
                             brugervenlige guides,
-                            ekspertlignende figurer,
-                            interaktive elementer, visuel storytelling og et sammenhængende narrativ om paranormale
-                            nødsituationer.
+                            ekspertlignende figurer, interaktive elementer, visuel storytelling og et sammenhængende
+                            narrativ om paranormale nødsituationer.
                         </p>
-
                     </div>
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04ideudvikling2.webp" alt="Idé og koncept til emergency site" />
+                            <img src="images/04ideudvikling2.webp" alt="Idé og koncept til emergency site"
+                                loading="lazy" />
                             <figcaption>Koncept, stil og inspiration dokumenteret i Figma.</figcaption>
                         </figure>
                     </div>
@@ -264,12 +285,11 @@
             </div>
         </section>
 
-        <!-- =========================
-                   2) INFOGRAFIK: WIREFRAME
-                   ========================= -->
-        <section class="tema-section tema-block" id="tema04-infografik" aria-labelledby="tema04-info-title">
+        <!-- 2) WIREFRAME -->
+        <section class="tema-section tema-block" id="tema04-wireframe" aria-labelledby="tema04-wireframe-title">
+            <!-- VIGTIGT: id skal være unik på siden (derfor ikke tema04-infografik her). -->
             <div class="container">
-                <h2 id="tema04-info-title">2) Wireframe</h2>
+                <h2 id="tema04-wireframe-title">2) Wireframe</h2>
 
                 <div class="two-col">
                     <div>
@@ -305,18 +325,15 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04wireframe.webp" alt="Wireframe for infografik-siden" />
-                            <img src="images/04wireframe2.webp" alt="Wireframe for infografik-siden" />
+                            <img src="images/04wireframe.webp" alt="Wireframe for infografik-siden" loading="lazy" />
+                            <img src="images/04wireframe2.webp" alt="Wireframe for infografik-siden" loading="lazy" />
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- =========================
-            3) MOODBOARD
-            ========================= -->
+        <!-- 3) MOODBOARD -->
         <section class="tema-section tema-block" id="tema04-moodboard" aria-labelledby="tema04-moodboard-title">
             <div class="container">
                 <h2 id="tema04-moodboard-title">3) Visuel retning: moodboard</h2>
@@ -334,15 +351,13 @@
                         <p>
                             Moodboardet sætter den overordnede stemning for mit Emergency Ghost Site.
                             Jeg har arbejdet med referencer, der kombinerer paranormal mystik, humor og tryghed – så
-                            universet føles uhyggeligt,
-                            men aldrig skræmmende.
+                            universet føles uhyggeligt, men aldrig skræmmende.
                         </p>
 
                         <p>
-                            Inspirationen kommer bl.a. fra klassiske ghostbusters-referencer,
-                            emergency-interfaces, tekniske displays og legende 3D-illustrationer.
-                            Det var vigtigt for mig, at sitet føles som et professionelt emergency-center
-                            – bare til genfærd.
+                            Inspirationen kommer bl.a. fra klassiske ghostbusters-referencer, emergency-interfaces,
+                            tekniske displays og legende 3D-illustrationer. Det var vigtigt for mig, at sitet føles som
+                            et professionelt emergency-center – bare til genfærd.
                         </p>
 
                         <h3>Stil og tone</h3>
@@ -356,12 +371,13 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04moodboard2.webp" alt="Moodboard for Emergency Ghost Site" />
-                            <img src="images/04moodboard.webp" alt="Moodboard for Emergency Ghost Site" />
+                            <img src="images/04moodboard2.webp" alt="Moodboard for Emergency Ghost Site"
+                                loading="lazy" />
+                            <img src="images/04moodboard.webp" alt="Moodboard for Emergency Ghost Site"
+                                loading="lazy" />
                             <figcaption>
                                 Moodboard: inspiration til stil, farver og tone – paranormal stemning kombineret med
-                                humor og
-                                tryghed.
+                                humor og tryghed.
                             </figcaption>
                         </figure>
                     </div>
@@ -369,10 +385,7 @@
             </div>
         </section>
 
-
-        <!-- =========================
-               4) STYLETILE
-               ========================= -->
+        <!-- 4) STYLETILE -->
         <section class="tema-section tema-block" id="tema04-styletile" aria-labelledby="tema04-styletile-title">
             <div class="container">
                 <h2 id="tema04-styletile-title">4) Style tile: farver, typografi og UI</h2>
@@ -399,7 +412,7 @@
                             Grøn understøtter også det paranormale tema.
                         </p>
 
-                        <h3>Typografi & UI</h3>
+                        <h3>Typografi og UI</h3>
                         <ul class="bullets">
                             <li>Tydelig overskriftstypografi for struktur og hierarki</li>
                             <li>Letlæselig brødtekst for guides og instruktioner</li>
@@ -416,12 +429,13 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04styletile.webp" alt="Style tile for Emergency Ghost Site" />
-                            <img src="images/04styletile2.webp" alt="Style tile for Emergency Ghost Site" />
+                            <img src="images/04styletile.webp" alt="Style tile for Emergency Ghost Site"
+                                loading="lazy" />
+                            <img src="images/04styletile2.webp" alt="Style tile for Emergency Ghost Site"
+                                loading="lazy" />
                             <figcaption>
                                 Style tile: farver, typografi, UI-elementer og ikoner samlet – sikrer ensartet design på
-                                hele
-                                sitet.
+                                hele sitet.
                             </figcaption>
                         </figure>
                     </div>
@@ -429,13 +443,11 @@
             </div>
         </section>
 
-
-        <!-- =========================
-       5) INFOGRAFIK: PAPIRPROTOTYPE
-       ========================= -->
-        <section class="tema-section tema-block" id="tema04-infografik" aria-labelledby="tema04-info-title">
+        <!-- 5) PAPIRPROTOTYPE -->
+        <section class="tema-section tema-block" id="tema04-papirprototype"
+            aria-labelledby="tema04-papirprototype-title">
             <div class="container">
-                <h2 id="tema04-info-title">5) Infografik: papirprototype</h2>
+                <h2 id="tema04-papirprototype-title">5) Infografik: papirprototype</h2>
 
                 <div class="two-col">
                     <div>
@@ -448,7 +460,8 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04papirprototype.webp" alt="Papirprototype af infografik med hotspots" />
+                            <img src="images/04papirprototype.webp" alt="Papirprototype af infografik med hotspots"
+                                loading="lazy" />
                             <figcaption>Papirprototype</figcaption>
                         </figure>
                     </div>
@@ -456,9 +469,7 @@
             </div>
         </section>
 
-        <!-- =========================
-       6) VEKTORGRAFIK I ILLUSTRATOR
-       ========================= -->
+        <!-- 6) VEKTORGRAFIK -->
         <section class="tema-section tema-block" id="tema04-illustrator" aria-labelledby="tema04-illu-title">
             <div class="container">
                 <h2 id="tema04-illu-title">6) Vektorgrafik i Illustrator: pen tool → SVG</h2>
@@ -483,10 +494,10 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04svg1.webp" alt="Rentegning i Illustrator" />
-                            <img src="images/04svg2.webp" alt="Eksporteret SVG og hotspots" />
-                            <img src="images/04svg3.webp" alt="Eksporteret SVG og hotspots" />
-                            <img src="images/04hotspot.webp" alt="Eksporteret SVG og hotspots" />
+                            <img src="images/04svg1.webp" alt="Rentegning i Illustrator" loading="lazy" />
+                            <img src="images/04svg2.webp" alt="Eksporteret SVG og hotspots" loading="lazy" />
+                            <img src="images/04svg3.webp" alt="Eksporteret SVG og hotspots" loading="lazy" />
+                            <img src="images/04hotspot.webp" alt="Eksporteret SVG og hotspots" loading="lazy" />
                             <figcaption>Rentegning i Illustrator og SVG klar til implementering.</figcaption>
                         </figure>
                     </div>
@@ -494,12 +505,10 @@
             </div>
         </section>
 
-        <!-- =========================
-                       7) JS: LOGO
-                       ========================= -->
+        <!-- 7) LOGO -->
         <section class="tema-section tema-block" id="tema04-logo" aria-labelledby="tema04-logo-title">
             <div class="container">
-                <h2 id="tema04-logo-title"> 7) Logo: udvikling fra skitse → digitalt logo</h2>
+                <h2 id="tema04-logo-title">7) Logo: udvikling fra skitse → digitalt logo</h2>
 
                 <div class="two-col">
                     <div>
@@ -513,15 +522,11 @@
                         <p>
                             Udgangspunktet var en simpel håndtegning af et lille spøgelse med spørgsmålstegn omkring
                             hovedet.
-                            Skitsen fangede idéen: et sødt, neutralt, lidt forvirret spøgelse, som passer til et
-                            hjælpsomt
-                            emergency-univers.
                         </p>
 
                         <h3>2) Digital prototype – renere former og skygger</h3>
                         <p>
                             Næste trin var en digitaliseret udgave, hvor formen blev mere symmetrisk, blød og ikonisk.
-                            Her fik spøgelset glatte kanter, en enkel grå farvegradient og et mere “emoji-agtigt” look.
                         </p>
 
                         <h3>3) Endelige logo – farve, stil og personlighed</h3>
@@ -529,9 +534,6 @@
                             Den sidste version er den, der endte som logoet: et grønt, blødt og mere organisk formet
                             spøgelse
                             med tydeligere ansigtsudtryk.
-                            Den lysegrønne farve binder logoet sammen med hele universets farvetema, og det åbne
-                            mundudtryk
-                            giver karakter, humor og signalerer “emergency”.
                         </p>
 
                         <h3>Samlet udvikling</h3>
@@ -544,14 +546,11 @@
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
-
-                        <!-- Brug dit logo-udviklingsbillede her -->
                         <figure class="shot">
-                            <img src="images/04logo2.webp" alt="Logo-idé og udvikling fra skitse til færdigt logo" />
+                            <img src="images/04logo2.webp" alt="Logo-idé og udvikling fra skitse til færdigt logo"
+                                loading="lazy" />
                             <figcaption>
-                                Logo-idé: progression fra håndtegnet spøgelse → digital prototype → endelig grøn
-                                logo-version
-                                med mere “emergency” karakter.
+                                Progression: håndtegnet spøgelse → digital prototype → endelig grøn logo-version.
                             </figcaption>
                         </figure>
                     </div>
@@ -559,9 +558,7 @@
             </div>
         </section>
 
-        <!-- =========================
-       8) JS: INTERAKTIV INFOGRAFIK (DOM + EVENTS)
-       ========================= -->
+        <!-- 8) JAVASCRIPT: HOTSPOTS -->
         <section class="tema-section tema-block" id="tema04-js" aria-labelledby="tema04-js-title">
             <div class="container">
                 <h2 id="tema04-js-title">8) JavaScript: interaktiv infografik</h2>
@@ -570,10 +567,10 @@
                     <div>
                         <h3>Teori fra pensum</h3>
                         <ul class="checklist">
-                            <li>DOM: vælge elementer med <code>document.querySelector()</code></li>
-                            <li>Events: <code>mouseover</code> / <code>mouseout</code></li>
+                            <li>DOM: vælge elementer med document.querySelector()</li>
+                            <li>Events: mouseover / mouseout</li>
                             <li>Funktioner: koden kører først, når eventet aktiveres</li>
-                            <li>Opdatere HTML med <code>textContent</code> og evt. <code>src</code></li>
+                            <li>Opdatere HTML med textContent og evt. src</li>
                         </ul>
 
                         <h3>Hvad der sker på min side</h3>
@@ -592,8 +589,10 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04hotspot.webp" alt="JavaScript der styrer hotspots og sidebar" />
-                            <img src="images/04hotspot2.webp" alt="Infografik på sitet med sidebar-indhold" />
+                            <img src="images/04hotspot.webp" alt="JavaScript der styrer hotspots og sidebar"
+                                loading="lazy" />
+                            <img src="images/04hotspot2.webp" alt="Infografik på sitet med sidebar-indhold"
+                                loading="lazy" />
                             <figcaption>Events + DOM-opdatering: hotspots styrer sidebaren.</figcaption>
                         </figure>
                     </div>
@@ -601,9 +600,7 @@
             </div>
         </section>
 
-        <!-- =========================
-       9) FORMS (REGISTER.HTML)
-       ========================= -->
+        <!-- 9) FORMS -->
         <section class="tema-section tema-block" id="tema04-forms" aria-labelledby="tema04-forms-title">
             <div class="container">
                 <h2 id="tema04-forms-title">9) Webformular: HTML + CSS + JavaScript</h2>
@@ -614,8 +611,7 @@
                         <ul class="checklist">
                             <li>Min. 4 forskellige input-typer + submit</li>
                             <li>Formen skal være grupperet og let at forstå</li>
-                            <li>CSS hjælper brugeren: <code>:valid</code> / <code>:invalid</code> /
-                                <code>required</code>
+                            <li>CSS hjælper brugeren: :valid / :invalid /required
                             </li>
                             <li>JavaScript: hente input og tilføje ekstra funktionalitet</li>
                         </ul>
@@ -623,8 +619,7 @@
                         <h3>Min formular</h3>
                         <p>
                             Formularen er designet til at passe til min emergency-situation og indsamler de oplysninger,
-                            der er
-                            relevante i scenariet.
+                            der er relevante i scenariet.
                         </p>
 
                         <ul class="bullets">
@@ -638,19 +633,18 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04form.webp" alt="Formular implementeret på register.html" />
+                            <img src="images/04form.webp" alt="Formular implementeret på register.html"
+                                loading="lazy" />
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =========================
-                   10) AI BILLEDER
-                   ========================= -->
+        <!-- 10) AI BILLEDER -->
         <section class="tema-section tema-block" id="tema04-ai" aria-labelledby="tema04-ai-title">
             <div class="container">
-                <h2 id="tema04-ai-title"> 10) AI-genererede billeder: visuel identitet og storytelling</h2>
+                <h2 id="tema04-ai-title">10) AI-genererede billeder: visuel identitet og storytelling</h2>
 
                 <div class="two-col">
                     <div>
@@ -659,15 +653,12 @@
                             Til mit Emergency Ghost Site har jeg skabt en serie AI-genererede illustrationer, alle i
                             samme
                             monokrome grønne farvetema og bløde 3D-stil.
-                            De fungerer som den visuelle identitet for universet og binder hele sitet sammen.
                         </p>
 
                         <p>
                             Billederne viser bl.a. forskellige spøgelsesfigurer, et emergency “Ghost Kit”, en
                             manual/guide,
-                            et ekspertpanel (spøgelsesjæger, clairvoyant og spirituel vejleder), samt humoristiske
-                            tema-ikoner —
-                            fx et lugtende spøgelse til “Smelly Ghost”-artiklen.
+                            et ekspertpanel samt humoristiske tema-ikoner.
                         </p>
 
                         <h3>Formålet med billederne</h3>
@@ -680,21 +671,18 @@
 
                         <p class="muted">
                             Den monokrome grønne farvepalette skaber ro, genkendelighed og en gennemført paranormal
-                            stemning —
-                            så universet føles både sødt, mystisk og professionelt opbygget.
+                            stemning.
                         </p>
                     </div>
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
-
                         <figure class="shot">
                             <img src="images/04index.webp"
-                                alt="Collage af AI-genererede billeder til emergency ghost site" />
+                                alt="Collage af AI-genererede billeder til emergency ghost site" loading="lazy" />
                             <figcaption>
                                 AI-illustrationer i monokrom grøn 3D-stil: spøgelser, ghost kit, guide/manual og
-                                ekspertpanel –
-                                skaber et samlet, legende univers.
+                                ekspertpanel.
                             </figcaption>
                         </figure>
                     </div>
@@ -702,10 +690,7 @@
             </div>
         </section>
 
-
-        <!-- =========================
-       11) DARK MODE
-       ========================= -->
+        <!-- 11) DARK MODE -->
         <section class="tema-section tema-block" id="tema04-darkmode" aria-labelledby="tema04-dark-title">
             <div class="container">
                 <h2 id="tema04-dark-title">11) Dark mode: CSS variables + class toggle</h2>
@@ -715,7 +700,7 @@
                         <h3>Teori fra pensum</h3>
                         <ul class="checklist">
                             <li>Custom properties (CSS variabler) styrer farver</li>
-                            <li>JavaScript toggler en class på <code>body</code></li>
+                            <li>JavaScript toggler en class på body</li>
                             <li>CSS skifter tema baseret på class</li>
                         </ul>
 
@@ -729,7 +714,7 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/04darkmode.webp" alt="Dark mode på sitet" />
+                            <img src="images/04darkmode.webp" alt="Dark mode på sitet" loading="lazy" />
                             <figcaption>Dark mode via CSS variabler og JS class toggle.</figcaption>
                         </figure>
                     </div>
@@ -737,10 +722,7 @@
             </div>
         </section>
 
-        <!-- =========================
-               12) KODNING
-               ========================= -->
-
+        <!-- 12) KODNING -->
         <section class="tema-section tema-block" id="tema04-kodning" aria-labelledby="tema04-kodning-title">
             <div class="container">
                 <h2 id="tema04-kodning-title">12) Kodning: sådan brugte jeg JavaScript i praksis</h2>
@@ -756,10 +738,10 @@
                         <h3>Teori og begreber fra pensum</h3>
                         <ul class="checklist">
                             <li>DOM (Document Object Model) — vælge og opdatere HTML-elementer</li>
-                            <li>Events — fx <code>click</code>, <code>mouseover</code>, <code>mouseout</code></li>
-                            <li><code>addEventListener()</code> til at reagere på brugerhandlinger</li>
-                            <li><code>classList.add()</code> / <code>classList.remove()</code> /
-                                <code>classList.toggle()</code>
+                            <li>Events — fx click, mouseover, mouseout</li>
+                            <li>addEventListener()</code> til at reagere på brugerhandlinger</li>
+                            <li>classList.add() / classList.remove() /
+                                classList.toggle()
                             </li>
                             <li>Variabler og objekter til at gemme indhold og holde overblik</li>
                             <li>Arbejde med SVG i kode (hotspots + interaktive områder)</li>
@@ -768,9 +750,7 @@
                         <h3>Interaktiv infografik (hotspots)</h3>
                         <p>
                             Min infografik består af flere hotspots, hvor brugeren kan vælge en spøgelsestype.
-                            Når brugeren interagerer med et hotspot, opdaterer jeg indholdet i sidebar-sektionen
-                            (overskrift,
-                            tekst og evt. ikon),
+                            Når brugeren interagerer med et hotspot, opdaterer jeg indholdet i sidebar-sektionen,
                             så informationen føles som “first aid” — hurtigt, tydeligt og sjovt.
                         </p>
 
@@ -778,8 +758,6 @@
                         <p>
                             Jeg byggede og stylet en formular med flere inputtyper (fx tekstfelter, radio/select),
                             og brugte JavaScript til at hente brugerens input og skabe ekstra funktionalitet.
-                            Målet var at få formularen til at føles som en “kontakt vores eksperter”-funktion i et
-                            emergency-center.
                         </p>
 
                         <h3>Min læring</h3>
@@ -791,26 +769,20 @@
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
-
                         <figure class="shot">
-                            <img src="images/04kode1.webp" alt="Screenshot af formular-kode og styling" />
-                            <img src="images/04kode2.webp" alt="Screenshot af formular-kode og styling" />
-                            <figcaption>
-                                HTML-struktur + JavaScript.
-                            </figcaption>
+                            <img src="images/04kode1.webp" alt="Screenshot af kode og struktur" loading="lazy" />
+                            <img src="images/04kode2.webp" alt="Screenshot af kode og struktur" loading="lazy" />
+                            <figcaption>Udklip af HTML-struktur og JavaScript.</figcaption>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- =========================
-       PRODUKTER & LINKS (samme card-grid som tema 03)
-       ========================= -->
+        <!-- PRODUKTER / LINKS -->
         <section class="tema-section tema-block" id="tema04-produkter" aria-labelledby="tema04-links">
             <div class="container">
-                <h2 id="tema04-links">Produkter & links</h2>
+                <h2 id="tema04-links">Produkter og links</h2>
 
                 <div class="link-grid">
                     <a class="card-link" href="https://isabellavest.github.io/emergency-main/" target="_blank"
@@ -844,18 +816,18 @@
 
     </main>
 
-    <!-- =========================
-         FOOTER (din eksisterende)
-         ========================= -->
+    <!-- FOOTER -->
     <footer class="footer footer--editorial" id="kontakt">
-        <div class="footer-inner">
+        <!-- Footer har id="kontakt", så nav-linket i headeren kan linke hertil (href="#kontakt"). -->
 
-            <!-- LEFT: Editorial typography -->
+        <div class="footer-inner">
+            <!-- Wrapper til footer layout (venstre + højre). -->
+
             <div class="footer-left">
                 <h2 class="footer-title">Let’s connect</h2>
+                <!-- Stor, editorial overskrift. -->
             </div>
 
-            <!-- RIGHT: Paper card -->
             <div class="footer-card">
                 <p class="footer-card-title">Kontakt</p>
 
@@ -866,23 +838,22 @@
                     </li>
                     <li>
                         <span>Instagram</span>
-                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
-                            @isabellavest
-                        </a>
+                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">@isabellavest</a>
                     </li>
                 </ul>
             </div>
-
         </div>
 
-        <!-- Bottom line -->
         <div class="footer-bottom">
+            <!-- Bundlinje i footer -->
             <p>© <span id="year"></span> Bloom — Portfolio</p>
             <p class="footer-signature">Design & kode af Isabella Vest</p>
         </div>
     </footer>
 
     <script defer src="js/main.js"></script>
+    <!-- defer: JS loader efter HTML er læst, så DOM-elementer findes når scriptet kører. -->
+
 </body>
 
 </html>

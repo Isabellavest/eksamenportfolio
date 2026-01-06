@@ -16,6 +16,9 @@
          width=device-width betyder "brug skærmens bredde"
          initial-scale=1.0 betyder "start uden zoom". -->
 
+    <meta name="robots" content="noindex">
+    <!-- Forhindrer søgemaskiner i at indeksere siden (eksamenskrav). -->
+
     <title>Bloom — Portfolio</title>
     <!-- Titel der vises i browser-tab og bruges af søgemaskiner/ bookmarks. -->
 
@@ -27,11 +30,14 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/burger.css" />
     <link rel="stylesheet" href="css/tema.css" />
-    <!-- link til CSS sider. -->
+    <!-- link til CSS sider.
+         Rækkefølge betyder noget: senere CSS kan override tidligere. -->
 
 
     <link rel="icon" type="image/webp" href="images/logoskitse.webp">
-    <!-- Favicon -->
+    <!-- Favicon
+         Lille ikon i browser-tab/favoritter.
+         type angiver filtypen. -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,17 +72,15 @@
                      aria-label giver en tydelig tekst til skærmlæsere (tilgængelighed). -->
 
                 <span class="brand-text">Bloom</span>
-                <!-- Span bruges til at style teksten (fx font, størrelse) uden at være et nyt element som <p>. -->
+                <!-- Span bruges til at style teksten (fx font, størrelse) uden at være et nyt element som <p>.
+                     Det er et inline-element og er godt til små tekstdele i et logo/brand. -->
             </a>
 
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
                 <!-- Hamburger-knap til mobilmenu.
                      type="button" så den ikke opfører sig som submit i en form.
-                     aria-expanded fortæller skærmlæsere om menuen er åben/lukket.
+                     aria-expanded fortæller skærmlæsere om menuen er åben/lukket (true/false).
                      aria-controls fortæller hvilken menu (id="site-nav") knappen styrer. -->
-
-                <span class="sr-only">Åbn menu</span>
-                <!-- sr-only = "screen reader only": teksten er skjult visuelt men læses op af skærmlæser. -->
 
                 <span class="nav-toggle-lines" aria-hidden="true"></span>
                 <!-- Visuelle "streger" i hamburger-ikon.
@@ -89,10 +93,10 @@
                      aria-label hjælper skærmlæsere med at forstå hvilken nav det er. -->
 
                 <ul class="nav-list">
-                    <!-- ul = liste af navigationselementer. God semantik til menuer. -->
+                    <!-- ul (Unordered List) = liste af navigationselementer. God semantik til menuer. -->
 
-                    <!-- li = et menupunkt.
-                         a = link.
+                    <!-- li (List Item) = et menupunkt.
+                         a (anchor) = link.
                          is-active bruges til at markere nuværende side (visuelt/UX). -->
                     <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
                     <!-- Link til om-mig-side. -->
@@ -101,33 +105,32 @@
                     <!-- Link til projekter-side. -->
 
                     <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
-                    <!-- “ankerlink” der scroller ned til elementet med id="kontakt" i footeren. -->
+                    <!-- “ankerlink” der scroller ned til elementet med id="kontakt" i footeren.
+                         Fordel: brugeren kommer direkte til kontaktinfo uden at skifte side. -->
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- =========================
-        MAIN
-    ========================= -->
+    <!-- MAIN -->
     <main id="main">
         <!-- main = sidens primære indhold (vigtig semantik).
              id="main" kan bruges til "skip-to-content" link (tilgængelighed), hvis du har det. -->
 
         <section class="hero-video">
-            <!-- Hero-sektion med video baggrund. Første store “impression” på siden. -->
+            <!-- Hero-sektion med video baggrund. Første store “impression” på siden.
+                 Hero bruges ofte til at fortælle: hvem er jeg + hvad er siden + hvor skal du hen. -->
 
-            <video class="hero-video__media" autoplay muted loop playsinline poster="assets/images/hero-poster.webp">
+            <video class="hero-video__media" autoplay muted loop playsinline>
                 <!-- video-tag viser video.
                      autoplay: starter automatisk (kræver muted i de fleste browsere).
                      muted: uden lyd (for at autoplay virker + bedre UX).
                      loop: video gentages.
-                     playsinline: på mobil afspilles den inline (ikke fullscreen).
-                     poster: fallback-billede mens video loader / hvis video ikke kan afspilles. -->
+                     playsinline: på mobil afspilles den inline (ikke fullscreen). -->
 
                 <source src="video/hero.mp4" type="video/mp4">
                 <!-- source angiver filstien til videoen og filtypen.
-                     Browseren kan vælge den bedste source hvis du havde flere. -->
+                     Browseren kan vælge den bedste source hvis du havde flere (fx webm + mp4). -->
             </video>
 
             <!-- overlay for readability -->
@@ -140,10 +143,11 @@
             <div class="container hero-video__content">
                 <!-- Indholdet der ligger ovenpå videoen.
                      container styrer bredde/centrering.
-                     hero-video__content styler placering (z-index) og spacing. -->
+                     hero-video__content styler placering og spacing. -->
 
                 <p class="kicker">Portfolio by Isabella Vest</p>
-                <!-- Kicker = lille overlinje/label for kontekst (editorial stil). -->
+                <!-- Kicker = lille overlinje/label for kontekst (editorial stil).
+                     Bruges til hurtigt at give brugeren en “ramme” før H1. -->
 
                 <h1 class="hero-title">Bloom</h1>
                 <!-- h1 = vigtigste overskrift på siden (SEO og struktur).
@@ -154,27 +158,28 @@
                     gro.
                 </p>
                 <!-- hero-lead = introducerende brødtekst under H1.
-                     Det forklarer formål hurtigt (UX: “hvad er dette?”). -->
+                    Det forklarer formål hurtigt (UX: “hvad er dette?”).-->
 
                 <div class="hero-actions">
                     <!-- Wrapper til CTA-knapperne (Call To Action). -->
                     <a class="btn" href="om-mig.html">Læs om mig</a>
-                    <!-- Primær CTA: leder brugeren direkte til projekter (vigtig brugerrejse). -->
+                    <!-- CTA: leder brugeren til “Om mig”.
+                         CTA'er hjælper brugeren videre i den ønskede brugerrejse (ikke bare “død” forside). -->
 
                     <a class="btn" href="projekter.html">Se projekter</a>
-                    <!-- Sekundær CTA: scroll til proces-sektionen på siden.
-                         btn-ghost = alternativ knapstil (mindre dominerende).
-                         btn-on-hero = evt. special styling på video baggrund. -->
+                    <!-- CTA: leder brugeren til projekter. -->
                 </div>
             </div>
         </section>
 
-        <!-- =========================
-       INTRO / VISION (flyttet ind i Tema 3-layout)
-       ========================= -->
+        <!-- INTRO / VISION -->
         <section class="tema-section tema-intro" aria-labelledby="vision-intro">
+            <!-- aria-labelledby peger på en overskrift (id="vision-intro"),
+                 så skærmlæsere får et tydeligt navn på sektionen. -->
             <div class="container">
                 <h2 id="vision-intro">Vision</h2>
+                <!-- h2 fordi dette er næste niveau efter H1.
+                     God heading-struktur = nemmere for både SEO og tilgængelighed. -->
 
                 <p class="tema-lead">
                     Projektet Bloom er min måde at samle 1. semester på: en læringsrejse med klare beslutninger,
@@ -182,6 +187,8 @@
                 </p>
 
                 <div class="two-col">
+                    <!-- two-col laver typisk et 2-kolonne layout på desktop,
+                         og stacker kolonner på mobil (mobile-first). -->
                     <div>
                         <h3>Hvad Bloom er</h3>
                         <p>
@@ -202,14 +209,22 @@
                     </div>
 
                     <div class="evidence">
+                        <!-- evidence = “bevis/dokumentation”-kolonnen.
+                             Her samler du billeder, figurer og captions, som understøtter dine valg. -->
                         <h3>Visuel signatur</h3>
+
                         <figure class="shot">
+                            <!-- figure bruges når et billede hænger sammen med en caption (figcaption).
+                                 shot er en styling-klasse (fx ramme, radius, skygge). -->
                             <img src="images/liljecomputer.webp" alt="Bloom signaturbillede: liljer og laptop"
                                 loading="lazy">
+                            <!-- loading="lazy" betyder at billedet først hentes når det er tæt på viewport.
+                                 Fordel: bedre performance. Godt når der er mange billeder på én side. -->
                             <figcaption>Liljen er den gennemgående metafor: som omhandler udviklingen af et projekt over
                                 tid,
                                 pleje og forfinelse indtil det blomstre smukt i sidste ende.</figcaption>
                         </figure>
+
                         <figure class="shot">
                             <img src="images/moodboard.webp" alt="Bloom signaturbillede: liljer og laptop"
                                 loading="lazy">
@@ -221,16 +236,16 @@
             </div>
         </section>
 
-        <!-- =========================
-       PROCES-OVERBLIK (alle punkter som på Tema 3 + dine egne)
-       ========================= -->
+        <!-- PROCES-OVERBLIK -->
         <section class="tema-section tema-overview" id="proces-overblik" aria-labelledby="proces-title">
+            <!-- id bruges som anker (du kan linke til #proces-overblik fra andre steder). -->
             <div class="container">
                 <h2 id="proces-title">Proces-overblik</h2>
 
                 <ol class="process-steps">
+                    <!-- ol (Ordered List) = nummereret liste (giver mening fordi processen har en rækkefølge) -->
                     <li>
-                        <h3>1) Brainstorm & retning</h3>
+                        <h3>1) Brainstorm og retning</h3>
                         <p>Mind map, vision og afsender: hvad skal Bloom/projektet kommunikere?</p>
                     </li>
                     <li>
@@ -269,13 +284,12 @@
             </div>
         </section>
 
-        <!-- =========================
-       BLOKKE (som Tema 3) — her kan du løbende indsætte dokumentation
-       ========================= -->
+        <!-- AFSNIT 1-9 -->
 
         <section class="tema-section tema-block" id="brainstorm" aria-labelledby="brainstorm-title">
+            <!-- Hver procesblok har et id, så man kan linke direkte til sektionen (fx #brainstorm). -->
             <div class="container">
-                <h2 id="brainstorm-title">1) Brainstorm & retning</h2>
+                <h2 id="brainstorm-title">1) Brainstorm og retning</h2>
 
                 <div class="two-col">
                     <div>
@@ -289,6 +303,7 @@
                         </p>
 
                         <ul class="bullets">
+                            <!-- bullets = visuel liste-stil (prikker/spacing). -->
                             <li>Mind map / idé-skitser</li>
                             <li>Metafor og narrativ (Bloom + liljen)</li>
                             <li>Valg af tone: rolig, naturlig, editorial</li>
@@ -317,7 +332,6 @@
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <!-- Skift til dine egne brainstorm-billeder hvis du har dem -->
                             <img src="images/06brainstorm.webp" alt="Eksempel på Bloom-retning og metafor"
                                 loading="lazy">
                             <img src="images/06mindmapd.webp" alt="Eksempel på Bloom-retning og metafor" loading="lazy">
@@ -454,8 +468,7 @@
                             <img src="images/06farvepalette.webp" alt="farvepalettedokumentation" loading="lazy">
                         </figure>
                         <figure class="shot">
-                            <img src="images/06styletile.png" alt="StyleTile dokumentation" loading="lazy">
-
+                            <img src="images/06styletile.webp" alt="StyleTile dokumentation" loading="lazy">
                         </figure>
                     </div>
                 </div>
@@ -468,7 +481,7 @@
 
                 <div class="two-col">
                     <div>
-                        <h3>Struktur & flow</h3>
+                        <h3>Struktur og flow</h3>
                         <p>
                             Wireframes hjalp med at planlægge: hero → intro → proces → skills → featured, så
                             forsiden guider brugeren
@@ -492,9 +505,12 @@
                             fundament for prototypen.</p>
 
                         <div class="tema-links">
-                            <!-- Indsæt dine Figma-links hvis du vil -->
-                            <a class="link" href="#" target="_blank" rel="noopener">LoFi wireframe (Figma)</a>
-                            <a class="link" href="#" target="_blank" rel="noopener">HiFi wireframe (Figma)</a>
+                            <a class="link"
+                                href="https://www.figma.com/design/51xHTQvk2ik3EAhO5bHCom/06-Eksamensprojekt?node-id=1-6&t=dzot4m10d61a5rhN-1">LoFi
+                                wireframe (Figma)</a>
+                            <a class="link"
+                                href="https://www.figma.com/design/51xHTQvk2ik3EAhO5bHCom/06-Eksamensprojekt?node-id=126-933&t=dzot4m10d61a5rhN-1">HiFi
+                                wireframe (Figma)</a>
                         </div>
                     </div>
 
@@ -529,7 +545,9 @@
                             endelige løsning var gennemtænkt og brugervenlig, inden den tekniske implementering.</p>
 
                         <div class="tema-links">
-                            <a class="link" href="#" target="_blank" rel="noopener">Prototype (Figma)</a>
+                            <a class="link"
+                                href="https://www.figma.com/design/51xHTQvk2ik3EAhO5bHCom/06-Eksamensprojekt?node-id=143-1611&t=dzot4m10d61a5rhN-1">Prototype
+                                (Figma)</a>
                         </div>
                     </div>
 
@@ -610,13 +628,15 @@
                             <img src="images/06test2.webp" alt="Test dokumentation" loading="lazy">
                             <img src="images/06test3.webp" alt="Test dokumentation" loading="lazy">
                         </figure>
+
                         <figure class="shot">
                             <img src="images/06lighthousedesktop.webp" alt="Lighthouse desktop" loading="lazy">
-                            <figure>Lighthouse desktop</figure>
+                            <figcaption>Lighthouse desktop</figcaption>
                         </figure>
+
                         <figure class="shot">
                             <img src="images/06lighthousemobile.webp" alt="Lighthouse mobile" loading="lazy">
-                            <figure>Lighthouse mobile</figure>
+                            <figcaption>Lighthouse mobile</figcaption>
                         </figure>
                     </div>
                 </div>
@@ -646,9 +666,7 @@
             </div>
         </section>
 
-        <!-- =========================
-       FEATURED PROJECT (Tema 3-format)
-       ========================= -->
+        <!-- FEATURED PROJECT -->
         <section class="tema-section tema-block" id="featured" aria-labelledby="featured-title">
             <div class="container">
                 <h2 id="featured-title">Featured project</h2>
@@ -656,15 +674,16 @@
                 <div class="two-col">
                     <div>
                         <p class="tema-lead">
-                            Hvis du kun skal se ét projekt først, så start her. Her viser jeg både løsning, proces
+                            Læs om mig og alle mine projekter. Her viser jeg både løsning, proces
                             og læring.
                         </p>
                     </div>
 
                     <div class="evidence">
                         <div class="tema-links">
+                            <a class="btn" href="om-mig.html">Læs om mig</a>
                             <a class="btn" href="projekter.html">Se alle projekter</a>
-                            <a class="btn btn--ghost" href="tema-3-ux-ui.html">Gå til casen</a>
+                            <!-- Knap til oversigt: giver en tydelig vej til resten af dit indhold. -->
                         </div>
                     </div>
                 </div>
@@ -673,29 +692,35 @@
 
     </main>
 
-    <!-- =========================
-     FOOTER (din eksisterende)
-     ========================= -->
+    <!-- FOOTER -->
     <footer class="footer footer--editorial" id="kontakt">
+        <!-- Footer har id="kontakt", så nav-linket i headeren kan forklare:
+             href="#kontakt" -> scroller hertil. -->
+
         <div class="footer-inner">
+            <!-- footer-inner fungerer typisk som en wrapper til layout. -->
 
             <!-- LEFT: Editorial typography -->
             <div class="footer-left">
                 <h2 class="footer-title">Let’s connect</h2>
+                <!-- Stor typografisk “magasin” overskrift. -->
             </div>
 
             <!-- RIGHT: Paper card -->
             <div class="footer-card">
+                <!-- “Papir-kort” feel: en kasse med kontaktinfo. -->
                 <p class="footer-card-title">Kontakt</p>
 
                 <ul class="footer-list">
+                    <!-- Liste for kontaktinfo. -->
                     <li>
                         <span>Email</span>
                         <a href="mailto:Isabellabuchter@outlook.dk">Isabellabuchter@outlook.dk</a>
+                        <!-- mailto åbner brugerens mailprogram med din mailadresse klar. -->
                     </li>
                     <li>
                         <span>Instagram</span>
-                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
+                        <a href="https://instagram.com/isabellavest">
                             @isabellavest
                         </a>
                     </li>
@@ -706,17 +731,13 @@
 
         <!-- Bottom line -->
         <div class="footer-bottom">
-            <p>© <span id="year"></span> Bloom — Portfolio</p>
+            <!-- footer-bottom er typisk en “bund-linje” med copyright og signatur. -->
+            <p>Bloom — Portfolio</p>
+
             <p class="footer-signature">Design & kode af Isabella Vest</p>
+            <!-- Signatur/credit. Godt til portfolio og tydelig afsender. -->
         </div>
     </footer>
-
-    <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-
-
-
 
     <script defer src="js/main.js"></script>
 </body>

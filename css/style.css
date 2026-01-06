@@ -602,6 +602,12 @@
   margin-inline: auto;
 }
 
+.focus h2 {
+  font-family: "Italiana", serif;
+  font-size: 2.4rem; /* samme som dine andre h2 */
+  font-weight: lighter;
+}
+
 /* Skills / process-lister */
 .skills {
   list-style: none;

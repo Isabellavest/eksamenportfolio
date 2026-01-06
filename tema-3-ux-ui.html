@@ -1,77 +1,116 @@
 <!DOCTYPE html>
+<!-- Fortæller browseren at dokumentet er HTML5 (standard). -->
 <html lang="da">
+<!-- Starter HTML-dokumentet.
+     lang="da" hjælper skærmlæsere, oversættere og søgemaskiner med at forstå sproget (dansk). -->
 
 <head>
+    <!-- Head indeholder metadata: info om siden, links til CSS, fonts osv.
+         Det er ikke det synlige indhold på siden. -->
 
     <meta charset="UTF-8" />
+    <!-- Sætter tegnsæt til UTF-8, så danske bogstaver (æøå) og specialtegn vises korrekt. -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Gør siden responsiv på mobil. -->
+
+    <meta name="robots" content="noindex">
+    <!-- Forhindrer søgemaskiner i at indeksere siden (eksamenskrav). -->
 
     <title>Tema 3</title>
+    <!-- Titel der vises i browser-tab. -->
 
     <meta name="description" content="Portfolio by Isabella Vest — projekter, proces og læring fra 1. semester." />
+    <!-- Kort beskrivelse til SEO/søgemaskiner. -->
 
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/tema.css" />
+    <!-- Link til CSS filer.
+         Rækkefølge betyder noget: senere CSS kan override tidligere. -->
 
     <link rel="icon" type="image/webp" href="images/logoskitse.webp">
-    <!-- Favicon -->
+    <!-- Favicon: lille ikon i browser-tab/favoritter. -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- preconnect: etablerer forbindelse tidligt (performance). -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- preconnect til fonts CDN. crossorigin sikrer korrekt hentning fra andet domæne. -->
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inria+Serif:wght@300;400;700&display=swap"
         rel="stylesheet">
-
+    <!-- Loader to fonte: Italiana + Inria Serif.
+         display=swap forbedrer UX (ingen “usynlig tekst”). -->
 </head>
 
 <body>
+    <!-- Body indeholder alt synligt indhold. -->
 
     <header class="site-header is-transparent" id="siteHeader">
+        <!-- Header = topområde med navigation.
+             is-transparent bruges til at gøre header gennemsigtig over hero-billedet.
+             id="siteHeader" gør den nem at finde i JS (fx ved scroll-effekt). -->
 
         <div class="container header-inner">
+            <!-- container centrerer og begrænser bredde.
+                 header-inner styrer layout (flex/grid). -->
 
             <a class="brand" href="index.html" aria-label="Gå til forsiden">
+                <!-- Brand/Logo-link der altid leder til forsiden.
+                     aria-label giver en tydelig tekst til skærmlæsere. -->
                 <span class="brand-text">Bloom</span>
+                <!-- span er et inline-element til små tekstdele (fx logo/brand) uden at skabe nyt afsnit. -->
             </a>
 
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-                <span class="sr-only">Åbn menu</span>
+                <!-- Hamburger-knap til mobilmenu.
+                     aria-expanded skifter typisk til true/false i JS når menu åbnes/lukkes.
+                     aria-controls peger på menuen (id="site-nav"). -->
                 <span class="nav-toggle-lines" aria-hidden="true"></span>
+                <!-- Pynt/ikon: skal ikke læses op (selve burger ikonet - 3 streger). -->
             </button>
 
             <nav id="site-nav" class="site-nav" aria-label="Hovedmenu">
+                <!-- Nav = navigation.
+                     id matcher aria-controls fra burger-knappen. -->
                 <ul class="nav-list">
+                    <!-- ul (Unordered List) = punktliste. -->
                     <li><a class="nav-link" href="om-mig.html">Om mig</a></li>
+                    <!-- li (List Item) = et menupunkt. a (anchor) = link. -->
                     <li><a class="nav-link" href="projekter.html">Projekter</a></li>
                     <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    <!-- Ankerlink: scroller til footer med id="kontakt". -->
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- =========================
-       MAIN
-       ========================= -->
-
+    <!-- MAIN -->
     <main id="main">
-        <!-- HERO med billede (samme “format” som forsiden) -->
+        <!-- main = sidens primære indhold. -->
+
+        <!-- HERO med billede (samme format/oplevelse som din forside) -->
         <section class="hero hero--image">
-            <!-- Billedet ligger som baggrund i hero -->
+            <!-- Hero = øverste “intro”-sektion med stort visuelt udtryk. -->
+
             <img src="images/liljecomputer.webp"
-                alt="Blomster der vokser ud af en laptop – symbol på proces og udvikling" class="hero__image" />
+                alt="Blomster der vokser ud af en laptop – symbol på proces og udvikling" class="hero__image"
+                loading="eager" />
+            <!-- Hero-billede.
+                 loading="eager" giver mening her, fordi hero ligger øverst og skal vises med det samme. -->
 
-            <!-- Overlay for læsbarhed -->
             <div class="hero__overlay" aria-hidden="true"></div>
+            <!-- Overlay-lag for bedre læsbarhed på tekst. Kun visuelt. -->
 
-            <!-- Indhold ovenpå billedet -->
             <div class="container hero__content">
+                <!-- Indhold ovenpå billedet. -->
                 <p class="kicker">Tema 03 · Grundlæggende UX/UI</p>
+                <!-- Kicker = lille overlinje i editorial stil. -->
 
                 <h1 class="hero-title">Emnesite</h1>
+                <!-- h1 = sidens vigtigste overskrift. -->
 
                 <p class="hero-lead">
                     Her samler jeg mit pensum fra Tema 03 og mine afleveringsopgaver,
@@ -80,54 +119,58 @@
             </div>
         </section>
 
-        <!-- =========================
-           TEMA 03 — PROJEKTFORTÆLLING (Aqua)
-           ========================= -->
-
+        <!-- TEMA 03 — INTRO -->
         <section class="tema-section tema-intro" aria-labelledby="tema03-intro">
+            <!-- aria-labelledby peger på en overskrift (id="tema03-intro"),
+                 så skærmlæsere får et tydeligt navn på sektionen. -->
             <div class="container">
                 <h2 id="tema03-intro">Sådan arbejdede jeg med UX/UI i Tema 03</h2>
+
                 <p class="tema-lead">
-                    I dette tema har jeg designet og udviklet et emnesite om <strong>vand</strong>. Her viser jeg min
-                    proces fra research og idé til prototype, kodning, test og refleksion – og hvordan jeg har anvendt
-                    teorien fra pensum i praksis.
+                    I dette tema har jeg designet og udviklet et emnesite om <strong>vand</strong>.
+                    Her viser jeg min proces fra research og idé til prototype, kodning, test og refleksion – og
+                    hvordan jeg har anvendt teorien fra pensum i praksis.
                 </p>
 
                 <div class="tema-links">
-                    <a class="btn" href="https://isabellavest.github.io/Emnesite3/" target="_blank" rel="noopener">
+                    <!-- CTA-links der sender brugeren videre (eksterne links åbner i ny fane). -->
+                    <a class="btn" href="https://isabellavest.github.io/Emnesite3/">
                         Se mit kodede emnesite
                     </a>
+
                     <a class="btn btn--ghost" href="#tema03-produkter">
-                        Se produkter & links
+                        Se produkter og links
                     </a>
+                    <!-- Ankerlink til sektion længere nede på siden. -->
                 </div>
             </div>
         </section>
 
-        <!-- Proces-overblik -->
+        <!-- PROCES-OVERBLIK -->
         <section class="tema-section tema-overview" aria-labelledby="tema03-overblik">
             <div class="container">
                 <h2 id="tema03-overblik">Proces-overblik</h2>
 
                 <ol class="process-steps">
+                    <!-- ol (Ordered List) = nummereret liste, giver mening fordi processen har en rækkefølge. -->
                     <li>
                         <h3>1) Aqua — mine tanker bag projektet</h3>
-                        <p>Kerneíde + problematik → formål.</p>
+                        <p>Kerneidé + problematik → formål.</p>
                     </li>
                     <li>
-                        <h3>2) Research & resultater</h3>
-                        <p>Desk research + researchmetoder (interview/survey/observation) → indsigter → målgruppe.</p>
+                        <h3>2) Research og resultater</h3>
+                        <p>Desk research + metoder (interview/survey/observation) → indsigter → målgruppe.</p>
                     </li>
                     <li>
-                        <h3>3) Stil & tone</h3>
-                        <p>3 værdiord + moodboards + style tile → konkrete visuelle valg og UI-konventioner.</p>
+                        <h3>3) Visuel retning</h3>
+                        <p>Værdiord + moodboards + styletile → konkrete visuelle valg og UI-konventioner.</p>
                     </li>
                     <li>
-                        <h3>4) Struktur & wireframes</h3>
+                        <h3>4) Struktur og wireframes</h3>
                         <p>Sitemap/flow + wireframes (LoFi/HiFi) for at planlægge struktur før visuelle valg.</p>
                     </li>
                     <li>
-                        <h3>5) Prototype i Figma</h3>
+                        <h3>5) Klikbar prototype i Figma</h3>
                         <p>Klikbar prototype til mobil og desktop med minimum ét flow (min. 3 sider).</p>
                     </li>
                     <li>
@@ -135,24 +178,25 @@
                         <p>HTML/CSS/JS baseret på prototypen – responsivt, webfonte, favicon og validering.</p>
                     </li>
                     <li>
-                        <h3>7) Test & evaluering</h3>
+                        <h3>7) Test og evaluering</h3>
                         <p>Brugertest (tænke-højt / 5-sek.) + Lighthouse → forbedringer og refleksion.</p>
                     </li>
                     <li>
-                        <h3>8) Konklusion og refleksion over forløb</h3>
+                        <h3>8) Konklusion og refleksion</h3>
                         <p>Erfaringer → forbedringer og refleksion.</p>
                     </li>
                 </ol>
             </div>
         </section>
 
+        <!-- 1) AQUA -->
         <section class="tema-section tema-block" id="tema03-aqua" aria-labelledby="aqua-title">
             <div class="container">
-                <h2 id="aqua-title"> 1) Aqua — mine tanker bag projektet</h2>
+                <h2 id="aqua-title">1) Aqua — mine tanker bag projektet</h2>
+
                 <p class="tema-lead">
-                    I Tema 03 designede og udviklede jeg et emnesite om dansk drikkevandskvalitet og
-                    hjemmefiltrering. Her viser jeg, hvordan jeg gik fra indsigt → idé → prototype → kodning → test →
-                    iteration.
+                    I Tema 03 designede og udviklede jeg et emnesite om dansk drikkevandskvalitet og hjemmefiltrering.
+                    Her viser jeg, hvordan jeg gik fra indsigt → idé → prototype → kodning → test → iteration.
                 </p>
 
                 <div class="two-col">
@@ -161,22 +205,17 @@
                         <h3>Kerneidé</h3>
 
                         <p><strong>Indsigt:</strong> Selvom dansk drikkevand generelt er godt, er der lokale forskelle i
-                            smag og
-                            indhold —
-                            og mange ved ikke, hvordan de kan forbedre deres hverdagsvand konkret.</p>
+                            smag og indhold — og mange ved ikke, hvordan de kan forbedre deres hverdagsvand konkret.</p>
 
-                        <p><strong>Problem:</strong><br>
+                        <p><strong>Problem:</strong>
                             “Hvordan hjælper vi almindelige danskere med nemt at forstå deres lokale vandkvalitet og
-                            vælge et
-                            relevant filter,
-                            så de oplever bedre smag og komfort i hverdagen – uden at blive skræmt af pesticider og
-                            mikroplast?”
+                            vælge et relevant filter, så de oplever bedre smag og komfort i hverdagen – uden at blive
+                            skræmt af pesticider og mikroplast?”
                         </p>
 
-                        <p><strong>Elevator pitch:</strong><br>
+                        <p><strong>Pitch:</strong>
                             Aqua gør vandkvalitet konkret: Find din kommune, forstå dit vand og vælg det filter, der
-                            giver dig
-                            renere smag og en bedre oplevelse.
+                            giver dig renere smag og en bedre oplevelse.
                         </p>
 
                         <ul class="bullets">
@@ -184,30 +223,26 @@
                             <li><strong>Formål:</strong> viden → vejledning → tryg beslutning (med
                                 transparens/disclaimers)</li>
                             <li><strong>Målgrupper:</strong> unge/voksne i lejlighed, børnefamilier,
-                                hår-/skincare-interesserede
-                            </li>
+                                hår-/skincare-interesserede</li>
                         </ul>
                     </div>
 
-                    <!-- HØJRE: Hvorfor jeg valgte emnet -->
+                    <!-- HØJRE: Hvorfor emnet -->
                     <div class="evidence">
                         <h3>Hvorfor valgte jeg emnet?</h3>
                         <p>
                             Jeg valgte vandkvalitet, fordi emnet blev personligt relevant for mig. Efter en rejse
-                            oplevede jeg,
-                            at vandet herhjemme smagte anderledes,
-                            og jeg begyndte at undersøge mit lokale vand. Jeg opdagede bl.a. høj kalk og spor af stoffer
-                            som
-                            pesticider/PFAS — og det blev drivkraften
-                            til at skabe et site, der både oplyser og giver en konkret løsning. Det manglede jeg,
-                            på daværende tidspunkt.
+                            oplevede jeg, at vandet herhjemme smagte anderledes, og jeg begyndte at undersøge mit lokale
+                            vand. Jeg opdagede bl.a. høj kalk og spor af stoffer som pesticider/PFAS — og det blev
+                            drivkraften til at skabe et site, der både oplyser og giver en konkret løsning.
                         </p>
 
-                        <!-- Valgfrit: indsæt screenshot fra din brainstorm (PDF side 2) -->
                         <figure class="shot">
-                            <img src="images/brainstorm1.webp" alt="Brainstorm og idéudvikling til emnesite Aqua">
-                            <img src="images/brainstorm2.webp" alt="Brainstorm og idéudvikling til emnesite Aqua">
-                            <img src="images/ide03.webp" alt="Brainstorm og idéudvikling til emnesite Aqua">
+                            <img src="images/brainstorm1.webp" alt="Brainstorm og idéudvikling til emnesite Aqua"
+                                loading="lazy">
+                            <img src="images/brainstorm2.webp" alt="Brainstorm og idéudvikling til emnesite Aqua"
+                                loading="lazy">
+                            <img src="images/ide03.webp" alt="Idéudvikling og retning for emnesite Aqua" loading="lazy">
                             <figcaption>Idéudvikling: jeg startede bredt og indsnævrede til konceptet Aqua.</figcaption>
                         </figure>
                     </div>
@@ -215,12 +250,11 @@
             </div>
         </section>
 
-        <!-- =========================
-           RESEARCH — SURVEY/INDSIGTER
-           ========================= -->
+        <!-- 2) RESEARCH -->
         <section class="tema-section tema-block" id="tema03-research" aria-labelledby="research-title">
             <div class="container">
-                <h2 id="research-title"> 2) Research og resultater</h2>
+                <h2 id="research-title">2) Research og resultater</h2>
+
                 <p class="tema-lead">
                     Jeg brugte research til at bekræfte relevansen af emnet og forstå, hvad der motiverer brugere til at
                     handle.
@@ -244,11 +278,9 @@
                         <h3>Vigtigste indsigter</h3>
                         <ul class="bullets">
                             <li>Mange forbinder dårligt vand med <strong>kemikalier (80,6%)</strong> og <strong>dårlig
-                                    smag/lugt
-                                    (63,9%)</strong></li>
+                                    smag/lugt (63,9%)</strong></li>
                             <li><strong>80,6%</strong> har ikke vandfilter hjemme, men <strong>61,1%</strong> kender
-                                nogen der
-                                har</li>
+                                nogen der har</li>
                             <li>Motivation for køb: <strong>bedre information</strong> + <strong>dokumenterede
                                     testresultater</strong></li>
                         </ul>
@@ -256,32 +288,32 @@
                         <p class="muted">
                             Konklusion: der er en videnskløft mellem sundhedsbevidsthed og konkret viden om vandkvalitet
                             —
-                            derfor giver min webiste Aqua mening som en “bro” mellem viden og handling.
+                            derfor giver website Aqua mening som en “bro” mellem viden og handling.
                         </p>
                     </div>
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/03reagensglas.webp" alt="Udklip af survey-resultater som diagrammer">
-                            <img src="images/statistik1.webp" alt="Udklip af survey-resultater som diagrammer">
-                            <img src="images/statistik2.webp" alt="Udklip af survey-resultater: motivation for køb">
-                            <figcaption>Survey: region/aldersgruppe + bekymring og filterbrug.</figcaption>
+                            <img src="images/03reagensglas.webp" alt="Diagram: survey-resultater om vandkvalitet"
+                                loading="lazy">
+                            <img src="images/statistik1.webp" alt="Diagram: survey-resultater (smag/lugt/kemikalier)"
+                                loading="lazy">
+                            <img src="images/statistik2.webp" alt="Diagram: survey-resultater (motivation for køb)"
+                                loading="lazy">
+                            <figcaption>Survey: bekymring, kendskab og motivationsfaktorer.</figcaption>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =========================
-           VISUEL RETNING
-           ========================= -->
+        <!-- 3) VISUEL RETNING -->
         <section class="tema-section tema-block" id="tema03-stil" aria-labelledby="stil-title">
             <div class="container">
-                <h2 id="stil-title"> 3) Visuel retning: moodboard → styletile</h2>
+                <h2 id="stil-title">3) Visuel retning: moodboard → styletile</h2>
 
                 <div class="two-col">
-
                     <div>
                         <h3>Teori fra pensum</h3>
                         <ul class="checklist">
@@ -295,16 +327,13 @@
                             Jeg valgte en stil der understøtter emnet: <strong>ren, rolig og tydelig</strong>
                             formidling.
                             Jeg brugte moodboards og style tile til at beslutte farver, typografi og komponenter, før
-                            jeg
-                            byggede prototypen.
+                            jeg byggede prototypen.
                         </p>
 
                         <h3>Farvevalg (teal som signatur)</h3>
                         <p>
                             Jeg startede mellem grøn (natur/sundhed) og blå (vand/teknologi) og endte med teal som en
-                            bro
-                            mellem de
-                            to udtryk.
+                            bro mellem de to udtryk.
                         </p>
 
                         <ul class="bullets">
@@ -315,17 +344,22 @@
                     </div>
 
                     <div class="evidence">
-                        <h3>Moodboard & inspiration</h3>
+                        <h3>Moodboard og inspiration</h3>
                         <figure class="shot">
-                            <img src="images/vandmoodboard1.webp" alt="Moodboard med visuel inspiration til Aqua">
-                            <img src="images/vandmoodboard2.webp" alt="Moodboard med visuel inspiration til Aqua">
-                            <img src="images/vandmoodboard3.webp" alt="Moodboard med visuel inspiration til Aqua">
-                            <img src="images/vandmoodboard4.webp" alt="Moodboard med visuel inspiration til Aqua">
+                            <img src="images/vandmoodboard1.webp" alt="Moodboard: visuel inspiration til Aqua"
+                                loading="lazy">
+                            <img src="images/vandmoodboard2.webp" alt="Moodboard: typografi og farver til Aqua"
+                                loading="lazy">
+                            <img src="images/vandmoodboard3.webp" alt="Moodboard: vandteksturer og lysrefleksioner"
+                                loading="lazy">
+                            <img src="images/vandmoodboard4.webp" alt="Moodboard: clean brandudtryk og UI"
+                                loading="lazy">
                             <figcaption>Moodboard: clean brands, vandteksturer og refleksioner.</figcaption>
                         </figure>
+
                         <figure class="shot">
                             <img src="images/03styletile.webp"
-                                alt="Styletile for Aqua med farver, typografi og UI-elementer">
+                                alt="Styletile for Aqua med farver, typografi og UI-elementer" loading="lazy">
                             <figcaption>Styletile: farver, typografi, teksturer og værdier samlet.</figcaption>
                         </figure>
                     </div>
@@ -333,25 +367,21 @@
             </div>
         </section>
 
-        <!-- =========================
-           WIREFRAMES + ITERATION
-           ========================= -->
+        <!-- 4) WIREFRAMES -->
         <section class="tema-section tema-block" id="tema03-wireframes" aria-labelledby="wf-title">
             <div class="container">
-                <h2 id="wf-title"> 4) Struktur og wireframes</h2>
+                <h2 id="wf-title">4) Struktur og wireframes</h2>
 
                 <div class="two-col">
                     <div>
                         <h3>LoFi → HiFi</h3>
                         <p>
                             Mine LoFi wireframes var mit første strukturelle udkast. Undervejs afveg jeg fra det
-                            oprindelige
-                            layout, fordi indhold,
-                            billeder og visuelle valg udviklede sig, og jeg kunne se bedre muligheder for struktur og
-                            flow. LoFi
-                            blev derfor “skelet”,
-                            mens HiFi blev den mere realistiske version, hvor hierarki, sektioner og indhold spillede
-                            sammen.
+                            oprindelige layout,
+                            fordi indhold, billeder og visuelle valg udviklede sig, og jeg kunne se bedre muligheder for
+                            struktur og flow.
+                            LoFi blev derfor “skelet”, mens HiFi blev den mere realistiske version, hvor hierarki,
+                            sektioner og indhold spillede sammen.
                         </p>
 
                         <h3>Teori fra pensum</h3>
@@ -370,33 +400,34 @@
 
                         <div class="tema-links">
                             <a class="link"
-                                href="https://www.figma.com/design/YkoX5hGiNEGdV30T7AA4gb/Vand-LoFi-wireframe?node-id=0-1"
-                                target="_blank" rel="noopener">LoFi wireframe (Figma)</a>
+                                href="https://www.figma.com/design/YkoX5hGiNEGdV30T7AA4gb/Vand-LoFi-wireframe?node-id=0-1">LoFi
+                                wireframe (Figma)</a>
+
                             <a class="link"
-                                href="https://www.figma.com/design/1uUDC7m9RfodSpC2r5dU7H/Vand-HiFi-wireframe?node-id=0-1"
-                                target="_blank" rel="noopener">HiFi wireframe (Figma)</a>
+                                href="https://www.figma.com/design/1uUDC7m9RfodSpC2r5dU7H/Vand-HiFi-wireframe?node-id=0-1">HiFi
+                                wireframe (Figma)</a>
                         </div>
                     </div>
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/03wlofi.webp" alt="LoFi wireframe for Aqua">
+                            <img src="images/03wlofi.webp" alt="LoFi wireframe for Aqua" loading="lazy">
                             <figcaption>LoFi: plan for struktur og flow.</figcaption>
                         </figure>
+
                         <figure class="shot">
-                            <img src="images/03whifimobil.webp" alt="HiFi wireframe for Aqua">
-                            <img src="images/03whifidesktop.webp" alt="HiFi wireframe for Aqua">
-                            <figcaption>HiFi: visuelt hierarki + konkret indhold.</figcaption>
+                            <img src="images/03whifimobil.webp" alt="HiFi wireframe for Aqua (mobil)" loading="lazy">
+                            <img src="images/03whifidesktop.webp" alt="HiFi wireframe for Aqua (desktop)"
+                                loading="lazy">
+                            <figcaption>HiFi: visuelt hierarki og konkret indhold.</figcaption>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =========================
-                   PROTOTYPE
-                   ========================= -->
+        <!-- 5) PROTOTYPE -->
         <section class="tema-section tema-block" aria-labelledby="tema03-prototype">
             <div class="container">
                 <h2 id="tema03-prototype">5) Klikbar prototype i Figma</h2>
@@ -407,37 +438,34 @@
                         <ul class="checklist">
                             <li>Minimum 1 flow (min. 3 sider)</li>
                             <li>Klikbar prototype</li>
-                            <li>Mobil + desktop</li>
+                            <li>Mobil og desktop</li>
                             <li>Relevant tekst og billeder</li>
                             <li>Webkonventioner og usability tænkt ind</li>
                         </ul>
 
                         <div class="tema-links">
                             <a class="link"
-                                href="https://www.figma.com/design/q9P8VjqBYxLo7NbVvehY4Z/Protoype-desktop?node-id=0-1"
-                                target="_blank" rel="noopener">Prototype desktop (Figma)</a>
-                            <a class="link"
-                                href="https://www.figma.com/design/SVuuvcczcLhtjISivQjkA3/Prototype-mobile?node-id=0-1"
-                                target="_blank" rel="noopener">Prototype mobile (Figma)</a>
+                                href="https://www.figma.com/design/SVuuvcczcLhtjISivQjkA3/Prototype-mobile?node-id=0-1">Prototype
+                                (Figma)</a>
                         </div>
                     </div>
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/03prototype2.webp" alt="Screenshot af prototype i Figma" />
-                            <img src="images/03prototype1.webp" alt="Screenshot af prototype i Figma" />
-                            <figcaption>Klikbar prototype til mobil og desktop.</figcaption>
+                            <img src="images/03prototype2.webp" alt="Prototype i Figma (desktop)" loading="lazy" />
+                            <img src="images/03prototype1.webp" alt="Prototype i Figma (mobil)" loading="lazy" />
+                            <figcaption>Klikbar prototype.</figcaption>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6) Kodet site (MVP) -->
+        <!-- 6) KODET SITE -->
         <section class="tema-section tema-block" aria-labelledby="tema03-kode">
             <div class="container">
-                <h2 id="tema03-kode">6) Kodet site </h2>
+                <h2 id="tema03-kode">6) Kodet site</h2>
 
                 <div class="two-col">
                     <div>
@@ -446,11 +474,11 @@
                             <li>HTML/CSS/JS baseret på prototype</li>
                             <li>Min. 3 sider</li>
                             <li>Responsivt (breakpoints + media queries)</li>
-                            <li>Webfonte + favicon</li>
+                            <li>Webfonte og favicon</li>
                             <li>GitHub Pages</li>
                         </ul>
 
-                        <a class="btn" href="https://isabellavest.github.io/Emnesite3/" target="_blank" rel="noopener">
+                        <a class="btn" href="https://isabellavest.github.io/Emnesite3/">
                             Åbn mit emnesite
                         </a>
                     </div>
@@ -458,16 +486,16 @@
                     <div class="evidence">
                         <h3>Kode-dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/03kodning.webp" alt="Screenshot af kode og struktur" />
+                            <img src="images/03kodning.webp" alt="Udklip af kode og struktur fra emnesitet"
+                                loading="lazy" />
                             <figcaption>Udklip af struktur og styling.</figcaption>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- =========================
-                               Test & evaluering
-                               ========================= -->
+
+        <!-- 7) TEST -->
         <section class="tema-section tema-block" aria-labelledby="tema03-test">
             <div class="container">
                 <h2 id="tema03-test">7) Test og evaluering</h2>
@@ -485,20 +513,23 @@
                         <h3>Hvad jeg lærte</h3>
                         <p>
                             Jeg brugte testresultaterne til at justere både <strong>usability</strong> (navigation,
-                            læsbarhed) og <strong>visuelt hierarki</strong> (overskrifter, spacing og CTA).
+                            læsbarhed)
+                            og <strong>visuelt hierarki</strong> (overskrifter, spacing og CTA).
                         </p>
                     </div>
 
                     <div class="evidence">
                         <h3>Dokumentation</h3>
                         <figure class="shot">
-                            <img src="images/03test1.webp" alt="Screenshot af testnoter og resultater" />
-                            <img src="images/03test2.webp" alt="Screenshot af testnoter og resultater" />
-                            <figcaption>Brugertest + observationer og ændringer.</figcaption>
+                            <img src="images/03test1.webp" alt="Testnoter og resultater fra brugertest"
+                                loading="lazy" />
+                            <img src="images/03test2.webp" alt="Observationer og ændringer efter test" loading="lazy" />
+                            <figcaption>Brugertest: observationer og ændringer.</figcaption>
                         </figure>
 
                         <figure class="shot">
-                            <img src="images/03lighthousedesktop.webp" alt="Screenshot af Lighthouse rapport" />
+                            <img src="images/03lighthousedesktop.webp" alt="Lighthouse rapport for emnesitet"
+                                loading="lazy" />
                             <figcaption>Lighthouse test af det færdige site.</figcaption>
                         </figure>
                     </div>
@@ -506,23 +537,18 @@
             </div>
         </section>
 
-        <!-- =========================
-                           Konklusion og refleksion
-                           ========================= -->
+        <!-- 8) KONKLUSION -->
         <section class="tema-section tema-block" id="tema03-iteration" aria-labelledby="iter-title">
             <div class="container">
-                <h2 id="iter-title"> 8) Konklusion og refleksion</h2>
+                <h2 id="iter-title">8) Konklusion og refleksion</h2>
 
                 <div class="two-col">
                     <div>
                         <h3>Fra “gammelt” til “nyt”</h3>
                         <p>
-                            Mit første design viste idéen, men manglede helhed, kontrast og tydelige opdelinger. I den
-                            nye
-                            version arbejdede jeg bevidst
-                            med sektioner, rytme og et mere intuitivt flow, så brugeren ikke mister overblikket.
-                            Gammelt design: manglede sektionering og visuel sammenhæng. Nyt design: mere struktur, ro og
-                            tydeligere hierarki.
+                            Mit første design viste idéen, men manglede helhed, kontrast og tydelige opdelinger.
+                            I den nye version arbejdede jeg bevidst med sektioner, rytme og et mere intuitivt flow,
+                            så brugeren ikke mister overblikket.
                         </p>
 
                         <h3>Refleksion</h3>
@@ -536,49 +562,43 @@
             </div>
         </section>
 
-        <!-- Produkter / links (samlet) -->
+        <!-- PRODUKTER / LINKS -->
         <section class="tema-section tema-block" id="tema03-produkter" aria-labelledby="tema03-links">
             <div class="container">
                 <h2 id="tema03-links">Produkter og links</h2>
 
                 <div class="link-grid">
-                    <a class="card-link" href="https://isabellavest.github.io/Emnesite3/" target="_blank"
-                        rel="noopener">
+                    <a class="card-link" href="https://isabellavest.github.io/Emnesite3/">
                         <span class="card-title">Kodet emnesite</span>
                         <span class="card-meta">GitHub Pages</span>
                     </a>
 
                     <a class="card-link"
-                        href="https://www.figma.com/design/YkoX5hGiNEGdV30T7AA4gb/Vand-LoFi-wireframe?node-id=0-1"
-                        target="_blank" rel="noopener">
+                        href="https://www.figma.com/design/YkoX5hGiNEGdV30T7AA4gb/Vand-LoFi-wireframe?node-id=0-1">
                         <span class="card-title">LoFi wireframe</span>
                         <span class="card-meta">Figma</span>
                     </a>
 
                     <a class="card-link"
-                        href="https://www.figma.com/design/1uUDC7m9RfodSpC2r5dU7H/Vand-HiFi-wireframe?node-id=0-1"
-                        target="_blank" rel="noopener">
+                        href="https://www.figma.com/design/1uUDC7m9RfodSpC2r5dU7H/Vand-HiFi-wireframe?node-id=0-1">
                         <span class="card-title">HiFi wireframe</span>
                         <span class="card-meta">Figma</span>
                     </a>
 
                     <a class="card-link"
-                        href="https://www.figma.com/design/q9P8VjqBYxLo7NbVvehY4Z/Protoype-desktop?node-id=0-1"
-                        target="_blank" rel="noopener">
+                        href="https://www.figma.com/design/q9P8VjqBYxLo7NbVvehY4Z/Protoype-desktop?node-id=0-1">
                         <span class="card-title">Prototype desktop</span>
                         <span class="card-meta">Figma</span>
                     </a>
 
                     <a class="card-link"
-                        href="https://www.figma.com/design/SVuuvcczcLhtjISivQjkA3/Prototype-mobile?node-id=0-1"
-                        target="_blank" rel="noopener">
+                        href="https://www.figma.com/design/SVuuvcczcLhtjISivQjkA3/Prototype-mobile?node-id=0-1">
                         <span class="card-title">Prototype mobile</span>
                         <span class="card-meta">Figma</span>
                     </a>
 
                     <a class="card-link"
-                        href="https://www.figma.com/design/MadYWPIdnffnjoMSXIV8ZA/Template-styletile--Community-?node-id=0-1&t=Udf5c2XOvcLUugd0-1"
-                        target="_blank" rel="noopener">
+                        href="https://www.figma.com/design/MadYWPIdnffnjoMSXIV8ZA/Template-styletile--Community-?node-id=0-1&t=Udf5c2XOvcLUugd0-1">
                         <span class="card-title">StyleTile</span>
                         <span class="card-meta">Figma</span>
                     </a>
@@ -588,18 +608,18 @@
 
     </main>
 
-    <!-- =========================
-         FOOTER (din eksisterende)
-         ========================= -->
+    <!-- FOOTER -->
     <footer class="footer footer--editorial" id="kontakt">
-        <div class="footer-inner">
+        <!-- Footer har id="kontakt", så nav-linket i headeren kan linke hertil (href="#kontakt"). -->
 
-            <!-- LEFT: Editorial typography -->
+        <div class="footer-inner">
+            <!-- Wrapper til footer layout (venstre + højre). -->
+
             <div class="footer-left">
                 <h2 class="footer-title">Let’s connect</h2>
+                <!-- Stor, editorial overskrift. -->
             </div>
 
-            <!-- RIGHT: Paper card -->
             <div class="footer-card">
                 <p class="footer-card-title">Kontakt</p>
 
@@ -610,18 +630,15 @@
                     </li>
                     <li>
                         <span>Instagram</span>
-                        <a href="https://instagram.com/isabellavest" target="_blank" rel="noopener">
-                            @isabellavest
-                        </a>
+                        <a href="https://instagram.com/isabellavest">@isabellavest</a>
                     </li>
                 </ul>
             </div>
-
         </div>
 
-        <!-- Bottom line -->
         <div class="footer-bottom">
-            <p>© <span id="year"></span> Bloom — Portfolio</p>
+            <!-- Bundlinje i footer -->
+            <p>Bloom — Portfolio</p>
             <p class="footer-signature">Design & kode af Isabella Vest</p>
         </div>
     </footer>
